@@ -1,0 +1,20 @@
+Begin Object Class=/Script/Engine.MaterialInstanceConstant Name="MI_Zombie_2"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   ParameterStateId=BD31797D483DF1E8C7E3E7941E2D9001
+   Parent=Material'"/Game/UndeadPack/Zombie/Materials/M_Zombie.M_Zombie"'
+   ScalarParameterValues(0)=(AtlasData=(bIsUsedAsAtlasPosition=True),ParameterInfo=(Name="RefractionDepthBias"))
+   TextureParameterValues(0)=(ParameterInfo=(Name="Texture"),ParameterValue=Texture2D'"/Game/UndeadPack/Zombie/Textures/T_Zombie_2_D.T_Zombie_2_D"',ExpressionGUID=1688372346ED871429271C83CC22EC82)
+   BasePropertyOverrides=(OpacityMaskClipValue=0.333300)
+   ReferencedTextureGuids(0)=50C3B0644C518C55269142AB1C710CF8
+   ReferencedTextureGuids(1)=5F67DB1B4936D6FB4837BD8C4E14B459
+   ReferencedTextureGuids(2)=2B1ED1D3463A0EBBD6A569B436B777AF
+   TextureStreamingDataVersion=1
+   TextureStreamingData(0)=(SamplingScale=1.000000,UVChannelIndex=0,TextureName="T_Zombie_2_D",TextureReference="/Game/UndeadPack/Zombie/Textures/T_Zombie_2_D.T_Zombie_2_D")
+   TextureStreamingData(1)=(SamplingScale=1.000000,UVChannelIndex=0,TextureName="T_Zombie_AORM",TextureReference="/Game/UndeadPack/Zombie/Textures/T_Zombie_AORM.T_Zombie_AORM")
+   TextureStreamingData(2)=(SamplingScale=1.000000,UVChannelIndex=0,TextureName="T_Zombie_N",TextureReference="/Game/UndeadPack/Zombie/Textures/T_Zombie_N.T_Zombie_N")
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=1955C09F410847678E70FAAD37A48B11
+End Object

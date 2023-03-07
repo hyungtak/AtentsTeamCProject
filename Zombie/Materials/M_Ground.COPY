@@ -1,0 +1,87 @@
+Begin Object Class=/Script/Engine.Material Name="M_Ground"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionFresnel Name="MaterialExpressionFresnel_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionConstant Name="MaterialExpressionConstant_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAdd Name="MaterialExpressionAdd_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_1"
+      DefaultValue=(R=0.359375,G=0.154116,B=0.000000,A=1.000000)
+      ParameterName="ReflectionColor"
+      ExpressionGUID=F8E4385740A2DDB222C21881A99B7C09
+      MaterialExpressionEditorX=-544
+      MaterialExpressionEditorY=16
+      MaterialExpressionGuid=F06FA5C9421E566FEB057EA572555953
+      Material=Material'"M_Ground"'
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_0"
+      DefaultValue=(R=0.062500,G=0.021829,B=0.000000,A=1.000000)
+      ParameterName="Color"
+      ExpressionGUID=52437C7C481D1B69DB0E1990A6ED89BF
+      MaterialExpressionEditorX=-592
+      MaterialExpressionEditorY=272
+      MaterialExpressionGuid=F06FA5C9421E566FEB057EA572555953
+      Material=Material'"M_Ground"'
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_1"
+      A=(Expression=MaterialExpressionFresnel'"M_Ground:MaterialExpressionFresnel_0"')
+      B=(Expression=MaterialExpressionVectorParameter'"M_Ground:MaterialExpressionVectorParameter_1"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      MaterialExpressionEditorX=-352
+      MaterialExpressionEditorY=-80
+      MaterialExpressionGuid=67CE66CC43FD508B62A421A94D5702A9
+      Material=Material'"M_Ground"'
+      bCollapsed=False
+   End Object
+   Begin Object Name="MaterialExpressionFresnel_0"
+      BaseReflectFraction=0.005000
+      MaterialExpressionEditorX=-656
+      MaterialExpressionEditorY=-192
+      MaterialExpressionGuid=126C5414428F778D727985927EB93760
+      Material=Material'"M_Ground"'
+      bCollapsed=False
+   End Object
+   Begin Object Name="MaterialExpressionConstant_0"
+      R=1.000000
+      MaterialExpressionEditorX=-181
+      MaterialExpressionEditorY=384
+      MaterialExpressionGuid=390F58324A0A0BFE3AF7B694BC50EB4E
+      Material=Material'"M_Ground"'
+   End Object
+   Begin Object Name="MaterialExpressionAdd_0"
+      A=(Expression=MaterialExpressionMultiply'"M_Ground:MaterialExpressionMultiply_1"')
+      B=(Expression=MaterialExpressionVectorParameter'"M_Ground:MaterialExpressionVectorParameter_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      MaterialExpressionEditorX=-160
+      MaterialExpressionEditorY=48
+      MaterialExpressionGuid=30608518435E0748143726B282A14560
+      Material=Material'"M_Ground"'
+      bCollapsed=False
+   End Object
+   BaseColor=(Expression=MaterialExpressionAdd'"MaterialExpressionAdd_0"')
+   Metallic=(OutputIndex=3,Mask=1,MaskB=1)
+   Roughness=(Expression=MaterialExpressionConstant'"MaterialExpressionConstant_0"')
+   Normal=(Mask=1,MaskR=1,MaskG=1,MaskB=1)
+   AmbientOcclusion=(OutputIndex=1,Mask=1,MaskR=1)
+   bUsedWithSkeletalMesh=True
+   Expressions(0)=MaterialExpressionAdd'"MaterialExpressionAdd_0"'
+   Expressions(1)=MaterialExpressionFresnel'"MaterialExpressionFresnel_0"'
+   Expressions(2)=MaterialExpressionMultiply'"MaterialExpressionMultiply_1"'
+   Expressions(3)=MaterialExpressionVectorParameter'"MaterialExpressionVectorParameter_1"'
+   Expressions(4)=MaterialExpressionConstant'"MaterialExpressionConstant_0"'
+   Expressions(5)=MaterialExpressionVectorParameter'"MaterialExpressionVectorParameter_0"'
+   ParameterGroupData(0)=(GroupName="None")
+   ParameterGroupData(1)=(GroupName="None")
+   bCanMaskedBeAssumedOpaque=True
+   StateId=D5CD9FC8426102D4E599C68B7E0C1290
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=65F128A64AAD773E472F1E8BB8327384
+End Object
