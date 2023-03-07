@@ -1,0 +1,101 @@
+Begin Object Class=/Script/Engine.Material Name="M_Zombie"
+   Begin Object Class=/Script/UnrealEd.SceneThumbnailInfoWithPrimitive Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionVectorParameter Name="MaterialExpressionVectorParameter_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSampleParameter2D Name="MaterialExpressionTextureSampleParameter2D_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_2"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionTextureSample Name="MaterialExpressionTextureSample_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionMultiply Name="MaterialExpressionMultiply_1"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionFresnel Name="MaterialExpressionFresnel_0"
+   End Object
+   Begin Object Class=/Script/Engine.MaterialExpressionAdd Name="MaterialExpressionAdd_0"
+   End Object
+   Begin Object Name="SceneThumbnailInfoWithPrimitive_0"
+   End Object
+   Begin Object Name="MaterialExpressionVectorParameter_1"
+      DefaultValue=(R=1.000000,G=1.000000,B=1.000000,A=1.000000)
+      ParameterName="ReflectionColor"
+      ExpressionGUID=F8E4385740A2DDB222C21881A99B7C09
+      MaterialExpressionEditorX=-544
+      MaterialExpressionEditorY=16
+      MaterialExpressionGuid=F06FA5C9421E566FEB057EA572555953
+      Material=Material'"M_Zombie"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSampleParameter2D_0"
+      ParameterName="Texture"
+      ExpressionGUID=1688372346ED871429271C83CC22EC82
+      Texture=Texture2D'"/Game/UndeadPack/Zombie/Textures/T_Zombie_D.T_Zombie_D"'
+      MaterialExpressionEditorX=-589
+      MaterialExpressionEditorY=263
+      MaterialExpressionGuid=C93B4A5140684FFB621D1FAC9BF73A6A
+      Material=Material'"M_Zombie"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_2"
+      Texture=Texture2D'"/Game/UndeadPack/Zombie/Textures/T_Zombie_AORM.T_Zombie_AORM"'
+      MaterialExpressionEditorX=-411
+      MaterialExpressionEditorY=747
+      MaterialExpressionGuid=994BBB404DB587655E1DE79E564379E9
+      Material=Material'"M_Zombie"'
+   End Object
+   Begin Object Name="MaterialExpressionTextureSample_1"
+      Texture=Texture2D'"/Game/UndeadPack/Zombie/Textures/T_Zombie_N.T_Zombie_N"'
+      SamplerType=SAMPLERTYPE_Normal
+      MaterialExpressionEditorX=-589
+      MaterialExpressionEditorY=643
+      MaterialExpressionGuid=84548F3E4BFFEEB99760C7A4464B3020
+      Material=Material'"M_Zombie"'
+   End Object
+   Begin Object Name="MaterialExpressionMultiply_1"
+      A=(Expression=MaterialExpressionFresnel'"M_Zombie:MaterialExpressionFresnel_0"')
+      B=(Expression=MaterialExpressionVectorParameter'"M_Zombie:MaterialExpressionVectorParameter_1"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      MaterialExpressionEditorX=-352
+      MaterialExpressionEditorY=-80
+      MaterialExpressionGuid=67CE66CC43FD508B62A421A94D5702A9
+      Material=Material'"M_Zombie"'
+      bCollapsed=False
+   End Object
+   Begin Object Name="MaterialExpressionFresnel_0"
+      BaseReflectFraction=0.005000
+      MaterialExpressionEditorX=-656
+      MaterialExpressionEditorY=-192
+      MaterialExpressionGuid=126C5414428F778D727985927EB93760
+      Material=Material'"M_Zombie"'
+      bCollapsed=False
+   End Object
+   Begin Object Name="MaterialExpressionAdd_0"
+      A=(Expression=MaterialExpressionMultiply'"M_Zombie:MaterialExpressionMultiply_1"')
+      B=(Expression=MaterialExpressionTextureSampleParameter2D'"M_Zombie:MaterialExpressionTextureSampleParameter2D_0"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+      MaterialExpressionEditorX=-160
+      MaterialExpressionEditorY=48
+      MaterialExpressionGuid=30608518435E0748143726B282A14560
+      Material=Material'"M_Zombie"'
+      bCollapsed=False
+   End Object
+   BaseColor=(Expression=MaterialExpressionAdd'"MaterialExpressionAdd_0"')
+   Metallic=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_2"',OutputIndex=3,Mask=1,MaskB=1)
+   Roughness=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_2"',OutputIndex=2,Mask=1,MaskG=1)
+   Normal=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_1"',Mask=1,MaskR=1,MaskG=1,MaskB=1)
+   AmbientOcclusion=(Expression=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_2"',OutputIndex=1,Mask=1,MaskR=1)
+   bUsedWithSkeletalMesh=True
+   Expressions(0)=MaterialExpressionAdd'"MaterialExpressionAdd_0"'
+   Expressions(1)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_2"'
+   Expressions(2)=MaterialExpressionTextureSample'"MaterialExpressionTextureSample_1"'
+   Expressions(3)=MaterialExpressionFresnel'"MaterialExpressionFresnel_0"'
+   Expressions(4)=MaterialExpressionMultiply'"MaterialExpressionMultiply_1"'
+   Expressions(5)=MaterialExpressionVectorParameter'"MaterialExpressionVectorParameter_1"'
+   Expressions(6)=MaterialExpressionTextureSampleParameter2D'"MaterialExpressionTextureSampleParameter2D_0"'
+   ParameterGroupData(0)=(GroupName="None")
+   ParameterGroupData(1)=(GroupName="None")
+   bCanMaskedBeAssumedOpaque=True
+   StateId=97F982754A13185EB1543E9711032714
+   ReferencedTextureGuids(0)=50C3B0644C518C55269142AB1C710CF8
+   ReferencedTextureGuids(1)=B39062F7485C577BE11ABD83AEF4C4BF
+   ReferencedTextureGuids(2)=2B1ED1D3463A0EBBD6A569B436B777AF
+   ThumbnailInfo=SceneThumbnailInfoWithPrimitive'"SceneThumbnailInfoWithPrimitive_0"'
+   LightingGuid=45C36A264470866CFF0DCD9D4645C3CB
+End Object
