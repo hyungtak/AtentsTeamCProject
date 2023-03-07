@@ -1,7 +1,7 @@
 1.몬스터 에셋
 
 언리얼에셋이고 에셋 이름: Undead pack
-
+https://www.unrealengine.com/marketplace/ko/product/undead-pack-01
 1.1 - 좀비 에셋 
 
 1.2 - 스켈레톤 검or활
