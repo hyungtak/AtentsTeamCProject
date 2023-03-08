@@ -9,3 +9,28 @@ https://www.unrealengine.com/marketplace/ko/product/undead-pack-01
 1.3 - 고블린
 
 1.4 - 리치 
+
+
+플레이어 용 스켈레톤
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/skeleton-warrior-1-222338
+
+
+
+
+캠프파이어&토치
+https://assetstore.unity.com/packages/3d/environments/campfires-torches-models-and-fx-242552
+
+
+소드
+https://assetstore.unity.com/packages/3d/props/weapons/demonic-dagger-100125
+
+
+던전 에셋1
+https://assetstore.unity.com/packages/3d/environments/stylized-hand-painted-dungeon-free-173934
+
+던전 돌다리 돌벽?
+https://assetstore.unity.com/packages/3d/environments/fantasy/modular-fantasy-bridges-99940
+
+
+지형
+https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-cliff-pack-67289
