@@ -11,11 +11,12 @@ https://www.unrealengine.com/marketplace/ko/product/undead-pack-01
 1.4 - 리치 
 
 
-플레이어 용 스켈레톤
+플레이어 스켈레톤
 https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/skeleton-warrior-1-222338
 
 
-
+드래곤 BossMonster라고 되어있길래 추가
+https://assetstore.unity.com/packages/3d/characters/creatures/dragon-for-boss-monster-hp-79398#content
 
 캠프파이어&토치
 https://assetstore.unity.com/packages/3d/environments/campfires-torches-models-and-fx-242552
