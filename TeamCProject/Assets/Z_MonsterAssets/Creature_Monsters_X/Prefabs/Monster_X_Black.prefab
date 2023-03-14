@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Upper_teeth_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +97,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400002}
   - component: {fileID: 13700000}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Thorns_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +197,11 @@ GameObject:
   - component: {fileID: 400006}
   - component: {fileID: 3300002}
   - component: {fileID: 2300002}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Lower_teeth_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +283,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400008}
   - component: {fileID: 13700002}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Horns_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +375,11 @@ GameObject:
   - component: {fileID: 400010}
   - component: {fileID: 3300004}
   - component: {fileID: 2300004}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Eyes_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +461,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400012}
   - component: {fileID: 13700004}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Clutches_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +551,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400018}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigSpine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +587,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400020}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigSpine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +623,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400022}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigSpine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +659,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400026}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +694,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400028}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +730,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400030}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -718,7 +766,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400032}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +801,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400034}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -781,7 +837,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400036}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +873,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400038}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +909,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400042}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLLegAnkle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -876,7 +944,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400044}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLLeg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +980,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400046}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLLeg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -940,7 +1016,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400048}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLArmPalm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,7 +1051,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400050}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLArmCollarbone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1087,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400052}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLArm2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1123,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400054}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLArm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,7 +1159,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400056}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigHub003Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1099,7 +1195,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400058}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigHub003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1233,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400060}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigHub002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1271,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400062}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigHub001Bone001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1308,11 @@ GameObject:
   m_Component:
   - component: {fileID: 400066}
   - component: {fileID: 13700006}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Body_mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1305,7 +1417,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400014}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Character001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1452,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400016}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1350,8 +1470,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100058}
+<<<<<<< Updated upstream
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 21.794865, z: 1.9158549}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1371,7 +1496,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400024}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigRLegPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1402,7 +1531,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400040}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigLLegPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1433,7 +1566,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400064}
+<<<<<<< Updated upstream
   m_Layer: 6
+=======
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: CATRigHub001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1468,12 +1605,18 @@ GameObject:
   m_Component:
   - component: {fileID: 400004}
   - component: {fileID: 9500000}
+<<<<<<< Updated upstream
   - component: {fileID: 501096598}
   - component: {fileID: 501096595}
   - component: {fileID: 501096599}
   m_Layer: 6
   m_Name: Monster_X_Black
   m_TagString: Monster
+=======
+  m_Layer: 0
+  m_Name: Monster_X_Black
+  m_TagString: Untagged
+>>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1486,7 +1629,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: -0.008430481, y: -0.034840584, z: 0.5442772}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1518,6 +1665,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+<<<<<<< Updated upstream
 --- !u!54 &501096598
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1561,3 +1709,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterMoveSpeed: 3
+=======
+>>>>>>> Stashed changes
