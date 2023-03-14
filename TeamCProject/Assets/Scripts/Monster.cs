@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Monster : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class Monster : MonoBehaviour
 
     Animator anim;
     Rigidbody rigid;
-    
-    
-    
+    GameObject obj;
+
+
+
 
     private void Awake()    
     {
@@ -31,15 +33,21 @@ public class Monster : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        rigid.velocity = new Vector3(monsterMove, rigid.velocity.y, 0);
-
-        //Vector3 movement = new Vector3(monsterMove, 0, 0);
-        //rigid.MovePosition(rigid.position + monsterMove * Time.fixedDeltaTime);
-        //Vector3 front = new Vector3(Time.deltaTime*rigid.position.x + monsterMove, rigid.position.y, rigid.position.z);
         
+        
+    
     }
+    //private void FixedUpdate()
+    //{
+    //    rigid.velocity = new Vector3(monsterMove, rigid.velocity.y, 0);
+
+    //    Vector3 movement = new Vector3(monsterMove, 0, 0);
+    //    rigid.MovePosition(rigid.position + monsterMove * Time.fixedDeltaTime);
+    //    Vector3 front = new Vector3(Time.deltaTime*rigid.position.x + monsterMove, rigid.position.y, rigid.position.z);
+        
+    //}
 
 
 
