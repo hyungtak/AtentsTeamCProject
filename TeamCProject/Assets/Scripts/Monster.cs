@@ -103,10 +103,10 @@ public class Monster : MonoBehaviour
 
     //몬스터 회전값 설정
     IEnumerator transMovement()
-    {
+    {   
 
         //시간을 받는다.
-         float seconds = Random.Range(5f, 8f); 
+         //float seconds = Random.Range(5f, 8f); 
     
             //범위의 랜덤을 설정 후 생성
          move = Random.Range(0, 3);           
@@ -117,7 +117,7 @@ public class Monster : MonoBehaviour
              transform.Rotate (0, transRotate, 0);  //좌우 회전
          }
           
-         yield return new WaitForSeconds(seconds);
+         yield return new WaitForSeconds(5f);
 
 
         StartCoroutine(transMovement());        
@@ -130,7 +130,7 @@ public class Monster : MonoBehaviour
     private void MonsterMove()
     {
 
-        if (find)
+        if(find)
         {
             Vector3 dir = (player.position - transform.position).normalized;
             rigid.MovePosition(transform.position + dir * Time.fixedDeltaTime);
