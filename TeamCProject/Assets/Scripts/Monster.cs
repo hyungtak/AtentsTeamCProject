@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class Monster : Trigger
 {
     //추가 할 것
     //몬스터 Hp int
@@ -16,9 +16,10 @@ public class Monster : MonoBehaviour
 
     //수정
 
-    //플레이어 인식 시 플레이어쪽으로 회전.
+    //플레이어 인식 시 플레이어쪽으로 회전.//완료
 
-
+    Rigidbody rigid;
+    Animator anim;
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -30,45 +31,35 @@ public class Monster : MonoBehaviour
     /// </summary>
     private int move;
     
-    /// <summary>
-    /// 플레이어 위치 저장 할 변수
-    /// </summary>
-    private Transform player; 
 
     /// <summary>
     /// 플레이어 트리거 인식
     /// </summary>
     bool find = false;
-   
-    Animator anim;
-    Rigidbody rigid;
+
+    private Vector3 monsterTransform;
 
 
-    private Transform monsterTransform;
-
-
-    private void Awake()
+    protected void Awake()
     {
 
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-  
-    }
-    
 
-    
-    private void Start()
+    }
+
+
+
+    protected override void Start()
     {
-        //Tag를 이용하여 Player의 transform을 player에 저장
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-       
+        
         transform.Rotate(0, 90, 0);
-      
+        base.Start();
         //코루틴 실행
         StartCoroutine(transMovement());
-
     }
+
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
     private void FixedUpdate()
@@ -83,24 +74,28 @@ public class Monster : MonoBehaviour
     /// <param name="other">"Player"</param>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             StopAllCoroutines();
-            //monsterTransform.LookAt(player.transform.position);
+
             find = true;
             anim.SetBool("Run", true);
         }
-        
+
     }
 
     //플레이어가 트리거 안에 지속적으로 인식
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        find = true;
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            monsterTransform = new Vector3(player.position.x, transform.position.y, player.position.z);
+            transform.LookAt(monsterTransform);
+            find = true;
+            anim.SetBool("Run", true);
+            anim.SetBool("AttackB",true);
+        }
+    }
 
 
     /// <summary>
@@ -111,15 +106,15 @@ public class Monster : MonoBehaviour
     {
         find = false;
 
-        if (other.gameObject.tag == "Player")
-        {    
-           //Run애니메이션 >> Walk로
-           anim.SetBool("Run", false);
-           
-           //다시 자동 이동
-           StartCoroutine(transMovement());       
+        if (other.CompareTag("Player"))
+        {
+            //Run애니메이션 >> Walk로
+            anim.SetBool("Run", false);
+            anim.SetBool("AttackB", false);
+            //다시 자동 이동
+            StartCoroutine(transMovement());
         }
-        
+
     }
 
     /// <summary>
@@ -153,6 +148,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     private void MonsterMove()
     {
+        
         //플레이어를 인식 했을 때 
         if(find)
         {
@@ -163,15 +159,13 @@ public class Monster : MonoBehaviour
 
             //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
             rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
-
-            
-
         }
 
      //인식 안했을 때 행동                              
      else
-        rigid.MovePosition(transform.position + Time.fixedDeltaTime * move *transform.forward);
-        
+            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
+
+
     }
 
 
