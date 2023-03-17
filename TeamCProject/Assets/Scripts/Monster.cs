@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class Monster : Trigger
+public class Monster : AttackSign
 {
     //추가 할 것
     //몬스터 Hp int
@@ -93,7 +93,7 @@ public class Monster : Trigger
             transform.LookAt(monsterTransform);
             find = true;
             anim.SetBool("Run", true);
-            anim.SetBool("AttackB",true);
+            //anim.SetBool("AttackB",true);
         }
     }
 

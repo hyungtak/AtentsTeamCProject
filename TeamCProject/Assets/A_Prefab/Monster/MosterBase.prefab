@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &647069380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647069381}
+  - component: {fileID: 647069382}
+  - component: {fileID: 3714622144818047351}
+  m_Layer: 0
+  m_Name: Attack_Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &647069381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647069380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8645214939482841132}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &647069382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647069380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db39f6564fc1fee41bf2956146f802c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &3714622144818047351
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647069380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 22.26
+  m_Center: {x: 0, y: 20, z: 0}
 --- !u!1 &8645214939482553376
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +214,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8645214939482841132}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645214939482553386
 GameObject:
@@ -285,7 +343,7 @@ Transform:
   - {fileID: 8645214939482841094}
   - {fileID: 8645214939482841142}
   m_Father: {fileID: 8645214939482841132}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645214939482553394
 GameObject:
@@ -622,7 +680,7 @@ Transform:
   - {fileID: 8645214939482841128}
   - {fileID: 8645214939482841170}
   m_Father: {fileID: 8645214939482841132}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645214939482553410
 GameObject:
@@ -772,7 +830,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8645214939482841132}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645214939482553416
 GameObject:
@@ -957,10 +1015,10 @@ GameObject:
   - component: {fileID: 8645214939069419131}
   - component: {fileID: 8645214939069419130}
   - component: {fileID: 8645214939069419129}
-  - component: {fileID: 7283936879419198594}
+  - component: {fileID: 8543433436316964217}
   m_Layer: 0
   m_Name: MosterBase
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,6 +1035,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 647069381}
   - {fileID: 8645214939482841104}
   - {fileID: 8645214939482841096}
   - {fileID: 8645214939482841144}
@@ -995,7 +1054,7 @@ Animator:
   m_GameObject: {fileID: 8645214939482553420}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a59b9202cdb93394781b8e79c967d8a3, type: 3}
-  m_Controller: {fileID: 9100000, guid: d7f65169e2873404895187c3c0a1d6e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: d4a011fefecd8dd42b6275d0a95625c9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1048,7 +1107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 100, z: 300}
   m_Center: {x: 0, y: 50, z: 0}
---- !u!114 &7283936879419198594
+--- !u!114 &8543433436316964217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1057,7 +1116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645214939482553420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85c3a525a49d104ba6136f9f7a21e98, type: 3}
+  m_Script: {fileID: 11500000, guid: a53ad8eb754d9d84185a4b5476ba9916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monsterHp: 10
@@ -1301,7 +1360,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8645214939482841132}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8645214939482553434
 GameObject:

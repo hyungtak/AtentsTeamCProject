@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour
+public class AttackSign : MonoBehaviour
 {
 
-    protected bool Attack = false;
 
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
     protected Transform player;
 
-   
-
+  
 
     protected virtual void Start()
     {
@@ -27,8 +25,7 @@ public class Trigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StopAllCoroutines();
-            Attack = true;
+          
 
         }
     }
