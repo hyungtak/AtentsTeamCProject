@@ -9,10 +9,10 @@ public class Monster : MonoBehaviour
 {
     //추가 할 것
     //몬스터 Hp int
-    public int monsterHp = 10;
+    //public int monsterHp = 10;
 
     //몬스터 Attack  or Damage 설정
-    public int monsterDamage = 1;
+    //public int monsterDamage = 1;
 
     //수정
     //플레이어 인식 시 플레이어쪽으로 회전.//완료
@@ -21,6 +21,9 @@ public class Monster : MonoBehaviour
     Rigidbody rigid;
     Animator anim;
 
+    /// <summary>
+    /// 플레이어 위치 저장 할 변수
+    /// </summary>
     Transform player;
 
     /// <summary>
@@ -42,6 +45,7 @@ public class Monster : MonoBehaviour
     private Vector3 monsterTransform;
 
 
+
     private void Awake()
     {
 
@@ -57,9 +61,12 @@ public class Monster : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         //transform.Rotate(0, 90, 0);
+        //Attack.OnAttack += OnPlayerAttack;
         //코루틴 실행
         StartCoroutine(transMovement());
     }
+
+   
 
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
@@ -68,6 +75,24 @@ public class Monster : MonoBehaviour
         //몬스터움직임 함수
         MonsterMove();
     }
+
+
+    /// <summary>
+    /// 공격애니메이션 실행
+    /// </summary>
+    public void Attack()
+    {
+
+        anim.SetTrigger("Attack");
+       
+    }
+
+    public void StopAttack()
+    {
+        
+
+    }
+
 
     /// <summary>
     /// 플레이어가 트리거에 접촉했다
@@ -111,7 +136,6 @@ public class Monster : MonoBehaviour
         {
             //Run애니메이션 >> Walk로
             anim.SetBool("Run", false);
-            anim.SetBool("AttackB", false);
             //다시 자동 이동
             StartCoroutine(transMovement());
         }
@@ -169,13 +193,18 @@ public class Monster : MonoBehaviour
 
     }
 
-
+    IEnumerator StopMove()
+    {
+        move = 0;
+        yield return null;
+    }
 
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, new Vector3(30, 10, 2));
+        
     }
 
 

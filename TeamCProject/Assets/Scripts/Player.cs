@@ -1,18 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int maxHealth = 2;
+    public int currentHealth;
+
+
+    private void Start()
     {
-        
+        currentHealth = maxHealth;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damageAmount)
     {
-        
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("주금");
+            gameObject.SetActive(false);
+            Die();
+        }
     }
+
+
+    void Die()
+    {
+       
+    }
+
 }
