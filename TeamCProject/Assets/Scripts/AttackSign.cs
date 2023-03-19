@@ -25,8 +25,7 @@ public class AttackSign : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-          
-
+            
         }
     }
 

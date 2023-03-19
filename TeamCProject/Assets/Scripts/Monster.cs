@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
 
-public class Monster : AttackSign
+public class Monster : MonoBehaviour
 {
     //추가 할 것
     //몬스터 Hp int
@@ -15,11 +15,13 @@ public class Monster : AttackSign
     public int monsterDamage = 1;
 
     //수정
-
     //플레이어 인식 시 플레이어쪽으로 회전.//완료
+
 
     Rigidbody rigid;
     Animator anim;
+
+    Transform player;
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -40,7 +42,7 @@ public class Monster : AttackSign
     private Vector3 monsterTransform;
 
 
-    protected void Awake()
+    private void Awake()
     {
 
         //필요한 Component 가져오기
@@ -51,11 +53,10 @@ public class Monster : AttackSign
 
 
 
-    protected override void Start()
+    private void Start()
     {
-        
-        transform.Rotate(0, 90, 0);
-        base.Start();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //transform.Rotate(0, 90, 0);
         //코루틴 실행
         StartCoroutine(transMovement());
     }
