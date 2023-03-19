@@ -9,6 +9,11 @@ public class Player : MonoBehaviour
     [Header("플레이어 인스펙터------------------------------")]
 
     /// <summary>
+    /// 이동속도
+    /// </summary>
+    public float moveSpeed = 2.0f;
+
+    /// <summary>
     /// 점프력
     /// </summary>
     public float jumpForce = 5.0f;
@@ -37,12 +42,13 @@ public class Player : MonoBehaviour
     /// 윗키 아래키 입력
     /// -1(아래) ~ 1(위) 사이
     /// </summary>
-    float moveDirection = 0;
+    float upDownDirection = 0;
+
     /// <summary>
     /// 현재 이동
     /// -1(좌) ~ 1(우) 사이
     /// </summary>
-    float rotateDirection = 0;
+    float moveDirection = 0;
 
     /// <summary>
     /// 점프 중인지 확인용 변수
@@ -74,6 +80,19 @@ public class Player : MonoBehaviour
         inputActions.Player.Disable();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))                   //Ground 와 충돌했을 때만
+        {
+            isJump = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
     private void OnMoveInput(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
@@ -81,15 +100,33 @@ public class Player : MonoBehaviour
         ///우리 플레이어는 좌, 우로만 움직이기에
         /// dir.x만 확인하면된다.
 
-        //anim.SetFloat("InputY", dir.y);         // 에니메이터에 있는 InputY 파라메터에 dir.y값을 준다.
-        inputDir = dir;
+        //Debug.Log("onMoveInput 진입");
+        //Debug.Log($"입력값 {dir.x} ");
+
+        moveDirection = dir.x;
+        if (moveDirection == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+        else if (moveDirection == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 270, 0);
+            moveDirection *= -1;
+        }
+        anim.SetBool("IsMove", !context.canceled);
     }
 
     private void OnJumpInput(InputAction.CallbackContext obj)
     {
-        if(!isJump)
+        if (!isJump)
         {
-            //rigid.AddForce();
+            rigid.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
+            isJump = true;
         }
+    }
+
+    void Move()
+    {
+        rigid.MovePosition(rigid.position + Time.fixedDeltaTime * moveSpeed * moveDirection * transform.forward);
     }
 }
