@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEditor;
 using UnityEngine;
+using static Player;
 
 public class Monster : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class Monster : MonoBehaviour
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
-    Transform player;
+    Transform playerTrans;
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -36,6 +37,8 @@ public class Monster : MonoBehaviour
     /// 애니메이션 변환값or속도값
     /// </summary>
     private int move;
+
+
     
 
     /// <summary>
@@ -60,9 +63,14 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
         //transform.Rotate(0, 90, 0);
         //Attack.OnAttack += OnPlayerAttack;
+
+        Player.playerDied += OnPlayerDied;
+
+        //Player player = FindObjectOfType<Player>();
         //코루틴 실행
         StartCoroutine(transMovement());
     }
@@ -88,12 +96,26 @@ public class Monster : MonoBehaviour
        
     }
 
-    public void StopAttack()
+    /// <summary>
+    /// 이벤트 등록 해제
+    /// </summary>
+    void OnDestroy()
     {
-  
-
+        
+        Player.playerDied -= OnPlayerDied;
     }
 
+    /// <summary>
+    /// 신호 받고 몬스터 실행
+    /// </summary>
+    void OnPlayerDied()
+    {
+        find = false;
+        anim.SetBool("Run", false);
+        StartCoroutine(transMovement());
+
+
+    }
 
     /// <summary>
     /// 플레이어가 트리거에 접촉했다
@@ -116,7 +138,7 @@ public class Monster : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            monsterTransform = new Vector3(player.position.x, transform.position.y, player.position.z);
+            monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
             transform.LookAt(monsterTransform);
             find = true;
             anim.SetBool("Run", true);
@@ -131,12 +153,13 @@ public class Monster : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
-        find = false;
+        
 
         if (other.CompareTag("Player"))
         {
             //Run애니메이션 >> Walk로
             anim.SetBool("Run", false);
+            find = false;
             //다시 자동 이동
             StartCoroutine(transMovement());
         }
@@ -164,12 +187,12 @@ public class Monster : MonoBehaviour
             }
 
             //3초 마다
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
 
         }     
 
     }
-
+ 
 
     /// <summary>
     /// 몬스터 움직임
@@ -183,27 +206,24 @@ public class Monster : MonoBehaviour
             StopAllCoroutines();
             move = 3;
             //dir이 플레이어 방향 찾고 크기는 1 
-            Vector3 dir = (player.position - transform.position).normalized;
+            Vector3 dir = (playerTrans.position - transform.position).normalized;
 
             //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
             rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
         }
 
      //인식 안했을 때 행동                              
-     else
-        {
-            if(!find)
-            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
-        }
+        else
+        
+        rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
+
+         
+        
 
 
     }
 
-    IEnumerator StopMove()
-    {
-        move = 0;
-        yield return null;
-    }
+
 
 
     private void OnDrawGizmos()

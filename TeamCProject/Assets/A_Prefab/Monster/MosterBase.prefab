@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673772385}
   - component: {fileID: 673772386}
-  - component: {fileID: 780397968683609901}
+  - component: {fileID: 198810509}
   m_Layer: 0
   m_Name: Attack_Range
   m_TagString: Untagged
@@ -46,7 +46,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 31
   m_Center: {x: 0, y: 23, z: 0}
---- !u!114 &780397968683609901
+--- !u!114 &198810509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046223015}
   - component: {fileID: 1046223016}
+  - component: {fileID: 198810508}
   m_Layer: 0
   m_Name: Hit
   m_TagString: Untagged
@@ -104,6 +105,19 @@ CapsuleCollider:
   m_Height: 27.6
   m_Direction: 2
   m_Center: {x: -14.17, y: 29.5, z: 16.3}
+--- !u!114 &198810508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046223014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195f31d683c50dc41bf8c2eaba253489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 2
 --- !u!1 &8645214939482553376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1076,7 @@ GameObject:
   - component: {fileID: 8645214939069419131}
   - component: {fileID: 8645214939069419130}
   - component: {fileID: 8645214939069419129}
-  - component: {fileID: 6418275416180591119}
+  - component: {fileID: 198810507}
   m_Layer: 0
   m_Name: MosterBase
   m_TagString: Monster
@@ -1154,7 +1168,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 100, z: 300}
   m_Center: {x: 0, y: 50, z: 0}
---- !u!114 &6418275416180591119
+--- !u!114 &198810507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
