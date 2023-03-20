@@ -17,6 +17,7 @@ public class Monster : MonoBehaviour
     //수정
     //플레이어 인식 시 플레이어쪽으로 회전.//완료
 
+    public delegate void playerDie(bool find);
 
     Rigidbody rigid;
     Animator anim;
@@ -89,7 +90,7 @@ public class Monster : MonoBehaviour
 
     public void StopAttack()
     {
-        
+  
 
     }
 
@@ -142,6 +143,8 @@ public class Monster : MonoBehaviour
 
     }
 
+
+
     /// <summary>
     /// 자동 이동 시 몬스터 회전값 설정
     /// </summary>
@@ -188,7 +191,10 @@ public class Monster : MonoBehaviour
 
      //인식 안했을 때 행동                              
      else
+        {
+            if(!find)
             rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
+        }
 
 
     }

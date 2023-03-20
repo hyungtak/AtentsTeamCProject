@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 2;
     public int currentHealth;
 
+    Monster monster;
 
     private void Start()
     {
@@ -31,7 +32,8 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-       
+        monster = FindObjectType<Monster>();
+        monster.find = false;
     }
 
 }
