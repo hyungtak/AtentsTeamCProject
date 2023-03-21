@@ -2,6 +2,8 @@ InputSystem
 
 몬스터1 : https://assetstore.unity.com/packages/3d/characters/creatures/character-monsters-x-89243#content
 
+몬스터2 : https://assetstore.unity.com/packages/3d/characters/creatures/fantasy-monster-wizard-demo-103037#content
+
 플레이어: https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/skeleton-warrior-1-222338
 
 아이템(포션), 블록타일 : https://assetstore.unity.com/packages/2d/environments/pixel-potions-with-animation-118801
