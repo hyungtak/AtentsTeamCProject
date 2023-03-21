@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEngine.InputSystem;
-using System.Diagnostics;
 
 public class Player : MonoBehaviour
 {
