@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.VisualScripting;
 using UnityEngine.InputSystem;
+using System.Diagnostics;
 
 public class Player : MonoBehaviour
 {
@@ -56,11 +58,37 @@ public class Player : MonoBehaviour
     /// </summary>
     bool isJump = false;
 
+    //전준호씨 Player스크립트 변수
+    //=====================================================================
+    /// <summary>
+    /// 임시 최대 체력
+    /// </summary>
+    public int maxHealth = 2;
+
+    /// <summary>
+    /// 임시 현재 체력
+    /// </summary>
+    public int currentHealth;
+
+    /// <summary>
+    /// 델리게이트 or 이벤트 선언 
+    /// </summary>
+    public delegate void PlayerDied();
+    public static event PlayerDied playerDied;
+    //=====================================================================
+
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInputActions();
         anim = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        //Monster monster = FindObjectOfType<Monster>();
     }
 
     private void OnEnable()
@@ -128,5 +156,29 @@ public class Player : MonoBehaviour
     void Move()
     {
         rigid.MovePosition(rigid.position + Time.fixedDeltaTime * moveSpeed * moveDirection * transform.forward);
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    /// <summary>
+    /// 죽었을 시 함수 
+    /// </summary>
+    private void Die()
+    {
+        if (playerDied != null)
+        {
+            playerDied();
+        }
+        Debug.Log("주금");
+
+        gameObject.SetActive(false);
     }
 }
