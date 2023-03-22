@@ -1,0 +1,27 @@
+Assets
+	_ExternalAssets
+		외부 에셋들 저장 위치(에셋스토어 등)
+	Animations
+		오브젝트에 들어가있는 애니메이션 또는 에니메이터 저장위치
+		하위 폴더 추가 가능. 예) Player
+	Fonts
+		한글 폰트
+	Inputs
+		InputSystem 저장위치
+		Animations처럼 하위 폴더 추가 가능
+	Materials
+		오브젝트에 사용된 메테리얼 저장 위치
+		Animations처럼 하위 폴더 추가 가능
+	Meshes
+		오브젝트에 사용된 메쉬 저장 위치
+		Animations처럼 하위 폴더 추가 가능
+	Packages
+		다른 사람 또는 자신이 작업한 프리팹 패키징 했을 때 저장하는 위치
+	Prefabs
+		작업한 프리팹 저장 위치
+		Animations처럼 하위 폴더 추가 가능
+	Scenes
+		작업 씬 저장 위치
+	Textures
+		오브젝트에 사용된 텍스쳐 저장 위치
+		Animations처럼 하위 폴더 추가 가능
