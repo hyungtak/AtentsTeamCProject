@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673772385}
   - component: {fileID: 673772386}
-  - component: {fileID: 198810509}
+  - component: {fileID: 8782780377508256945}
   m_Layer: 0
   m_Name: Attack_Range
   m_TagString: Untagged
@@ -46,7 +46,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 31
   m_Center: {x: 0, y: 23, z: 0}
---- !u!114 &198810509
+--- !u!114 &8782780377508256945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,7 +55,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 673772384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071020c03c767c040b65f259adb3271c, type: 3}
+  m_Script: {fileID: 11500000, guid: 637d79f6e6f9d6f4eb16dbc87c2cc587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1046223014
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1046223015}
   - component: {fileID: 1046223016}
-  - component: {fileID: 198810508}
+  - component: {fileID: 7630963334230637403}
   m_Layer: 0
   m_Name: Hit
   m_TagString: Untagged
@@ -105,7 +105,7 @@ CapsuleCollider:
   m_Height: 27.6
   m_Direction: 2
   m_Center: {x: -14.17, y: 29.5, z: 16.3}
---- !u!114 &198810508
+--- !u!114 &7630963334230637403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1046223014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 195f31d683c50dc41bf8c2eaba253489, type: 3}
+  m_Script: {fileID: 11500000, guid: fa9bb8f82a547924291c8dd9367653ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 8645214939069419131}
   - component: {fileID: 8645214939069419130}
   - component: {fileID: 8645214939069419129}
-  - component: {fileID: 198810507}
+  - component: {fileID: 5579735079827365760}
   m_Layer: 0
   m_Name: MosterBase
   m_TagString: Monster
@@ -1115,7 +1115,7 @@ Animator:
   m_GameObject: {fileID: 8645214939482553420}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a59b9202cdb93394781b8e79c967d8a3, type: 3}
-  m_Controller: {fileID: 9100000, guid: d7f65169e2873404895187c3c0a1d6e4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 376b7bbcb8a68f840beeb8f1cdaa9de6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1168,7 +1168,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 100, z: 300}
   m_Center: {x: 0, y: 50, z: 0}
---- !u!114 &198810507
+--- !u!114 &5579735079827365760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8645214939482553420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c85c3a525a49d104ba6136f9f7a21e98, type: 3}
+  m_Script: {fileID: 11500000, guid: 44233e75f3565324a9995134370cab6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8645214939482553422
