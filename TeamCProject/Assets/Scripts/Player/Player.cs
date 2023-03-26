@@ -57,12 +57,21 @@ public class Player : MonoBehaviour
     /// </summary>
     bool isJump = false;
 
+    WaitForSeconds attackDelayTime = new WaitForSeconds(1);
+
+    /// <summary>
+    /// 공격중에 공격이 안나가기 위한 bool 변수
+    /// 참이면 공격중
+    /// 거짓이면 공격 가능
+    /// </summary>
+    bool isAttack = false;
+
     //전준호씨 Player스크립트 변수
     //=====================================================================
     /// <summary>
     /// 임시 최대 체력
     /// </summary>
-    public int maxHealth = 2;
+    public int maxHealth = 200;
 
     /// <summary>
     /// 임시 현재 체력
@@ -75,7 +84,6 @@ public class Player : MonoBehaviour
     public delegate void PlayerDied();
     public static event PlayerDied playerDied;
     //=====================================================================
-
 
     private void Awake()
     {
@@ -96,11 +104,12 @@ public class Player : MonoBehaviour
         inputActions.Player.Move.performed += OnMoveInput;
         inputActions.Player.Move.canceled += OnMoveInput;
         inputActions.Player.Jump.performed += OnJumpInput;
-
+        inputActions.Player.Attack.performed += onAttackInput;
     }
 
     private void OnDisable()
     {
+        inputActions.Player.Attack.performed -= onAttackInput;
         inputActions.Player.Jump.performed -= OnJumpInput;
         inputActions.Player.Move.canceled -= OnMoveInput;
         inputActions.Player.Move.performed -= OnMoveInput;
@@ -127,9 +136,6 @@ public class Player : MonoBehaviour
         ///우리 플레이어는 좌, 우로만 움직이기에
         /// dir.x만 확인하면된다.
 
-        //Debug.Log("onMoveInput 진입");
-        //Debug.Log($"입력값 {dir.x} ");
-
         moveDirection = dir.x;
         if (moveDirection == 1)
         {
@@ -150,6 +156,22 @@ public class Player : MonoBehaviour
             rigid.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
             isJump = true;
         }
+    }
+
+    private void onAttackInput(InputAction.CallbackContext obj)
+    {
+        if(!isAttack)
+        {
+            isAttack = true;
+            anim.SetTrigger("Attack");      
+            StartCoroutine(DelayAttack());
+        }
+    }
+
+    IEnumerator DelayAttack()
+    {
+        yield return attackDelayTime;
+        isAttack = false;
     }
 
     void Move()
