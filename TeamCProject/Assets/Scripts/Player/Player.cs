@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     /// 윗키 아래키 입력
     /// -1(아래) ~ 1(위) 사이
     /// </summary>
-    float upDownDirection = 0;
+    //float upDownDirection = 0;
 
     /// <summary>
     /// 현재 이동
