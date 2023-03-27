@@ -45,21 +45,6 @@ public class AttackMotion : MonoBehaviour
     //}
 
 
-    private void OnDrawGizmos()
-    {
-        SphereCollider sphereCollider = GetComponent<SphereCollider>();
-        if (sphereCollider != null)
-        {
-            Gizmos.color = Color.white;
-         
-            Vector3 monsterSenter = transform.position;
-            monsterSenter.y = 23f;
-
-            Gizmos.DrawWireSphere(monsterSenter/20, sphereCollider.radius/20);
-        }
-
-
-
-    }
+   
 }
 

@@ -178,6 +178,6 @@ public class Player : MonoBehaviour
         }
         Debug.Log("주금");
 
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
