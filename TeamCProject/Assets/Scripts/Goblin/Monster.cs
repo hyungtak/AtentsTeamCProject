@@ -109,8 +109,7 @@ public class Monster : MonoBehaviour
     /// </summary>
     void OnPlayerDied()
     {
-        find = false;
-        //anim.SetBool("Run", false);
+        find = false;  
         StartCoroutine(transMovement());
     }
 
