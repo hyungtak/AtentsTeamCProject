@@ -16,7 +16,6 @@ public class AttackMotion : MonoBehaviour
             Monster monster = GetComponentInParent<Monster>();
             if (monster != null)
             {
-
                 monster.Attack();
             }
         }
@@ -34,17 +33,17 @@ public class AttackMotion : MonoBehaviour
     //    }
     //}
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    Monster monster = GetComponentInParent<Monster>();
-    //    if (monster != null)
-    //    {
-    //        monster.StopAttack();
-    //    }
+    private void OnTriggerExit(Collider other)
+    {
+        Monster monster = GetComponentInParent<Monster>();
+        if (monster != null)
+        {
+            monster.();
+        }
 
-    //}
+    }
 
 
-   
+
 }
 

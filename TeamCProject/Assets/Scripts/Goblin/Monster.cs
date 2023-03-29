@@ -139,52 +139,7 @@ public class Monster : MonoBehaviour
         StartCoroutine(transMovement());
     }
 
-    ///// <summary>
-    ///// 플레이어가 트리거에 접촉했다
-    ///// </summary>
-    ///// <param name="other">"Player"</param>
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        StopAllCoroutines();
-    //        find = true;
-    //        anim.SetBool("Run", true);
-    //    }
 
-    //}
-
-    ////플레이어가 트리거 안에 지속적으로 인식
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
-    //        transform.LookAt(monsterTransform);
-    //        find = true;
-    //        anim.SetBool("Run", true);
-
-    //    }
-    //}
-
-
-    ///// <summary>
-    ///// 트리거 밖에 플레이어가 나갔을 때
-    ///// </summary>
-    ///// <param name="other"></param>
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        //Run애니메이션 >> Walk로
-    //        anim.SetBool("Run", false);
-    //        find = false;
-    //        //다시 자동 이동
-    //        StartCoroutine(transMovement());
-
-    //    }
-
-    //}
 
 
 
@@ -221,31 +176,28 @@ public class Monster : MonoBehaviour
     {
 
         //플레이어를 인식 했을 때
+        
+            
         if (find)
         {
-            StopAllCoroutines();
-            move = 3;
-            //dir이 플레이어 방향 찾고 크기는 1 
-            Vector3 dir = (playerTrans.position - transform.position).normalized;
-
-            //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
-            rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
-            
+            if (playerTrans != null)
+            {
+                StopAllCoroutines();
+                move = 3;
+                //dir이 플레이어 방향 찾고 크기는 1 
+                Vector3 dir = (playerTrans.position - transform.position).normalized;
+                //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
+                rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
+            }
+            else if(playerTrans == null)
+            {
+                rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
+                anim.SetBool("Run", true);
+            }
         }
-        else if (!find)
-        {
-            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
-        }
-
         //인식 안했을 때 행동                              
         else
-            find= false;
-            
-            
-        
-
-         
-        
+            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
 
 
     }
