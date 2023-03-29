@@ -45,17 +45,6 @@ public class AttackMotion : MonoBehaviour
     //}
 
 
-    private void OnDrawGizmos()
-    {
-        Vector3 position = transform.position;
-
-        position.y += 2.2f;
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(position,3.2f);
-
-    }
    
-
-
 }
 
