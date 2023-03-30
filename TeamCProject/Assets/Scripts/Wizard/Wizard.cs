@@ -70,11 +70,7 @@ public class Wizard : MonoBehaviour
 
         //코루틴 실행
         StartCoroutine(transMovement());
-
-
     }
-
-
 
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
@@ -108,17 +104,16 @@ public class Wizard : MonoBehaviour
     void OnPlayerDied()
     {
         find = false;
-        //anim.SetBool("Run", false);
         StartCoroutine(transMovement());
     }
 
 
     private void OnDetectPlayerEnter()
     {
-        move = 1;
+        //move = 1;
         StopAllCoroutines();
         find = true;
-        anim.SetInteger("forward", move);
+        anim.SetBool("Attack", true);
     }
 
     private void OnDetectPlayerStay()
@@ -127,7 +122,7 @@ public class Wizard : MonoBehaviour
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
-        anim.SetInteger("forward", move);
+        anim.SetBool("Attack", true);
     }
 
     private void OnDetectPlayerExit()
@@ -150,7 +145,7 @@ public class Wizard : MonoBehaviour
 
         while (true)
         {
-            //move = 0 == Idle or move != 0 == Walk 실행
+            //move = 0이면 Idle or move != 0이면 Walk 실행
             move = Random.Range(0, 3);
             anim.SetInteger("forward", move);
 
@@ -172,23 +167,27 @@ public class Wizard : MonoBehaviour
     /// </summary>
     private void MonsterMove()
     {
-
-        //플레이어를 인식 했을 때
         if (find)
         {
-            StopAllCoroutines();
-            move = 3;
-            //dir이 플레이어 방향 찾고 크기는 1 
-            Vector3 dir = (playerTrans.position - transform.position).normalized;
-
-            //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
-            rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
-
+            if (playerTrans != null)
+            {
+                StopAllCoroutines();
+                move = 3;
+                //dir이 플레이어 방향 찾고 크기는 1 
+                Vector3 dir = (playerTrans.position - transform.position).normalized;
+                //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
+                rigid.MovePosition(transform.position + 0* Time.fixedDeltaTime * dir);
+            }
+            else if (playerTrans == null)
+            {
+                rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
+                anim.SetBool("Run", true);
+            }
         }
 
         //인식 안했을 때 행동                              
         else
-            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
+            rigid.MovePosition(transform.position + Time.fixedDeltaTime * (move * 0.5f) * transform.forward);
 
 
 

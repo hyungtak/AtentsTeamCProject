@@ -88,7 +88,7 @@ public class Monster : MonoBehaviour
        
         if (playerTrans == null)
         {
-            Debug.Log("dd");
+            Debug.Log("플레이어는 null");
             MonsterMove();
             anim.SetBool("Attacko", false);
 
