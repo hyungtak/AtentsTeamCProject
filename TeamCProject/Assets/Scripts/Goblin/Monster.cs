@@ -22,6 +22,7 @@ public class Monster : MonoBehaviour
     /// 플레이어 위치 저장 할 변수
     /// </summary>
     Transform playerTrans;
+    Player player;
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -42,10 +43,11 @@ public class Monster : MonoBehaviour
 
     private void Awake()
     {
-
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        player= GetComponent<Player>();
 
         Detect detect =FindObjectOfType<Detect>();
         if (detect != null)
@@ -60,23 +62,48 @@ public class Monster : MonoBehaviour
         }
 
 
+        AttackMotion attack = FindObjectOfType<AttackMotion>();
+        if (attack != null)
+        {
+            attack.OnAttackEnter += OnAttackEnter;
+            attack.OnAttackExit += OnAttackExit;
+        }
+        else
+        {
+            Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
+        }
+
+
     }
 
+    private void OnAttackExit()
+    {
+        anim.SetBool("Attacko", false);
+        
+    }
 
+    private void OnAttackEnter()
+    { 
+         anim.SetBool("Attacko", true);
+       
+        if (playerTrans == null)
+        {
+            Debug.Log("dd");
+            MonsterMove();
+            anim.SetBool("Attacko", false);
+
+        }
+    }
 
     private void Start()
     {
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-
-        Player.playerDied += OnPlayerDied;
-       
-        //코루틴 실행
-        StartCoroutine(transMovement());
-
         
-    }
 
-   
+        Player.playerDied += OnPlayerDied;     
+        //코루틴 실행
+        StartCoroutine(transMovement());       
+    }
 
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
@@ -88,14 +115,6 @@ public class Monster : MonoBehaviour
 
 
     /// <summary>
-    /// 공격애니메이션 실행
-    /// </summary>
-    public void Attack()
-    {
-        anim.SetTrigger("Attack");      
-    }
-
-    /// <summary>
     /// 이벤트 등록 해제
     /// </summary>
     void OnDestroy()
@@ -104,7 +123,16 @@ public class Monster : MonoBehaviour
 
     }
 
+
     /// <summary>
+    /// 공격애니메이션 실행
+    /// </summary>
+    public void Attack()
+    {
+        anim.SetTrigger("Attack");      
+    }
+
+     /// <summary>
     /// 신호 받고 몬스터 실행
     /// </summary>
     void OnPlayerDied()
@@ -114,6 +142,7 @@ public class Monster : MonoBehaviour
     }
 
 
+//몬스터 감지 델리게이트--------------------------------------------------
     private void OnDetectPlayerEnter()
     {
         StopAllCoroutines();
@@ -138,7 +167,7 @@ public class Monster : MonoBehaviour
         StartCoroutine(transMovement());
     }
 
-
+//공격 애니메이션 실행 델리게이트---------------------------------------------------------
 
 
 

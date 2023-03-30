@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AttackMotion : MonoBehaviour
 {
+
+    Animator anim;
+    public Action OnAttackEnter;
+    public Action OnAttackExit;
 
     /// <summary>
     /// 공격범위 안에 Player인시 시 AttackAnimation
@@ -13,11 +18,9 @@ public class AttackMotion : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Monster monster = GetComponentInParent<Monster>();
-            if (monster != null)
-            {
-                monster.Attack();
-            }
+
+            OnAttackEnter?.Invoke();
+          
         }
     }
 
@@ -35,10 +38,9 @@ public class AttackMotion : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Monster monster = GetComponentInParent<Monster>();
-        if (monster != null)
+         if (other.CompareTag("Player"))
         {
-            monster.();
+            OnAttackExit?.Invoke();
         }
 
     }
