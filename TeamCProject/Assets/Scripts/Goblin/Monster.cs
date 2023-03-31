@@ -220,7 +220,7 @@ public class Monster : MonoBehaviour
             else if(playerTrans == null)
             {
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                anim.SetBool("Run", true);
+                anim.SetBool("Jump", true);
             }
         }
         //인식 안했을 때 행동                              

@@ -181,7 +181,7 @@ public class Wizard : MonoBehaviour
             else if (playerTrans == null)
             {
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                anim.SetBool("Run", true);
+                //anim.SetBool("Run", true);
             }
         }
 

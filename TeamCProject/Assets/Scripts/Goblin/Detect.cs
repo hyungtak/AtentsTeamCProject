@@ -10,7 +10,7 @@ public class Detect : MonoBehaviour
 
     public Action OnEnter;
     public Action OnStay;
-    public Action OnExit;
+    public Action OnExit; 
 
 
     /// <summary>
@@ -21,8 +21,8 @@ public class Detect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            
             OnEnter?.Invoke();
-           
         }
     }
 
