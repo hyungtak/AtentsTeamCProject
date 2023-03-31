@@ -76,24 +76,27 @@ public class Monster : MonoBehaviour
 
     }
 
+    private void OnAttackEnter()
+    {
+        anim.SetBool("Attacko", true);
+        find = true;
+
+        //if (playerTrans == null)
+        //{
+        //    Debug.Log("플레이어는 null");
+        //    MonsterMove();
+        //    anim.SetBool("Attacko", false);
+
+        //}
+    }
+
     private void OnAttackExit()
     {
         anim.SetBool("Attacko", false);
         
     }
 
-    private void OnAttackEnter()
-    { 
-         anim.SetBool("Attacko", true);
-       
-        if (playerTrans == null)
-        {
-            Debug.Log("플레이어는 null");
-            MonsterMove();
-            anim.SetBool("Attacko", false);
-
-        }
-    }
+    
 
     private void Start()
     {
@@ -112,27 +115,15 @@ public class Monster : MonoBehaviour
         //몬스터움직임 함수
         MonsterMove();
     }
-
-
     /// <summary>
     /// 이벤트 등록 해제
     /// </summary>
     void OnDestroy()
     {
         Player.playerDied -= OnPlayerDied;
-
     }
-
 
     /// <summary>
-    /// 공격애니메이션 실행
-    /// </summary>
-    public void Attack()
-    {
-        anim.SetTrigger("Attack");      
-    }
-
-     /// <summary>
     /// 신호 받고 몬스터 실행
     /// </summary>
     void OnPlayerDied()
@@ -166,9 +157,6 @@ public class Monster : MonoBehaviour
         //다시 자동 이동
         StartCoroutine(transMovement());
     }
-
-//공격 애니메이션 실행 델리게이트---------------------------------------------------------
-
 
 
     /// <summary>
