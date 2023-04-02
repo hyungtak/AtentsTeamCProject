@@ -45,12 +45,12 @@ public class Wizard : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
-        Detect detect = FindObjectOfType<Detect>();
+        WizardDetect detect = FindObjectOfType<WizardDetect>();
         if (detect != null)
         {
-            detect.OnEnter += OnDetectPlayerEnter;
-            detect.OnStay += OnDetectPlayerStay;
-            detect.OnExit += OnDetectPlayerExit;
+            detect.WizardOnEnter += OnDetectPlayerEnter;
+            detect.WizardOnStay += OnDetectPlayerStay;
+            detect.WizardOnExit += OnDetectPlayerExit;
         }
         else
         {
