@@ -56,29 +56,5 @@ public class Detect : MonoBehaviour
     }
 
 
-    /// <summary>
-    /// 공격감지 기즈모 
-    /// </summary>
-    private void OnDrawGizmos()
-    {
-
-        BoxCollider boxCollider = GetComponent<BoxCollider>();
-        if (boxCollider != null)
-        {
-            Gizmos.color = Color.red;
-
-            Vector3 monsterSenter = transform.position;
-            monsterSenter.y = 50f;
-
-            // 로컬 좌표 값을 월드로 변환
-            Gizmos.matrix = transform.localToWorldMatrix;
-
-            Gizmos.DrawWireCube(monsterSenter, boxCollider.size);
-        }
-
-
-
-    }
-
 
 }

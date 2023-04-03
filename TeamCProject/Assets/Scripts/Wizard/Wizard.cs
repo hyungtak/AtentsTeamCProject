@@ -1,25 +1,14 @@
+using DigitalRuby.PyroParticles;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
-    //추가 할 것
-    //몬스터 Hp int
-    //public int monsterHp = 10;
+    public GameObject fireBall;
 
-    //몬스터 Attack  or Damage 설정
-    //public int monsterDamage = 1;
-
-    //public delegate void playerDied(bool find);
-
-    Rigidbody rigid;
-    Animator anim;
-
-    /// <summary>
-    /// 플레이어 위치 저장 할 변수
-    /// </summary>
-    Transform playerTrans;
+    
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -37,13 +26,28 @@ public class Wizard : MonoBehaviour
     bool find = false;
 
     private Vector3 monsterTransform;
+    
+    
+    Rigidbody rigid;
+    Animator anim;
 
+    Transform fireTransform;
+    
+    /// <summary>
+    /// 플레이어 위치 저장 할 변수
+    /// </summary>
+    Transform playerTrans;
+
+    Player player;
     private void Awake()
     {
 
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        player = gameObject.GetComponent<Player>();
+        fireTransform = transform.GetChild(0);
+        
 
         Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)
@@ -80,22 +84,14 @@ public class Wizard : MonoBehaviour
         MonsterMove();
     }
 
-
-    /// <summary>
-    /// 공격애니메이션 실행
-    /// </summary>
-    public void Attack()
-    {
-        anim.SetBool("Attack",true);
-    }
-
     /// <summary>
     /// 이벤트 등록 해제
     /// </summary>
     void OnDestroy()
     {
         Player.playerDied -= OnPlayerDied;
-
+        
+       
     }
 
     /// <summary>
@@ -104,7 +100,9 @@ public class Wizard : MonoBehaviour
     void OnPlayerDied()
     {
         find = false;
-        StartCoroutine(transMovement());
+        anim.SetBool("Dead", true);
+        move= 0;
+        //StartCoroutine();
     }
 
 
@@ -114,22 +112,26 @@ public class Wizard : MonoBehaviour
         StopAllCoroutines();
         find = true;
         anim.SetBool("Attack", true);
+        StartCoroutine(FireInst());
+        
     }
 
     private void OnDetectPlayerStay()
     {
+        
+        anim.SetBool("Attack", true);
         move = 1;
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
-        anim.SetBool("Attack", true);
+        
     }
 
     private void OnDetectPlayerExit()
     {
         //Run애니메이션 >> Walk로
         move = 0;
-        anim.SetInteger("forward", move);
+        anim.SetBool("Attack", false);
         find = false;
         //다시 자동 이동
         StartCoroutine(transMovement());
@@ -154,10 +156,23 @@ public class Wizard : MonoBehaviour
                 transform.Rotate(0, transRotate, 0);  //좌우 회전
             }
 
-            //3초 마다
+            //5초 마다
             yield return new WaitForSeconds(5f);
 
         }
+
+    }
+
+    IEnumerator FireInst()
+    {
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FireInst());
+        Debug.Log("발사");
+        GameObject obj = Instantiate(fireBall);
+        obj.transform.position = fireTransform.position;
+        
+        
+
 
     }
 
@@ -172,7 +187,7 @@ public class Wizard : MonoBehaviour
             if (playerTrans != null)
             {
                 StopAllCoroutines();
-                move = 3;
+                //move = 3;
                 //dir이 플레이어 방향 찾고 크기는 1 
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
                 //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
@@ -180,8 +195,9 @@ public class Wizard : MonoBehaviour
             }
             else if (playerTrans == null)
             {
+                Debug.Log("플레이어null");
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                //anim.SetBool("Run", true);
+                anim.SetBool("Dead", true);
             }
         }
 

@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class FireBall : MonoBehaviour
 {
     private Rigidbody rigid;
     private Vector3 fireBallTrnas;
     Transform playerTrans;
 
-    private int damageAmount = 2;
-
+    private int damageAmount = 0;
     private void Awake()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 
+    }
+
+    private void OnEnable()
+    {
+        
+        //StartCoroutine(FireFalseTimer());
     }
 
     private void Start()
     {
-
-        FireTimer();
+        
     }
     private void Update()
     {
@@ -30,9 +33,7 @@ public class Fireball : MonoBehaviour
 
     private void PlayerLookAt()
     {
-        //fireBallTrnas = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
-        //Vector3 dir = (playerTrans.position - transform.position).normalized;
-        transform.position += Time.deltaTime * 10 * -transform.right;
+        transform.position += Time.deltaTime * 10 * transform.forward;
     }
 
 
@@ -52,12 +53,12 @@ public class Fireball : MonoBehaviour
     }
 
 
-    IEnumerator FireTimer()
-    {
-
-        yield return new WaitForSeconds(5f);
-        gameObject.SetActive(false);
-    }
+    //IEnumerator FireFalseTimer()
+    //{
+    //    //Debug.Log("삭제");
+    //    yield return new WaitForSeconds(10f);
+    //    this.gameObject.SetActive(false);
+    //}
 
 
 

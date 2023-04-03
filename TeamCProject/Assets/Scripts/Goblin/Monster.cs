@@ -128,8 +128,10 @@ public class Monster : MonoBehaviour
     /// </summary>
     void OnPlayerDied()
     {
-        find = false;  
-        StartCoroutine(transMovement());
+        find = false;
+        anim.SetBool("Jump", true);
+        move = 0;
+        //StartCoroutine(transMovement());
     }
 
 

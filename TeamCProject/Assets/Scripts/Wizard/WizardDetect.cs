@@ -33,7 +33,6 @@ public class WizardDetect : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             WizardOnStay?.Invoke();
-
         }
     }
 
