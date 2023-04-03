@@ -49,7 +49,7 @@ public class Monster : MonoBehaviour
 
         player= GetComponent<Player>();
 
-        Detect detect =FindObjectOfType<Detect>();
+        Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)
         {
             detect.OnEnter += OnDetectPlayerEnter;
