@@ -9,23 +9,29 @@ public class FireBall : MonoBehaviour
     private Vector3 fireBallTrnas;
     Transform playerTrans;
 
+    //public float speed = 1f;
     private int damageAmount = 0;
     private void Awake()
     {
+        rigid = GetComponent<Rigidbody>();
 
     }
 
     private void OnEnable()
-    {
+    {       
+        StartCoroutine(FireFalseTimer());
         
-        //StartCoroutine(FireFalseTimer());
+        
+
     }
 
     private void Start()
     {
+        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
         
+
     }
-    private void Update()
+    private void FixedUpdate()
     {
         
         PlayerLookAt();
@@ -33,7 +39,11 @@ public class FireBall : MonoBehaviour
 
     private void PlayerLookAt()
     {
-        transform.position += Time.deltaTime * 10 * transform.forward;
+        Vector3 dir = (playerTrans.position - transform.position).normalized;
+        //rigid.AddForce(dir * speed, ForceMode.Impulse);
+        dir.y = 0;
+        rigid.MovePosition(transform.position + 5 * Time.fixedDeltaTime * dir);
+
     }
 
 
@@ -53,12 +63,12 @@ public class FireBall : MonoBehaviour
     }
 
 
-    //IEnumerator FireFalseTimer()
-    //{
-    //    //Debug.Log("삭제");
-    //    yield return new WaitForSeconds(10f);
-    //    this.gameObject.SetActive(false);
-    //}
+    IEnumerator FireFalseTimer()
+    {
+        //Debug.Log("삭제");
+        yield return new WaitForSeconds(2f);
+        this.gameObject.SetActive(false);
+    }
 
 
 

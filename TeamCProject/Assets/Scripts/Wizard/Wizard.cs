@@ -26,8 +26,14 @@ public class Wizard : MonoBehaviour
     bool find = false;
 
     private Vector3 monsterTransform;
-    
-    
+
+
+
+    /// <summary>
+    /// 딜레이 주기
+    /// </summary>
+    float timer = 0.0f;
+
     Rigidbody rigid;
     Animator anim;
 
@@ -60,10 +66,9 @@ public class Wizard : MonoBehaviour
         {
             Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
         }
-
-
     }
 
+    
 
 
     private void Start()
@@ -82,6 +87,11 @@ public class Wizard : MonoBehaviour
     {
         //몬스터움직임 함수
         MonsterMove();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
     }
 
     /// <summary>
@@ -112,8 +122,9 @@ public class Wizard : MonoBehaviour
         StopAllCoroutines();
         find = true;
         anim.SetBool("Attack", true);
-        StartCoroutine(FireInst());
+
         
+
     }
 
     private void OnDetectPlayerStay()
@@ -124,7 +135,12 @@ public class Wizard : MonoBehaviour
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
+
+    
+        GameObject obj = Instantiate(fireBall);
+        obj.transform.position = fireTransform.position;
         
+
     }
 
     private void OnDetectPlayerExit()
@@ -163,18 +179,18 @@ public class Wizard : MonoBehaviour
 
     }
 
-    IEnumerator FireInst()
-    {
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FireInst());
-        Debug.Log("발사");
-        GameObject obj = Instantiate(fireBall);
-        obj.transform.position = fireTransform.position;
+    //IEnumerator FireInst()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+    //    StartCoroutine(FireInst());
+    //    Debug.Log("발사");
+    //    GameObject obj = Instantiate(fireBall);
+    //    obj.transform.position = fireTransform.position;
         
         
 
 
-    }
+    //}
 
 
     /// <summary>
