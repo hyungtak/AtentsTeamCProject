@@ -4,6 +4,9 @@ Assets
 	Animations
 		오브젝트에 들어가있는 애니메이션 또는 에니메이터 저장위치
 		하위 폴더 추가 가능. 예) Player
+	AvatarMarks
+		애니메이션 블렌딩을 위한 아바타마스크를 저장하는 위치
+		Animations처럼 하위 폴더 추가 가능
 	Fonts
 		한글 폰트
 	Inputs

@@ -198,8 +198,7 @@ public class Player : MonoBehaviour
         {
             playerDied();
         }
-        Debug.Log("주금");
-
-        gameObject.SetActive(false);
+        
+        
     }
 }
