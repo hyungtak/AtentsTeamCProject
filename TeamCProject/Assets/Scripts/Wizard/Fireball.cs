@@ -6,29 +6,24 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     private Rigidbody rigid;
-    private Vector3 fireBallTrnas;
     Transform playerTrans;
+    private GameObject playerObj = null;
 
-    //public float speed = 1f;
     private int damageAmount = 0;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-
     }
 
     private void OnEnable()
     {       
         StartCoroutine(FireFalseTimer());
         
-        
-
     }
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-        
+         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
     private void FixedUpdate()
@@ -40,7 +35,6 @@ public class FireBall : MonoBehaviour
     private void PlayerLookAt()
     {
         Vector3 dir = (playerTrans.position - transform.position).normalized;
-        //rigid.AddForce(dir * speed, ForceMode.Impulse);
         dir.y = 0;
         rigid.MovePosition(transform.position + 5 * Time.fixedDeltaTime * dir);
 

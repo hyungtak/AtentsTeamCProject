@@ -1,4 +1,5 @@
 using DigitalRuby.PyroParticles;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
@@ -26,13 +27,6 @@ public class Wizard : MonoBehaviour
     bool find = false;
 
     private Vector3 monsterTransform;
-
-
-
-    /// <summary>
-    /// 딜레이 주기
-    /// </summary>
-    float timer = 0.0f;
 
     Rigidbody rigid;
     Animator anim;
@@ -89,11 +83,6 @@ public class Wizard : MonoBehaviour
         MonsterMove();
     }
 
-    private void Update()
-    {
-        timer += Time.deltaTime;
-    }
-
     /// <summary>
     /// 이벤트 등록 해제
     /// </summary>
@@ -135,11 +124,6 @@ public class Wizard : MonoBehaviour
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
-
-    
-        GameObject obj = Instantiate(fireBall);
-        obj.transform.position = fireTransform.position;
-        
 
     }
 
@@ -221,12 +205,19 @@ public class Wizard : MonoBehaviour
         else
             rigid.MovePosition(transform.position + Time.fixedDeltaTime * (move * 0.5f) * transform.forward);
 
-
-
-
-
-
-
-
     }
+
+
+    public void FireStart()
+    {
+        Debug.Log("불불");
+        GameObject obj = Instantiate(fireBall);
+        obj.transform.position = fireTransform.position;
+    }
+
+
+
+
+
+
 }
