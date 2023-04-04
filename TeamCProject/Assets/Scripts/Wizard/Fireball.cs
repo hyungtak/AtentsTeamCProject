@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    private Rigidbody rigid;
+    Rigidbody rigid;
     Transform playerTrans;
-    private GameObject playerObj = null;
+
 
     private int damageAmount = 0;
+    private float speed = 5f;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
@@ -17,28 +19,39 @@ public class FireBall : MonoBehaviour
 
     private void OnEnable()
     {       
-        StartCoroutine(FireFalseTimer());
-        
+
+        StartCoroutine(FireFalseTimer());  
     }
 
     private void Start()
     {
-         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Vector3 playerPos = playerTrans.position;
+        transform.rotation = Quaternion.LookRotation(playerPos);
+
 
     }
-    private void FixedUpdate()
+    //유도 공격
+    //private void FixedUpdate()
+    //{
+
+    //   PlayerLookAt();
+    //}
+
+    private void Update()
     {
-        
-        PlayerLookAt();
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
-    private void PlayerLookAt()
-    {
-        Vector3 dir = (playerTrans.position - transform.position).normalized;
-        dir.y = 0;
-        rigid.MovePosition(transform.position + 5 * Time.fixedDeltaTime * dir);
+    //유도
+    //private void PlayerLookAt()
+    //{
+    //    Vector3 dir = (playerTrans.position - transform.position).normalized;
+    //    //dir.y = 0;
+    //    rigid.MovePosition(transform.position + 5 * Time.fixedDeltaTime* d);
 
-    }
+    //}
 
 
     private void OnTriggerEnter(Collider other)
@@ -63,8 +76,6 @@ public class FireBall : MonoBehaviour
         yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
     }
-
-
 
 
 }
