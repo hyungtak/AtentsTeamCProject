@@ -6,10 +6,12 @@ using System.Runtime.InteropServices;
 
 public class Monster : MonoBehaviour
 {
-    //추가 할 것
     //몬스터 Hp int
-    //public int monsterHp = 10;
+    public int monsterMaxHp = 10;
 
+    int currentMonsterHp = 10;
+
+    //추가 할 것
     //몬스터 Attack  or Damage 설정
     //public int monsterDamage = 1;
 
@@ -72,8 +74,7 @@ public class Monster : MonoBehaviour
         {
             Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
         }
-
-
+        currentMonsterHp = monsterMaxHp;
     }
 
     private void OnAttackEnter()
@@ -220,5 +221,18 @@ public class Monster : MonoBehaviour
 
     }
 
+    public void MonsterTakeDamage(int damageAmount)
+    {
+        currentMonsterHp -= damageAmount;
 
+        if (currentMonsterHp <= 0)
+        {
+            MonsterDie();
+        }
+    }
+    private void MonsterDie()
+    {
+        //죽었을 시 사망 애니메이션 실행 예정
+
+    }
 }
