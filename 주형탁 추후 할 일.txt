@@ -1,0 +1,16 @@
+추후 할 일
+플레이어 애니메이션 블렌딩
+	필요한 것: 아바타 마크
+애니메이션 레이어: https://docs.unity.cn/kr/2021.3/Manual/AnimationLayers.html
+애니메이션 블렌드 트리: https://docs.unity3d.com/kr/530/Manual/class-BlendTree.html
+아바타 마스크 생성법: https://docs.unity3d.com/kr/530/Manual/class-AvatarMask.html
+
+로비 방
+여관에서 시작
+여관처럼 생긴 방, 1층 식탁에 앉아 있는 캐릭터를 선택
+
+표지판
+플레이어가 표지판 앞을 지나가면, 표지판의 충돌체의 충돌하여(z축으로 길게 있음)
+화면에 메시지를 띄워줌 (조작법, 설명 등등)
+
+

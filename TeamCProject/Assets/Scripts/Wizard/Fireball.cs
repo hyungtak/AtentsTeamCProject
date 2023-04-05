@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
     Rigidbody rigid;
     Transform playerTrans;
@@ -28,8 +28,10 @@ public class FireBall : MonoBehaviour
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 
         Vector3 playerPos = playerTrans.position;
-        transform.rotation = Quaternion.LookRotation(playerPos);
-
+        //월드 기준으로 방향을 잡는게 아닌 본인 기준으로 방향을 잡아야 한다.
+        //transform.rotation = Quaternion.LookRotation(playerPos);
+        //해결법
+        transform.LookAt(playerPos);
 
     }
     //유도 공격
