@@ -74,7 +74,6 @@ public class Fireball : MonoBehaviour
 
     IEnumerator FireFalseTimer()
     {
-        //Debug.Log("삭제");
         yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
     }
