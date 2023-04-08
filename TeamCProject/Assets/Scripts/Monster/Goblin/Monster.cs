@@ -82,14 +82,6 @@ public class Monster : MonoBehaviour
     {
         anim.SetBool("Attacko", true);
         find = true;
-
-        //if (playerTrans == null)
-        //{
-        //    Debug.Log("플레이어는 null");
-        //    MonsterMove();
-        //    anim.SetBool("Attacko", false);
-
-        //}
     }
 
     private void OnAttackExit()

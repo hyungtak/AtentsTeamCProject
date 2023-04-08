@@ -161,16 +161,6 @@ public class Wizard : MonoBehaviour
 
     }
 
-    //IEnumerator FireInst()
-    //{
-    //    yield return new WaitForSeconds(0.5f);
-    //    StartCoroutine(FireInst());
-    //    Debug.Log("발사");
-    //    GameObject obj = Instantiate(fireBall);
-    //    obj.transform.position = fireTransform.position;
-        
-        
-
 
     //}
 

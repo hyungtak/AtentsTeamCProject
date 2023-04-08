@@ -9837,8 +9837,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3120077703184483712}
-  - component: {fileID: 7854872004982182405}
   - component: {fileID: 9098740999957488580}
+  - component: {fileID: 6532646932270387897}
   m_Layer: 0
   m_Name: Player_Detect
   m_TagString: Untagged
@@ -9861,19 +9861,6 @@ Transform:
   m_Father: {fileID: 2613872863342033557}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7854872004982182405
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688966751719525199}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 10, z: 20}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &9098740999957488580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9886,6 +9873,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c33595ea482a2469d33939a4671f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &6532646932270387897
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688966751719525199}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 13
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3996947291319797644
 GameObject:
   m_ObjectHideFlags: 0
@@ -9990,7 +9990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603a487757b2ad44bba4d7e2daed3fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fireball: {fileID: 2685513008806296865, guid: cf41ea115ea484b419cbbb2f91679a99, type: 3}
+  fireBall: {fileID: 5367288859551003371, guid: 153e55b7f509a9040805e6a3ab419871, type: 3}
 --- !u!1 &6061380354306421760
 GameObject:
   m_ObjectHideFlags: 0

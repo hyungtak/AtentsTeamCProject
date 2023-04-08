@@ -72,45 +72,6 @@ public class MonsterBase : MonoBehaviour
 
     }
 
-    //공격 범위 내에 들어왔을 시 실행-----------------------------------------------------------------------
-    private void OnAttackEnter()
-    {
-        anim.SetBool("Attacko", true);
-        find = true;
-    }
-
-    private void OnAttackExit()
-    {
-        anim.SetBool("Attacko", false);
-    }
-
-    //플레이어 감지 했을 때----------------------------------------------------------------------------------------------
-    private void OnDetectPlayerEnter()
-    {
-        StopAllCoroutines();
-        find = true;
-        anim.SetBool("Run", true);
-    }
-
-    private void OnDetectPlayerStay()
-    {
-        monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
-        transform.LookAt(monsterTransform);
-        find = true;
-        anim.SetBool("Run", true);
-    }
-
-    private void OnDetectPlayerExit()
-    {
-        //Run애니메이션 >> Walk로
-        anim.SetBool("Run", false);
-        find = false;
-        //다시 자동 이동
-        StartCoroutine(transMovement());
-    }
-
-
-
     private void Start()
     {
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
@@ -134,14 +95,60 @@ public class MonsterBase : MonoBehaviour
         Player.playerDied -= OnPlayerDied;
     }
 
+    //플레이어가 공격 범위 내에 들어왔을 시 실행-----------------------------------------------------------------------
+    private void OnAttackEnter()
+    {
+        //anim.SetBool("Attacko", true);
+        //find = true;
+    }
+
+    private void OnAttackExit()
+    {
+        //anim.SetBool("Attacko", false);
+    }
+
+    //플레이어 감지 했을 때----------------------------------------------------------------------------------------------
     /// <summary>
-    /// 신호 받고 몬스터 실행
+    /// 감지됐다
+    /// </summary>
+    private void OnDetectPlayerEnter()
+    {
+        StopAllCoroutines();
+        find = true;
+        //anim.SetBool("Run", true);
+    }
+
+    /// <summary>
+    /// 감지 중.
+    /// </summary>
+    private void OnDetectPlayerStay()
+    {
+        monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
+        transform.LookAt(monsterTransform);
+        find = true;
+        anim.SetBool("Run", true);
+    }
+
+    /// <summary>
+    /// 감지범위에서 나갔다.
+    /// </summary>
+    private void OnDetectPlayerExit()
+    {
+        //Run애니메이션 >> Walk로
+        //anim.SetBool("Run", false);
+        find = false;
+        //다시 자동 이동
+        StartCoroutine(transMovement());
+    }
+
+    /// <summary>
+    /// 플레이어 죽은 신호 받고 실행
     /// </summary>
     void OnPlayerDied()
     {
         find = false;
-        anim.SetBool("Jump", true);
-        move = 0;
+        //anim.SetBool("Jump", true);
+        //move = 0;
         //StartCoroutine(transMovement());
     }
 
@@ -173,9 +180,8 @@ public class MonsterBase : MonoBehaviour
 
     }
 
-
     /// <summary>
-    /// 몬스터 움직임
+    /// 몬스터 움직임(플레이어 찾았을 때/ 플레이어가 Scene에 없을 때/ 인식이 안되었을 때)
     /// </summary>
     private void MonsterMove()
     {
@@ -207,6 +213,11 @@ public class MonsterBase : MonoBehaviour
 
     }
 
+
+    /// <summary>
+    /// 몬스터 데미지 받다
+    /// </summary>
+    /// <param name="damageAmount"></param>
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
@@ -216,6 +227,10 @@ public class MonsterBase : MonoBehaviour
             MonsterDie();
         }
     }
+
+    /// <summary>
+    /// 사망
+    /// </summary>
     private void MonsterDie()
     {
         //죽었을 시 사망 애니메이션 실행 예정
@@ -225,4 +240,3 @@ public class MonsterBase : MonoBehaviour
     }
 }
 
-}
