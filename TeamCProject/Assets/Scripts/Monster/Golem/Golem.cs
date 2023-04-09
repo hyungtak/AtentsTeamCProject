@@ -9,7 +9,7 @@ public class Golem : MonoBehaviour
     //몬스터 Hp int
     public int monsterMaxHp = 10;
 
-    int currentMonsterHp = 10;
+    int currentMonsterHp = 100;
 
     public int monsterDamage = 1;
 
@@ -22,16 +22,16 @@ public class Golem : MonoBehaviour
     /// <summary>
     /// 플레이어를 감지했을 때 이동속도
     /// </summary>
-    //int moveSpeed = 2;
+    float maxTimer = 2f;
 
     /// <summary>
     /// 애니메이션 속도값
     /// </summary>
     private int move;
 
-    private float timeElapsed = 0.0f;
-
     private bool isHit = false;
+
+    private float timer = 0.5f;
 
     int AttackMotion;
 
@@ -99,12 +99,19 @@ public class Golem : MonoBehaviour
 
     private void Update()
     {
+        
         if (isHit)
         {
-            timeElapsed += Time.deltaTime * 30;
-            float alpha = (Mathf.Cos(timeElapsed) + 1f)*0.5f;
-            bossColor.material.color = new Color(1, 1, 1,alpha);
+            bossColor.material.color = new Color(255, 1, 1, 255);
+            timer += Time.deltaTime;
 
+        }
+        
+        if(timer == maxTimer)
+        {
+            bossColor.material.color = new Color(1, 1, 1, 255);
+            isHit= false;
+            timer= 0f;
         }
     }
 
@@ -232,7 +239,7 @@ public class Golem : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-        yield return new WaitForSeconds(1f);
+        yield return null;
         while (true)
         {
 
@@ -245,9 +252,8 @@ public class Golem : MonoBehaviour
                 transform.Rotate(0, transRotate, 0);  //좌우 회전
             }
 
-            //3초 마다
+            //5초 마다
             yield return new WaitForSeconds(5f);
-
 
         }
 
@@ -255,11 +261,11 @@ public class Golem : MonoBehaviour
 
     IEnumerator BossColor()
     {
-        isHit= true;
-
-        yield return new WaitForSeconds(2f);
-        bossColor.material.color = Color.white;
-        isHit = false;
+        bossColor.material.color = new Color(255, 1, 1, 255);
+        yield return new WaitForSeconds(timer);
+        bossColor.material.color = new Color(1, 1, 1, 255);
+        Debug.Log("라라리ㅏ");
+        
         
     }
 
@@ -315,8 +321,10 @@ public class Golem : MonoBehaviour
     /// <param name="damageAmount"></param>
     public void MonsterTakeDamage(int damageAmount)
     {
+        isHit = true;
         currentMonsterHp -= damageAmount;
         StartCoroutine(BossColor());
+        Debug.Log($"현재 남은 체력{currentMonsterHp}");
 
         if (currentMonsterHp <= 0)
         {
