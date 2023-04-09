@@ -6,6 +6,7 @@ using System;
 public class AttackMotion : MonoBehaviour
 {
     public Action OnAttackEnter;
+    public Action OnAttackStay;
     public Action OnAttackExit;
 
     /// <summary>
@@ -22,17 +23,14 @@ public class AttackMotion : MonoBehaviour
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        Monster monster = GetComponentInParent<Monster>();
-    //        if (monster != null)
-    //        {
-    //            monster.Attack();
-    //        }
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            OnAttackStay?.Invoke();
+            
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {

@@ -182,7 +182,7 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
-
+        Debug.Log($"체력 : {currentHealth}");
         if (currentHealth <= 0)
         {
             Die();

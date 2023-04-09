@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Golem : MonoBehaviour
@@ -20,14 +22,18 @@ public class Golem : MonoBehaviour
     /// <summary>
     /// 플레이어를 감지했을 때 이동속도
     /// </summary>
-    int moveSpeed = 2;
+    //int moveSpeed = 2;
 
     /// <summary>
     /// 애니메이션 속도값
     /// </summary>
     private int move;
 
+    private float timeElapsed = 0.0f;
 
+    private bool isHit = false;
+
+    int AttackMotion;
 
     /// <summary>
     /// 플레이어 트리거 인식x = false 인식o = true 
@@ -45,6 +51,8 @@ public class Golem : MonoBehaviour
     Animator anim;
     Player player;
 
+    Renderer bossColor;
+
     protected virtual void Awake()
     {
         
@@ -52,6 +60,7 @@ public class Golem : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         player = GetComponent<Player>();
+        bossColor = GetComponentInChildren<Renderer>();
 
         //플레이어 감지 신호
         Detect detect = GetComponentInChildren<Detect>();
@@ -66,19 +75,18 @@ public class Golem : MonoBehaviour
             Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
         }
 
-        //공격 범위 신호
-        AttackMotion attack = GetComponentInChildren<AttackMotion>();
-        if (attack != null)
-        {
-            attack.OnAttackEnter += OnAttackEnter;
-            attack.OnAttackExit += OnAttackExit;
-        }
-        else
-        {
-            Debug.LogError("AttackMotion 컴포넌트를 찾을 수 없습니다.");
-        }
+        ////공격 범위 신호
+        BossAttack1 boss1 = GetComponentInChildren<BossAttack1>();
+        boss1.OnBoss1Enter += OnAttack1Enter;
+        boss1.OnBoss1Exit += OnAttack1Exit;
 
+        BossAttack2 boss2 = GetComponentInChildren<BossAttack2>();
+        boss2.OnBoss2Enter += OnAttack2Enter;
+        boss2.OnBoss2Exit += OnAttack2Exit;
 
+        //BossAttack3 boss3 = GetComponentInChildren<BossAttack3>();
+        //boss3.OnBoss3Enter += OnAttack3Enter;
+        //boss3.OnBoss3Exit += OnAttack3Exit;
     }
 
     private void Start()
@@ -89,6 +97,16 @@ public class Golem : MonoBehaviour
         StartCoroutine(transMovement());
     }
 
+    private void Update()
+    {
+        if (isHit)
+        {
+            timeElapsed += Time.deltaTime * 30;
+            float alpha = (Mathf.Cos(timeElapsed) + 1f)*0.5f;
+            bossColor.material.color = new Color(1, 1, 1,alpha);
+
+        }
+    }
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
     private void FixedUpdate()
@@ -97,13 +115,6 @@ public class Golem : MonoBehaviour
         MonsterMove();
     }
 
-    /// <summary>
-    /// 이벤트 등록 해제
-    /// </summary>
-    void OnDestroy()
-    {
-        Player.playerDied -= OnPlayerDied;
-    }
 
     //플레이어 감지 했을 때----------------------------------------------------------------------------------------------
     /// <summary>
@@ -134,34 +145,68 @@ public class Golem : MonoBehaviour
     /// </summary>
     private void OnDetectPlayerExit()
     {
-        //Run애니메이션 >> Walk로
         find = false;
 
         //다시 자동 이동
         StartCoroutine(transMovement());
     }
 
-    //플레이어가 공격 범위 내에 들어왔을 시 실행-----------------------------------------------------------------------
-    private void OnAttackEnter()
+    //플레이어와 보스에 거리마다 공격 패턴이 달라짐(범위가 긴 순서 1,2,3)---------------------------------------------------------------------------------------------
+    private void OnAttack1Enter()
     {
-       
-        //int randomAttack = 0;
-        anim.SetBool("attackrr", true);
+        AttackMotion = 1;
         move = 0;
-        find = true;
-        Debug.Log("공격버그확인");
+        anim.SetInteger("Attack", AttackMotion);
+        StopAllCoroutines();
+        Debug.Log("곡");
     }
 
-
-    private void OnAttackExit()
+    private void OnAttack1Exit()
     {
-        int randomAttack = -1;
-        move = 1;
-        anim.SetInteger("Attack", randomAttack);
-        find = false;
+        AttackMotion = 0;
+        move = 0;
+        anim.SetInteger("Attack", AttackMotion);
         StartCoroutine(transMovement());
     }
 
+    private void OnAttack2Enter()
+    {
+
+        AttackMotion = 2;
+        move = 0;
+        anim.SetInteger("Attack", AttackMotion);
+        StopAllCoroutines();
+        Debug.Log("곡2");
+    }
+
+    private void OnAttack2Exit()
+    {
+        AttackMotion = 0;
+        move = 1;
+        anim.SetInteger("Attack", AttackMotion);
+        StartCoroutine(transMovement());
+    }
+
+
+    //private void OnAttack3Enter()
+    //{
+
+    //    randomAttack = 1;
+    //    move = 1;
+    //    anim.SetInteger("Attack", randomAttack);
+    //    find = false;
+    //    StartCoroutine(RandomAttack());
+
+    //}
+
+    //private void OnAttack3Exit()
+    //{
+    //    randomAttack = 0;
+    //    move = 1;
+    //    anim.SetInteger("Attack", randomAttack);
+    //    find = false;
+    //    StartCoroutine(transMovement());
+    //}
 
 
 
@@ -187,11 +232,10 @@ public class Golem : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-
+        yield return new WaitForSeconds(1f);
         while (true)
         {
 
-            
             //move = 0 == Idle or move != 0 == Walk 실행
             move = UnityEngine.Random.Range(0, 2);
             anim.SetInteger("Move", move);
@@ -208,6 +252,20 @@ public class Golem : MonoBehaviour
         }
 
     }
+
+    IEnumerator BossColor()
+    {
+        isHit= true;
+
+        yield return new WaitForSeconds(2f);
+        bossColor.material.color = Color.white;
+        isHit = false;
+        
+    }
+
+
+
+
 
     /// <summary>
     /// 몬스터 움직임(플레이어 찾았을 때/ 플레이어가 Scene에 없을 때/ 인식이 안되었을 때)
@@ -242,6 +300,14 @@ public class Golem : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 이벤트 등록 해제
+    /// </summary>
+    void OnDestroy()
+    {
+        Player.playerDied -= OnPlayerDied;
+    }
+
 
     /// <summary>
     /// 몬스터 데미지 받다
@@ -250,6 +316,7 @@ public class Golem : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
+        StartCoroutine(BossColor());
 
         if (currentMonsterHp <= 0)
         {
@@ -257,14 +324,14 @@ public class Golem : MonoBehaviour
         }
     }
 
+   
     /// <summary>
     /// 사망
     /// </summary>
     private void MonsterDie()
     {
+        anim.SetTrigger("Die");
         //죽었을 시 사망 애니메이션 실행 예정
-
-
         Destroy(gameObject);
     }
 }
