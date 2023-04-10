@@ -58,7 +58,7 @@ public class Golem : MonoBehaviour
         
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         player = GetComponent<Player>();
         bossColor = GetComponentInChildren<Renderer>();
 
@@ -179,7 +179,7 @@ public class Golem : MonoBehaviour
     private void OnAttack2Enter()
     {
 
-        AttackMotion = 2;
+        AttackMotion = 3;
         move = 0;
         anim.SetInteger("Attack", AttackMotion);
         StopAllCoroutines();
@@ -259,15 +259,15 @@ public class Golem : MonoBehaviour
 
     }
 
-    IEnumerator BossColor()
-    {
-        bossColor.material.color = new Color(255, 1, 1, 255);
-        yield return new WaitForSeconds(timer);
-        bossColor.material.color = new Color(1, 1, 1, 255);
-        Debug.Log("라라리ㅏ");
+    
+    //IEnumerator BossColor()
+    //{
+    //    bossColor.material.color = new Color(1, 1, 1);
+
+    //    bossColor.material.color = new Color(1, 0, 0);
         
-        
-    }
+    //    yield return new WaitForSeconds(0.01f);
+    //}
 
 
 
@@ -321,9 +321,7 @@ public class Golem : MonoBehaviour
     /// <param name="damageAmount"></param>
     public void MonsterTakeDamage(int damageAmount)
     {
-        isHit = true;
         currentMonsterHp -= damageAmount;
-        StartCoroutine(BossColor());
         Debug.Log($"현재 남은 체력{currentMonsterHp}");
 
         if (currentMonsterHp <= 0)
