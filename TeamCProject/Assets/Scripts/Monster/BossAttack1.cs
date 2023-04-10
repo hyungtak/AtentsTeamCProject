@@ -6,7 +6,7 @@ using System;
 public class BossAttack1 : MonoBehaviour
 {
     public Action OnBoss1Enter;
-    //public Action OnBoss1Stay;
+    public Action OnBoss1Stay;
     public Action OnBoss1Exit;
 
     /// <summary>
@@ -23,14 +23,14 @@ public class BossAttack1 : MonoBehaviour
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        OnAttackStay?.Invoke();
-            
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            OnBoss1Stay?.Invoke();
+
+        }
+    }
 
     private void OnTriggerExit(Collider other)
     {

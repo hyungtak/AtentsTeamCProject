@@ -55,6 +55,7 @@ public class Golem : MonoBehaviour
 
     protected virtual void Awake()
     {
+        currentMonsterHp = monsterMaxHp;
         
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
@@ -78,16 +79,15 @@ public class Golem : MonoBehaviour
         ////공격 범위 신호
         BossAttack1 boss1 = GetComponentInChildren<BossAttack1>();
         boss1.OnBoss1Enter += OnAttack1Enter;
+        //boss1.OnBoss1Stay += OnAttck1Stay;
         boss1.OnBoss1Exit += OnAttack1Exit;
 
         BossAttack2 boss2 = GetComponentInChildren<BossAttack2>();
         boss2.OnBoss2Enter += OnAttack2Enter;
         boss2.OnBoss2Exit += OnAttack2Exit;
-
-        //BossAttack3 boss3 = GetComponentInChildren<BossAttack3>();
-        //boss3.OnBoss3Enter += OnAttack3Enter;
-        //boss3.OnBoss3Exit += OnAttack3Exit;
     }
+
+    
 
     private void Start()
     {
@@ -158,15 +158,15 @@ public class Golem : MonoBehaviour
         StartCoroutine(transMovement());
     }
 
-    //플레이어와 보스에 거리마다 공격 패턴이 달라짐(범위가 긴 순서 1,2,3)---------------------------------------------------------------------------------------------
+    //플레이어와 보스에 거리마다 공격 패턴이 달라짐(범위가 긴 순서 1,2)---------------------------------------------------------------------------------------------
     private void OnAttack1Enter()
     {
         AttackMotion = 1;
         move = 0;
         anim.SetInteger("Attack", AttackMotion);
         StopAllCoroutines();
-        Debug.Log("곡");
     }
+
 
     private void OnAttack1Exit()
     {
@@ -179,41 +179,20 @@ public class Golem : MonoBehaviour
     private void OnAttack2Enter()
     {
 
-        AttackMotion = 3;
+        AttackMotion = 2;
         move = 0;
         anim.SetInteger("Attack", AttackMotion);
         StopAllCoroutines();
-        Debug.Log("곡2");
     }
 
     private void OnAttack2Exit()
     {
-        AttackMotion = 0;
-        move = 1;
+        AttackMotion = 1;
+        move = 0;
         anim.SetInteger("Attack", AttackMotion);
-        StartCoroutine(transMovement());
+        StopAllCoroutines();
     }
 
-
-    //private void OnAttack3Enter()
-    //{
-
-    //    randomAttack = 1;
-    //    move = 1;
-    //    anim.SetInteger("Attack", randomAttack);
-    //    find = false;
-    //    StartCoroutine(RandomAttack());
-
-    //}
-
-    //private void OnAttack3Exit()
-    //{
-    //    randomAttack = 0;
-    //    move = 1;
-    //    anim.SetInteger("Attack", randomAttack);
-    //    find = false;
-    //    StartCoroutine(transMovement());
-    //}
 
 
 
@@ -336,8 +315,10 @@ public class Golem : MonoBehaviour
     /// </summary>
     private void MonsterDie()
     {
+        StopAllCoroutines();
         anim.SetTrigger("Die");
+        Destroy(gameObject,1.5f);
         //죽었을 시 사망 애니메이션 실행 예정
-        Destroy(gameObject);
+
     }
 }
