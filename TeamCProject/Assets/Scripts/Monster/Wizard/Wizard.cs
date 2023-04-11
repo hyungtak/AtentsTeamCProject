@@ -246,7 +246,6 @@ public class Wizard : MonoBehaviour
     void Test()
     {
         anim.SetBool("Damage", false);
-        Debug.Log("ssdd");
     }
 
 }

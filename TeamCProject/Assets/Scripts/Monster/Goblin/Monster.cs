@@ -11,11 +11,7 @@ public class Monster : MonoBehaviour
 
     int currentMonsterHp = 10;
 
-    //추가 할 것
-    //몬스터 Attack  or Damage 설정
-    //public int monsterDamage = 1;
-
-    //public delegate void playerDied(bool find);
+    private bool AttackCheck = false;
 
     Rigidbody rigid;
     Animator anim;
@@ -45,6 +41,7 @@ public class Monster : MonoBehaviour
 
     private void Awake()
     {
+        currentMonsterHp = monsterMaxHp;
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
@@ -64,7 +61,7 @@ public class Monster : MonoBehaviour
         }
 
 
-        AttackMotion attack = FindObjectOfType<AttackMotion>();
+        AttackMotion attack = GetComponentInChildren<AttackMotion>();
         if (attack != null)
         {
             attack.OnAttackEnter += OnAttackEnter;
@@ -77,20 +74,6 @@ public class Monster : MonoBehaviour
 
 
     }
-
-    private void OnAttackEnter()
-    {
-        anim.SetBool("Attacko", true);
-        find = true;
-    }
-
-    private void OnAttackExit()
-    {
-        anim.SetBool("Attacko", false);
-        
-    }
-
-    
 
     private void Start()
     {
@@ -129,11 +112,29 @@ public class Monster : MonoBehaviour
     }
 
 
-//몬스터 감지 델리게이트--------------------------------------------------
+    //공격 애니메이션 실행-------------------------------------------------
+    private void OnAttackEnter()
+    {
+        anim.SetBool("Attacko", true);
+        AttackCheck = false;
+        move= 0;
+        StopAllCoroutines();
+    }
+
+    private void OnAttackExit()
+    {
+        anim.SetBool("Attacko", false);
+        AttackCheck= true;
+        move = 1; 
+    }
+
+
+    //몬스터 감지 델리게이트--------------------------------------------------
     private void OnDetectPlayerEnter()
     {
         StopAllCoroutines();
         find = true;
+        move= 1;
         anim.SetBool("Run", true);
     }
 
@@ -142,7 +143,12 @@ public class Monster : MonoBehaviour
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
-        anim.SetBool("Run", true);
+        if (AttackCheck)
+        {
+            move = 1;
+
+            anim.SetBool("Run", true);
+        }
     }
 
     private void OnDetectPlayerExit()
@@ -165,7 +171,7 @@ public class Monster : MonoBehaviour
         while (true)
         {
             //move = 0 == Idle or move != 0 == Walk 실행
-            move = UnityEngine.Random.Range(0, 3);
+            move = UnityEngine.Random.Range(0, 2);
             anim.SetInteger("Walk", move);
 
             if (move != 0)
@@ -195,7 +201,7 @@ public class Monster : MonoBehaviour
             if (playerTrans != null)
             {
                 StopAllCoroutines();
-                move = 3;
+                
                 //dir이 플레이어 방향 찾고 크기는 1 
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
                 //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
@@ -217,6 +223,10 @@ public class Monster : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
+        anim.SetBool("Hit",true);
+        AttackCheck = false;
+        move= 0;
+        Invoke("HitAnim",1f);
 
         if (currentMonsterHp <= 0)
         {
@@ -227,7 +237,18 @@ public class Monster : MonoBehaviour
     {
         //죽었을 시 사망 애니메이션 실행 예정
 
-
-        Destroy(gameObject);
+        anim.SetTrigger("Dead");
+        Destroy(gameObject, 0.4f);
     }
+
+
+    void HitAnim()
+    {       
+        anim.SetBool("Hit", false);
+        move = 1;
+        AttackCheck= true;
+    }
+
+
+
 }
