@@ -16,6 +16,7 @@ public class Attack : MonoBehaviour
         {   
             //Player 컴포넌트 가져옴
             Player playerHealth = other.GetComponent<Player>();
+           
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);
