@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
     public GameObject fireBall;
+   
+    public int monsterMaxHp = 10;
 
-    
+    int currentMonsterHp = 100;
+
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -45,7 +49,8 @@ public class Wizard : MonoBehaviour
         anim = GetComponent<Animator>();
         player = gameObject.GetComponent<Player>();
         fireTransform = transform.GetChild(0);
-        
+
+        currentMonsterHp = monsterMaxHp;
 
         Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)
@@ -126,8 +131,7 @@ public class Wizard : MonoBehaviour
     }
 
     private void OnDetectPlayerExit()
-    {
-        //Run애니메이션 >> Walk로
+    { 
         move = 0;
         anim.SetBool("Attack", false);
         find = false;
@@ -203,9 +207,46 @@ public class Wizard : MonoBehaviour
         obj.transform.position = fireTransform.position;
     }
 
+    /// <summary>
+    /// 몬스터 데미지 받다
+    /// </summary>
+    /// <param name="damageAmount"></param>
+    public void MonsterTakeDamage(int damageAmount)
+    {
+        currentMonsterHp -= damageAmount;
+        anim.SetBool("Damage", true);
+        //Debug.Log("Damage True");
+        //StartCoroutine(HitAnim());
+        Invoke("Test",1f);
+        Debug.Log($"현재 남은 체력{currentMonsterHp}");
+        
 
+        if (currentMonsterHp <= 0)
+        {
+            MonsterDie();
+        }
+    }
+    private void MonsterDie()
+    {
+        StopAllCoroutines();
+        anim.SetTrigger("Dead");
+        Destroy(gameObject, 1.5f);
+        //죽었을 시 사망 애니메이션 실행 예정
+    }
 
+    //IEnumerator HitAnim()
+    //{
+    //    Debug.Log("dd");
+    //    anim.SetBool("Damage", true);
+    //    yield return new WaitForSeconds(0.01f);
+    //    anim.SetBool("Damage", false);
 
+    //}
 
+    void Test()
+    {
+        anim.SetBool("Damage", false);
+        Debug.Log("ssdd");
+    }
 
 }

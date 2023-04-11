@@ -11,10 +11,16 @@ public class PlayerSwordAttack : MonoBehaviour
         if (other.CompareTag("Monster"))
         {
             //Monster 컴포넌트 가져옴
-            Golem monsterHealth = other.GetComponent<Golem>();
-            if (monsterHealth != null)
+            Golem golemrHealth = other.GetComponent<Golem>();
+            if (golemrHealth != null)
             {
-                monsterHealth.MonsterTakeDamage(swordAttackDamage);
+                golemrHealth.MonsterTakeDamage(swordAttackDamage);
+            }
+
+            Wizard wizardHealth = other.GetComponent<Wizard>();
+            if (wizardHealth != null)
+            {
+                wizardHealth.MonsterTakeDamage(swordAttackDamage);
             }
         }
     }

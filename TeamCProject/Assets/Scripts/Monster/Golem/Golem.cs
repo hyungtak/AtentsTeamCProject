@@ -129,10 +129,11 @@ public class Golem : MonoBehaviour
     /// </summary>
     private void OnDetectPlayerEnter()
     {
-        Debug.Log("감지버그확인");
+        
         StopAllCoroutines();
         move = 1;
         find = true;
+        
         anim.SetInteger("Move", move);
     }
 

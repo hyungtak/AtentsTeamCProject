@@ -9958,10 +9958,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.44
-  m_Height: 7.98
+  m_Radius: 1.27
+  m_Height: 5.86
   m_Direction: 1
-  m_Center: {x: 0, y: 2.83, z: 0}
+  m_Center: {x: 0, y: 3.8, z: 0}
 --- !u!54 &6061380354035214566
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9991,6 +9991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireBall: {fileID: 5367288859551003371, guid: 153e55b7f509a9040805e6a3ab419871, type: 3}
+  monsterMaxHp: 10
 --- !u!1 &6061380354306421760
 GameObject:
   m_ObjectHideFlags: 0
