@@ -29,6 +29,7 @@ MonoBehaviour:
   m_UserAddingNewScopedRegistry: 0
   m_RegistryInfoDraft:
     m_ErrorMessage: 
+<<<<<<< HEAD
     m_Original:
       m_Id: 
       m_Name: 
@@ -42,3 +43,8 @@ MonoBehaviour:
     m_Scopes:
     - 
     m_SelectedScopeIndex: 0
+=======
+    m_UserModificationsInstanceId: -826
+    m_OriginalInstanceId: -828
+  m_LoadAssets: 25
+>>>>>>> 주형탁_작업용

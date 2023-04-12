@@ -1,8 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 895679cc268ceae47bd966edb7362ace
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
+=======
+guid: 4aecb92fff08436c8303b10eab8da368
+folderAsset: yes
+timeCreated: 1441876950
+licenseType: Pro
+DefaultImporter:
+>>>>>>> 주형탁_작업용
   userData: 
   assetBundleName: 
   assetBundleVariant: 

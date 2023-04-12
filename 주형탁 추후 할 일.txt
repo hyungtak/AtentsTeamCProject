@@ -4,6 +4,8 @@
 애니메이션 레이어: https://docs.unity.cn/kr/2021.3/Manual/AnimationLayers.html
 애니메이션 블렌드 트리: https://docs.unity3d.com/kr/530/Manual/class-BlendTree.html
 아바타 마스크 생성법: https://docs.unity3d.com/kr/530/Manual/class-AvatarMask.html
+(완성)
+
 
 로비 방
 여관에서 시작

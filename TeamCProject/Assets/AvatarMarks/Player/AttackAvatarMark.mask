@@ -1,0 +1,503 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AttackAvatarMark
+  m_Mask: 00000000000000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: body
+    m_Weight: 0
+  - m_Path: body/body 1
+    m_Weight: 0
+  - m_Path: body/body1
+    m_Weight: 0
+  - m_Path: body/body2
+    m_Weight: 0
+  - m_Path: body/body3
+    m_Weight: 0
+  - m_Path: body/body4
+    m_Weight: 0
+  - m_Path: body/body5
+    m_Weight: 0
+  - m_Path: body/body6
+    m_Weight: 0
+  - m_Path: body/body7
+    m_Weight: 0
+  - m_Path: body/body8
+    m_Weight: 0
+  - m_Path: body/body9
+    m_Weight: 0
+  - m_Path: body/body10
+    m_Weight: 0
+  - m_Path: body/body11
+    m_Weight: 0
+  - m_Path: body/body12
+    m_Weight: 0
+  - m_Path: body/body13
+    m_Weight: 0
+  - m_Path: body/body14
+    m_Weight: 0
+  - m_Path: body/body15
+    m_Weight: 0
+  - m_Path: body/body16
+    m_Weight: 0
+  - m_Path: body/body17
+    m_Weight: 0
+  - m_Path: body/body18
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_ChestEndEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_ChestOriginEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_HeadEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_LeftUpLeg/Crusader_tank_Ctrl_LeftLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_LeftUpLeg/Crusader_tank_Ctrl_LeftLeg/Crusader_tank_Ctrl_LeftFoot
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_LeftUpLeg/Crusader_tank_Ctrl_LeftLeg/Crusader_tank_Ctrl_LeftFoot/Crusader_tank_Ctrl_LeftToeBase
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_RightUpLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_RightUpLeg/Crusader_tank_Ctrl_RightLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_RightUpLeg/Crusader_tank_Ctrl_RightLeg/Crusader_tank_Ctrl_RightFoot
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_RightUpLeg/Crusader_tank_Ctrl_RightLeg/Crusader_tank_Ctrl_RightFoot/Crusader_tank_Ctrl_RightToeBase
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandIndex1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandIndex1/Crusader_tank_Ctrl_LeftHandIndex2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandIndex1/Crusader_tank_Ctrl_LeftHandIndex2/Crusader_tank_Ctrl_LeftHandIndex3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandIndex1/Crusader_tank_Ctrl_LeftHandIndex2/Crusader_tank_Ctrl_LeftHandIndex3/Crusader_tank_Ctrl_LeftHandIndex4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandMiddle1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandMiddle1/Crusader_tank_Ctrl_LeftHandMiddle2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandMiddle1/Crusader_tank_Ctrl_LeftHandMiddle2/Crusader_tank_Ctrl_LeftHandMiddle3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandMiddle1/Crusader_tank_Ctrl_LeftHandMiddle2/Crusader_tank_Ctrl_LeftHandMiddle3/Crusader_tank_Ctrl_LeftHandMiddle4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandPinky1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandPinky1/Crusader_tank_Ctrl_LeftHandPinky2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandPinky1/Crusader_tank_Ctrl_LeftHandPinky2/Crusader_tank_Ctrl_LeftHandPinky3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandPinky1/Crusader_tank_Ctrl_LeftHandPinky2/Crusader_tank_Ctrl_LeftHandPinky3/Crusader_tank_Ctrl_LeftHandPinky4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandRing1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandRing1/Crusader_tank_Ctrl_LeftHandRing2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandRing1/Crusader_tank_Ctrl_LeftHandRing2/Crusader_tank_Ctrl_LeftHandRing3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandRing1/Crusader_tank_Ctrl_LeftHandRing2/Crusader_tank_Ctrl_LeftHandRing3/Crusader_tank_Ctrl_LeftHandRing4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandThumb1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandThumb1/Crusader_tank_Ctrl_LeftHandThumb2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandThumb1/Crusader_tank_Ctrl_LeftHandThumb2/Crusader_tank_Ctrl_LeftHandThumb3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_LeftShoulder/Crusader_tank_Ctrl_LeftArm/Crusader_tank_Ctrl_LeftForeArm/Crusader_tank_Ctrl_LeftHand/Crusader_tank_Ctrl_LeftHandThumb1/Crusader_tank_Ctrl_LeftHandThumb2/Crusader_tank_Ctrl_LeftHandThumb3/Crusader_tank_Ctrl_LeftHandThumb4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_Neck
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_Neck/Crusader_tank_Ctrl_Head
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandIndex1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandIndex1/Crusader_tank_Ctrl_RightHandIndex2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandIndex1/Crusader_tank_Ctrl_RightHandIndex2/Crusader_tank_Ctrl_RightHandIndex3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandIndex1/Crusader_tank_Ctrl_RightHandIndex2/Crusader_tank_Ctrl_RightHandIndex3/Crusader_tank_Ctrl_RightHandIndex4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandMiddle1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandMiddle1/Crusader_tank_Ctrl_RightHandMiddle2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandMiddle1/Crusader_tank_Ctrl_RightHandMiddle2/Crusader_tank_Ctrl_RightHandMiddle3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandMiddle1/Crusader_tank_Ctrl_RightHandMiddle2/Crusader_tank_Ctrl_RightHandMiddle3/Crusader_tank_Ctrl_RightHandMiddle4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandPinky1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandPinky1/Crusader_tank_Ctrl_RightHandPinky2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandPinky1/Crusader_tank_Ctrl_RightHandPinky2/Crusader_tank_Ctrl_RightHandPinky3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandPinky1/Crusader_tank_Ctrl_RightHandPinky2/Crusader_tank_Ctrl_RightHandPinky3/Crusader_tank_Ctrl_RightHandPinky4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandRing1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandRing1/Crusader_tank_Ctrl_RightHandRing2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandRing1/Crusader_tank_Ctrl_RightHandRing2/Crusader_tank_Ctrl_RightHandRing3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandRing1/Crusader_tank_Ctrl_RightHandRing2/Crusader_tank_Ctrl_RightHandRing3/Crusader_tank_Ctrl_RightHandRing4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandThumb1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandThumb1/Crusader_tank_Ctrl_RightHandThumb2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandThumb1/Crusader_tank_Ctrl_RightHandThumb2/Crusader_tank_Ctrl_RightHandThumb3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_Hips/Crusader_tank_Ctrl_Spine/Crusader_tank_Ctrl_Spine1/Crusader_tank_Ctrl_Spine2/Crusader_tank_Ctrl_RightShoulder/Crusader_tank_Ctrl_RightArm/Crusader_tank_Ctrl_RightForeArm/Crusader_tank_Ctrl_RightHand/Crusader_tank_Ctrl_RightHandThumb1/Crusader_tank_Ctrl_RightHandThumb2/Crusader_tank_Ctrl_RightHandThumb3/Crusader_tank_Ctrl_RightHandThumb4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_HipsEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftAnkleEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftElbowEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftFootEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHandIndexEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHandMiddleEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHandPinkyEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHandRingEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHandThumbEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftHipEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftKneeEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftShoulderEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_LeftWristEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightAnkleEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightElbowEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightFootEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHandIndexEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHandMiddleEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHandPinkyEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHandRingEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHandThumbEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightHipEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightKneeEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightShoulderEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Ctrl_Reference/Crusader_tank_Ctrl_RightWristEffector
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/Crusader_tank_LeftFoot
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/Crusader_tank_LeftFoot/Crusader_tank_LeftToeBase
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/Crusader_tank_LeftFoot/heel_flap_left1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/Crusader_tank_LeftFoot/heel_flap_left1/heel_flap_left2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/flap_under_the_knee_left1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/flap_under_the_knee_left1/flap_under_the_knee_left2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/knee_pad_left1_1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_LeftUpLeg/Crusader_tank_LeftLeg/knee_pad_left1_1/knee_pad_left1_2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/Crusader_tank_RightFoot
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/Crusader_tank_RightFoot/Crusader_tank_RightToeBase
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/Crusader_tank_RightFoot/heel_flap_right1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/Crusader_tank_RightFoot/heel_flap_right1/heel_flap_right2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/flap_under_the_knee_right1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/flap_under_the_knee_right1/flap_under_the_knee_right2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/knee_pad_right1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_RightUpLeg/Crusader_tank_RightLeg/knee_pad_right1/knee_pad_right2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_back1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_back1/bag_back2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_front1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_front1/bag_front2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_right1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/bag_right1/bag_right2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftArm_shoulder1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftArm_shoulder1/Crusader_tank_LeftArm_shoulder2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandIndex1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandIndex1/Crusader_tank_LeftHandIndex2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandIndex1/Crusader_tank_LeftHandIndex2/Crusader_tank_LeftHandIndex3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandIndex1/Crusader_tank_LeftHandIndex2/Crusader_tank_LeftHandIndex3/Crusader_tank_LeftHandIndex4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandMiddle1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandMiddle1/Crusader_tank_LeftHandMiddle2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandMiddle1/Crusader_tank_LeftHandMiddle2/Crusader_tank_LeftHandMiddle3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandMiddle1/Crusader_tank_LeftHandMiddle2/Crusader_tank_LeftHandMiddle3/Crusader_tank_LeftHandMiddle4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandPinky1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandPinky1/Crusader_tank_LeftHandPinky2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandPinky1/Crusader_tank_LeftHandPinky2/Crusader_tank_LeftHandPinky3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandPinky1/Crusader_tank_LeftHandPinky2/Crusader_tank_LeftHandPinky3/Crusader_tank_LeftHandPinky4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandRing1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandRing1/Crusader_tank_LeftHandRing2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandRing1/Crusader_tank_LeftHandRing2/Crusader_tank_LeftHandRing3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandRing1/Crusader_tank_LeftHandRing2/Crusader_tank_LeftHandRing3/Crusader_tank_LeftHandRing4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandThumb1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandThumb1/Crusader_tank_LeftHandThumb2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandThumb1/Crusader_tank_LeftHandThumb2/Crusader_tank_LeftHandThumb3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/Crusader_tank_LeftHandThumb1/Crusader_tank_LeftHandThumb2/Crusader_tank_LeftHandThumb3/Crusader_tank_LeftHandThumb4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/shield1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/shield1/shield2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_LeftShoulder/Crusader_tank_LeftArm/Crusader_tank_LeftForeArm/Crusader_tank_LeftHand/shield1/shield3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_Neck
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_Neck/Crusader_tank_Head
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_rightArm_shoulder2_1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_rightArm_shoulder2_1/Crusader_tank_rightArm_shoulder2_2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandIndex1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandIndex1/Crusader_tank_RightHandIndex2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandIndex1/Crusader_tank_RightHandIndex2/Crusader_tank_RightHandIndex3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandIndex1/Crusader_tank_RightHandIndex2/Crusader_tank_RightHandIndex3/Crusader_tank_RightHandIndex4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandMiddle1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandMiddle1/Crusader_tank_RightHandMiddle2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandMiddle1/Crusader_tank_RightHandMiddle2/Crusader_tank_RightHandMiddle3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandMiddle1/Crusader_tank_RightHandMiddle2/Crusader_tank_RightHandMiddle3/Crusader_tank_RightHandMiddle4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandPinky1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandPinky1/Crusader_tank_RightHandPinky2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandPinky1/Crusader_tank_RightHandPinky2/Crusader_tank_RightHandPinky3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandPinky1/Crusader_tank_RightHandPinky2/Crusader_tank_RightHandPinky3/Crusader_tank_RightHandPinky4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandRing1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandRing1/Crusader_tank_RightHandRing2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandRing1/Crusader_tank_RightHandRing2/Crusader_tank_RightHandRing3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandRing1/Crusader_tank_RightHandRing2/Crusader_tank_RightHandRing3/Crusader_tank_RightHandRing4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandThumb1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandThumb1/Crusader_tank_RightHandThumb2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandThumb1/Crusader_tank_RightHandThumb2/Crusader_tank_RightHandThumb3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/Crusader_tank_RightHandThumb1/Crusader_tank_RightHandThumb2/Crusader_tank_RightHandThumb3/Crusader_tank_RightHandThumb4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10/chain11
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10/chain11/chain12
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10/chain11/chain12/ball_on_a_club1
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10/chain11/chain12/ball_on_a_club1/ball_on_a_club2
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/Crusader_tank_Spine1/Crusader_tank_Spine2/Crusader_tank_RightShoulder/Crusader_tank_RightArm/Crusader_tank_RightForeArm/Crusader_tank_RightHand/stick_of_a_club1/chain1/chain2/chain3/chain4/chain5/chain6/chain7/chain8/chain9/chain10/chain11/chain12/ball_on_a_club1/ball_on_a_club2/ball_on_a_club3
+    m_Weight: 1
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/hip_flap_left1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/hip_flap_left1/hip_flap_left2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/hip_flap_right1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/hip_flap_right1/hip_flap_right2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_back1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_back1/toga_left_back2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_back1/toga_left_back2/toga_left_back3
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_front1_1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_front1_1/toga_left_front1_2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_left_front1_1/toga_left_front1_2/toga_left_front1_3
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_back1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_back1/toga_mid_back2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_back1/toga_mid_back2/toga_mid_back3
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_front3_4
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_front3_4/toga_mid_front3_5
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_mid_front3_4/toga_mid_front3_5/toga_mid_front3_6
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_back1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_back1/toga_right_back2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_back1/toga_right_back2/toga_right_back3
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_front1
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_front1/toga_right_front2
+    m_Weight: 0
+  - m_Path: Crusader_tank_Reference/Crusader_tank_Hips/Crusader_tank_Spine/toga_right_front1/toga_right_front2/toga_right_front3
+    m_Weight: 0
+  - m_Path: weapon
+    m_Weight: 1
+  - m_Path: weapon/weapon1
+    m_Weight: 1
+  - m_Path: weapon/weapon2
+    m_Weight: 1
+  - m_Path: weapon/weapon3
+    m_Weight: 1
+  - m_Path: weapon/weapon4
+    m_Weight: 1
+  - m_Path: weapon/weapon5
+    m_Weight: 1
+  - m_Path: weapon/weapon6
+    m_Weight: 1
+  - m_Path: weapon/weapon7
+    m_Weight: 1
