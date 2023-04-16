@@ -142,10 +142,12 @@ public class Golem : MonoBehaviour
     /// </summary>
     private void OnDetectPlayerStay()
     {
+      
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
         anim.SetInteger("Move", move);
+
     }
 
     /// <summary>
@@ -162,11 +164,13 @@ public class Golem : MonoBehaviour
     //플레이어와 보스에 거리마다 공격 패턴이 달라짐(범위가 긴 순서 1,2)---------------------------------------------------------------------------------------------
     private void OnAttack1Enter()
     {
+
         StopAllCoroutines();
         AttackMotion = 1;
         move = 0;
         anim.SetInteger("Attack", AttackMotion);
-        
+
+
     }
 
 
@@ -177,7 +181,7 @@ public class Golem : MonoBehaviour
         anim.SetInteger("Attack", AttackMotion);
         StartCoroutine(transMovement());
     }
-
+     
     private void OnAttack2Enter()
     {
 
