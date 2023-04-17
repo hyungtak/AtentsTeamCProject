@@ -175,7 +175,7 @@ public class Golem : MonoBehaviour
         AttackMotion = 0;
         move = 0;
         anim.SetInteger("Attack", AttackMotion);
-        StartCoroutine(transMovement());
+        find = true;
     }
 
     private void OnAttack2Enter()
@@ -194,9 +194,6 @@ public class Golem : MonoBehaviour
         anim.SetInteger("Attack", AttackMotion);
         StopAllCoroutines();
     }
-
-
-
 
 
     //플레이어가 맵에 등장----------------------------------------------------------------------------
@@ -220,7 +217,7 @@ public class Golem : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-        yield return null;
+        yield return new WaitForSeconds(2f);
         while (true)
         {
 
@@ -240,20 +237,6 @@ public class Golem : MonoBehaviour
 
     }
 
-    
-    //IEnumerator BossColor()
-    //{
-    //    bossColor.material.color = new Color(1, 1, 1);
-
-    //    bossColor.material.color = new Color(1, 0, 0);
-        
-    //    yield return new WaitForSeconds(0.01f);
-    //}
-
-
-
-
-
     /// <summary>
     /// 몬스터 움직임(플레이어 찾았을 때/ 플레이어가 Scene에 없을 때/ 인식이 안되었을 때)
     /// </summary>
@@ -263,9 +246,9 @@ public class Golem : MonoBehaviour
         //플레이어를 인식 했을 때
         if (find)
         {
-
             if (playerTrans != null)
             {
+
                 StopAllCoroutines();
                 //dir이 플레이어 방향 찾고 크기는 1 
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
