@@ -114,14 +114,11 @@ public class Wizard : MonoBehaviour
         StopAllCoroutines();
         find = true;
         anim.SetBool("Attack", true);
-
-        
-
     }
 
     private void OnDetectPlayerStay()
     {
-        
+
         anim.SetBool("Attack", true);
         move = 1;
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
@@ -135,7 +132,12 @@ public class Wizard : MonoBehaviour
         move = 0;
         anim.SetBool("Attack", false);
         find = false;
-        //다시 자동 이동
+        eventCo();
+
+    }
+    
+    void eventCo()
+    {
         StartCoroutine(transMovement());
     }
 

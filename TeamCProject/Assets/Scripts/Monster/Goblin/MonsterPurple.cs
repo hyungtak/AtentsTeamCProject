@@ -39,7 +39,7 @@ public class MonsterPurple : MonoBehaviour
     /// <summary>
     /// 플레이어 트리거 인식 false 인식x true 인식o
     /// </summary>
-    bool find = false;
+    //bool find = false;
 
     private Vector3 monsterTransform;
 
