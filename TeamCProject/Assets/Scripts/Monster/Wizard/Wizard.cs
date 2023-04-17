@@ -132,14 +132,14 @@ public class Wizard : MonoBehaviour
         move = 0;
         anim.SetBool("Attack", false);
         find = false;
-        eventCo();
+        StartCoroutine(transMovement());
 
     }
     
-    void eventCo()
-    {
-        StartCoroutine(transMovement());
-    }
+    //void eventCo()
+    //{
+    //    StartCoroutine(transMovement());
+    //}
 
 
     /// <summary>
@@ -148,7 +148,7 @@ public class Wizard : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-
+        yield return new WaitForSeconds(2f);
         while (true)
         {
             //move = 0이면 Idle or move != 0이면 Walk 실행
@@ -168,7 +168,6 @@ public class Wizard : MonoBehaviour
     }
 
 
-    //}
 
 
     /// <summary>
