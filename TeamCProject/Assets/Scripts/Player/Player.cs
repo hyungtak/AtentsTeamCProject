@@ -77,6 +77,9 @@ public class Player : MonoBehaviour
     /// </summary>
     public int currentHealth;
 
+    int coinPoint = 0;
+
+    public Action<int> CoinPlus;
 
     /// <summary>
     /// 델리게이트 or 이벤트 선언 
@@ -100,6 +103,7 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         //Monster monster = FindObjectOfType<Monster>();
+        Debug.Log($"처음 CoinPoint :{coinPoint}");
     }
 
     private void OnEnable()
@@ -216,5 +220,15 @@ public class Player : MonoBehaviour
         Debug.Log($"HP: {currentHealth}");
     }
 
+    public void AddCoin(int Point)
+    {
+        coinPoint += Point;
+        
+        Debug.Log($"CoinPoint추가 :{coinPoint}");
+
+        //UI작업 시 사용
+        //CoinPlus?.Invoke(coinPoint);
+
+    }
 
 }

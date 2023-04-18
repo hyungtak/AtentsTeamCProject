@@ -8,7 +8,6 @@ public class Potion : MonoBehaviour
 {
     Transform healingPotion;
 
-
     public int healing = 50;
 
     /// <summary>
@@ -43,7 +42,7 @@ public class Potion : MonoBehaviour
         float potionY = Mathf.Sin(Time.time * moveSpeed) * moveRange;   //Sin을 사용하여 위아래 아이템의 위아래 움직임
         transform.position = startPoint + new Vector3(0, potionY, 0);
 
-        healingPotion.Rotate(Time.deltaTime * RotateMove * Vector3.forward);
+        healingPotion.Rotate(Time.deltaTime * RotateMove * Vector3.forward);    //회전
 
     }
 
@@ -53,7 +52,7 @@ public class Potion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);       //사용
-            player.AddHP(healing);          //
+            player.AddHP(healing);          //힐량 추가
 
         }
     }
