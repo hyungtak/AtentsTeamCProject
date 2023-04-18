@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -75,11 +77,16 @@ public class Player : MonoBehaviour
     /// </summary>
     public int currentHealth;
 
+
     /// <summary>
     /// 델리게이트 or 이벤트 선언 
     /// </summary>
     public delegate void PlayerDied();
     public static event PlayerDied playerDied;
+
+
+
+
     //=====================================================================
 
     private void Awake()
@@ -198,4 +205,16 @@ public class Player : MonoBehaviour
         
         
     }
+
+    /// <summary>
+    /// 플레이어가 체력회복
+    /// </summary>
+    /// <param name="healing">포션 회복량</param>
+    public void AddHP(int healing)
+    {
+        currentHealth += healing;
+        Debug.Log($"HP: {currentHealth}");
+    }
+
+
 }
