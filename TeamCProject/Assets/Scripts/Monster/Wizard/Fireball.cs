@@ -27,7 +27,10 @@ public class Fireball : MonoBehaviour
     {
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 
+        
         Vector3 playerPos = playerTrans.position;
+        playerPos.y = 0.9f;
+        
         //월드 기준으로 방향을 잡는게 아닌 본인 기준으로 방향을 잡아야 한다.
         //transform.rotation = Quaternion.LookRotation(playerPos);
         //해결법

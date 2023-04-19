@@ -12,6 +12,8 @@ public class Wizard : MonoBehaviour
 
     int currentMonsterHp = 100;
 
+    //bool Die = false;
+
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -113,17 +115,19 @@ public class Wizard : MonoBehaviour
         //move = 1;
         StopAllCoroutines();
         find = true;
-        anim.SetBool("Attack", true);
+        //anim.SetBool("Attack", true);
+        StartCoroutine(fireballDelay());
     }
 
     private void OnDetectPlayerStay()
     {
 
-        anim.SetBool("Attack", true);
+        
         move = 1;
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
+        
 
     }
 
@@ -148,7 +152,7 @@ public class Wizard : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         while (true)
         {
             //move = 0이면 Idle or move != 0이면 Walk 실행
@@ -167,6 +171,13 @@ public class Wizard : MonoBehaviour
 
     }
 
+    IEnumerator fireballDelay()
+    {
+        //yield return new WaitForSeconds(1f);
+        anim.SetBool("Attack", true);
+        yield return new WaitForSeconds(1f);
+       
+    }
 
 
 
