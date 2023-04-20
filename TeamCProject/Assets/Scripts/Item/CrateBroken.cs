@@ -11,12 +11,18 @@ public class CrateBroken : MonoBehaviour
     public float radius = 1.0f;
     public float upfoward = -1.0f;
     public float timer = 3.0f;
-    
+    Rigidbody rg;
+
     Transform creation;
 
     private void Awake()
     {
         creation = transform.GetChild(0);
+        rg = GetComponentInChildren<Rigidbody>();
+    }
+    private void Start()
+    {
+        rg.useGravity = false;
     }
 
 
@@ -33,6 +39,7 @@ public class CrateBroken : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
         {
+            rg.useGravity = true;
             Debug.Log("파과");
             Break();
         }
@@ -42,8 +49,10 @@ public class CrateBroken : MonoBehaviour
 
     void Break()
     {
-            Rigidbody[] rigid = GetComponentsInChildren<Rigidbody>();
-
+        
+        Rigidbody[] rigid = GetComponentsInChildren<Rigidbody>();
+            
+            
             Vector3 center = transform.position;
 
             foreach (Rigidbody rb in rigid)
@@ -51,18 +60,12 @@ public class CrateBroken : MonoBehaviour
                 rb.AddExplosionForce(explosionPower, center, radius, upfoward, ForceMode.Impulse);
                 boroken = true;
                 Debug.Log("파과ㅣ ");
-                //Destroy();
             }
 
         GameObject obj = Instantiate(potion , creation.position, Quaternion.identity);
-        //obj.transform.position = creation.position;
     }
 
-    //private void Destroy()
-    //{
-      
 
-    //}
 
 
 }
