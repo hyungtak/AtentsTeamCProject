@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEngine;
 using System;
@@ -6,21 +5,36 @@ using System.Runtime.InteropServices;
 
 public class Monster : MonoBehaviour
 {
-    //몬스터 Hp int
+    /// <summary>
+    /// 최대Hp
+    /// </summary>
     public int monsterMaxHp = 10;
 
+    /// <summary>
+    /// 현재 Hp
+    /// </summary>
     int currentMonsterHp = 10;
 
+    /// <summary>
+    /// 공격을 했는지 안했는지 true 했다 , false 안했다.
+    /// </summary>
     private bool AttackCheck = false;
 
-    Rigidbody rigid;
-    Animator anim;
+    /// <summary>
+    /// coin 오브젝트 받기
+    /// </summary>
+    public GameObject coin;
+
 
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
     Transform playerTrans;
     Player player;
+
+    Rigidbody rigid;
+    Animator anim;
+
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -38,6 +52,7 @@ public class Monster : MonoBehaviour
     bool find = false;
 
     private Vector3 monsterTransform;
+
 
     private void Awake()
     {
@@ -233,22 +248,29 @@ public class Monster : MonoBehaviour
             MonsterDie();
         }
     }
+
     private void MonsterDie()
     {
         //죽었을 시 사망 애니메이션 실행 예정
 
         anim.SetTrigger("Dead");
         Destroy(gameObject, 0.4f);
+
+        //코인 위치 설정 후 생성
+        Vector3 center = transform.position;
+        center.y = 0.5f;
+
+        GameObject obj = Instantiate(coin, center, Quaternion.identity);      
+
     }
 
 
     void HitAnim()
-    {       
+    {
         anim.SetBool("Hit", false);
         move = 1;
-        AttackCheck= true;
+        AttackCheck = true;
     }
-
 
 
 }
