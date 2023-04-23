@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
     public static event PlayerDied playerDied;
 
 
-
+    public Action<int> onDie;
 
     //=====================================================================
 
@@ -204,10 +204,9 @@ public class Player : MonoBehaviour
     {
         if (playerDied != null)
         {
+            onDie?.Invoke(coinPoint);
             playerDied();
-        }
-        
-        
+        }  
     }
 
     /// <summary>
@@ -225,9 +224,6 @@ public class Player : MonoBehaviour
         coinPoint += Point;
         
         Debug.Log($"CoinPoint추가 :{coinPoint}");
-
-        //UI작업 시 사용
-        //CoinPlus?.Invoke(coinPoint);
 
     }
 
