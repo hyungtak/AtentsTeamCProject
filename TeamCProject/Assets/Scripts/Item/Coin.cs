@@ -27,7 +27,7 @@ public class Coin : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         startPoint = transform.position;
-
+          
     }
 
     private void Update()

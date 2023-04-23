@@ -1226,6 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterMaxHp: 30
+  coin: {fileID: 6483212268769496128, guid: b4d9234bae91fc5428c27f430cdcc7d3, type: 3}
 --- !u!1 &8645214939482553422
 GameObject:
   m_ObjectHideFlags: 0
