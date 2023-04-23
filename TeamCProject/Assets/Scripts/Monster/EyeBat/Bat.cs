@@ -16,7 +16,7 @@ public class Bat : MonoBehaviour
     /// </summary>
     int currentMonsterHp = 10;
 
-    private float speed = 10f;
+    private float speed;
     public float moveRange = 0.01f;
 
     /// <summary>
@@ -29,12 +29,12 @@ public class Bat : MonoBehaviour
     /// </summary>
     private bool AttackCheck = false;
 
-
     /// <summary>
     /// 몬스터가 기본 회전값
     /// </summary>
     const int transRotate = 180;
 
+    private float gN = 0.3f;
 
     /// <summary>
     /// 플레이어 위치 저장 할 변수
@@ -45,12 +45,16 @@ public class Bat : MonoBehaviour
     Rigidbody rigid;
     Animator anim;
 
- 
+    Transform ground;
     /// <summary>
     /// coin 오브젝트 받기
     /// </summary>
     public GameObject coin;
 
+    /// <summary>
+    /// 공격 실패시 돌아갈 장소
+    /// </summary>
+    Vector3 startPosition;
 
     /// <summary>
     /// 플레이어 트리거 인식 false 인식x true 인식o
@@ -65,7 +69,6 @@ public class Bat : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
 
         player = GetComponent<Player>();
-
         Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)
         {
@@ -81,9 +84,11 @@ public class Bat : MonoBehaviour
     private void Start()
     {
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        ground = GameObject.FindGameObjectWithTag("Ground").transform;
         Player.playerDied += OnPlayerDied;
 
-        
+        startPosition = transform.position;
+
         //코루틴 실행
         StartCoroutine(transMovement());
     }
@@ -117,6 +122,7 @@ public class Bat : MonoBehaviour
     {
         StopAllCoroutines();
         Vector3 playerPos = playerTrans.position - transform.position;
+        playerPos.y -= 0.3f;
         transform.rotation = Quaternion.LookRotation(playerPos);
 
         AttackCheck = true;
@@ -147,9 +153,16 @@ public class Bat : MonoBehaviour
         {
             if (playerTrans != null)
             {
+                speed = 4f;
                 StopAllCoroutines();
                 transform.position += transform.forward * speed * Time.fixedDeltaTime;
-                
+                float distance = Vector3.Distance(transform.position, ground.position);
+                if (distance < gN)
+                {
+                    transform.position = startPosition;
+                    // 일정 거리 이내에 도달한 경우 실행할 코드 작성
+                }
+              
             }
 
             else if (playerTrans == null)
@@ -200,18 +213,23 @@ public class Bat : MonoBehaviour
 
     IEnumerator playerDetect()
     {
-        if (AttackCheck)
-        {
-            anim.SetBool("Detect", true);
-            AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-            float currentTime = stateInfo.normalizedTime * stateInfo.length;
-            yield return new WaitForSeconds(currentTime);
-            anim.SetBool("Attack", true);
-            find = true;
-            yield return new WaitForSeconds(2f);
-        }
+        move = 0;
+        anim.SetBool("Detect", true);
+        yield return null;
+        //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        //float currentTime = stateInfo.normalizedTime * stateInfo.length;
+        //yield return new WaitForSeconds(currentTime);
+        //anim.SetBool("Attack", true);
+        //find = true;
 
     }
+
+    void Cheking()
+    {
+        anim.SetBool("Attack", true);
+        find = true;
+    }
+
 
 
 
