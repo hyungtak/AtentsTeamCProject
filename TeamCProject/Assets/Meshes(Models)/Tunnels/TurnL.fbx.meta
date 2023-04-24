@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7731b28027d61e2458f3abc39c18e090
+guid: 320a826fe9dea3745875c53e962eb757
 timeCreated: 1496445573
 licenseType: Store
 ModelImporter:
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Tunnel2
+    4300000: TurnL
   materials:
     importMaterials: 1
     materialName: 0
