@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class Bat : MonoBehaviour
 {
@@ -30,12 +31,17 @@ public class Bat : MonoBehaviour
     private bool AttackCheck = false;
 
     /// <summary>
+    /// 플레이어가 감지 확인 true면 확인 flase 확인X
+    /// </summary>
+    private bool playerCheck = false;
+
+    /// <summary>
     /// 몬스터가 기본 회전값
     /// </summary>
     const int transRotate = 180;
 
     /// <summary>
-    /// 
+    /// 박쥐와 땅의 최소거리
     /// </summary>
     private float groundRange = 0.4f;
 
@@ -89,12 +95,14 @@ public class Bat : MonoBehaviour
         GroundDetect GD = GetComponent<GroundDetect>();
         if(GD != null)
         {
-            GD.OnEnter += OnDetectPlayerEnter;
-            GD.OnExit += OnDetectPlayerExit;
+            GD.OnEnter += OnDetectGroundEnter;
+            GD.OnExit += OnDetectGroundExit;
         }
 
 
     }
+
+   
 
     private void Start()
     {
@@ -111,6 +119,7 @@ public class Bat : MonoBehaviour
     private void FixedUpdate()
     {
         MonsterMove();
+        firstPositionMove();
     }
 
     /// <summary>
@@ -132,20 +141,18 @@ public class Bat : MonoBehaviour
         //StartCoroutine(transMovement());
     }
 
-    //몬스터 감지 델리게이트--------------------------------------------------
+    //플레이어 감지 델리게이트--------------------------------------------------
     private void OnDetectPlayerEnter()
     {
         StopAllCoroutines();
-        Vector3 playerPos = playerTrans.position - transform.position;
-        playerPos.y -= 0.3f;
-        transform.rotation = Quaternion.LookRotation(playerPos);
+        Vector3 playerPos = playerTrans.position - transform.position;      //플레이어 위치
+        playerPos.y -= 0.3f;                                                //y값 높임
+        transform.rotation = Quaternion.LookRotation(playerPos);            //그 쪽 방향으로 회전
 
-        AttackCheck = true;
+        move = 0;
+        anim.SetBool("Detect", true);                                       //감지모션
+
         StartCoroutine(playerDetect());
-
-
-
-
 
     }
 
@@ -158,45 +165,61 @@ public class Bat : MonoBehaviour
         StartCoroutine(transMovement());
     }
 
-
-    
-
-
-    /// <summary>
-    /// 몬스터 움직임
-    /// </summary>
-    private void MonsterMove()
+    //Ground감지 델리게이트--------------------------------------------------------------------------------
+    private void OnDetectGroundEnter()
     {
 
-        //플레이어를 인식 했을 때
-        if (find)
+        find = false;
+        move = 0;
+        
+        anim.SetBool("Attack", false);
+
+    }
+
+    private void OnDetectGroundExit()
+    {
+        
+        throw new NotImplementedException();
+    
+    }
+
+
+    void Cheking()
+    {
+        StopAllCoroutines();
+        if (playerCheck)
         {
-            if (playerTrans != null)
+            anim.SetBool("Attack", true);
+            find = true;
+            
+            //트리거 사용해서 해도 될듯
+            float distance = Vector3.Distance(transform.position, ground.position);
+            if (distance <= groundRange)
             {
-                speed = 4f;
-                StopAllCoroutines();
-                transform.position += transform.forward * speed * Time.fixedDeltaTime;
-
-              
-            }
-
-            else if (playerTrans == null)
-            {
-                rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                //anim.SetBool("Jump", true);
+                
+                transform.position = startPosition;
+                // 일정 거리 이내에 도달한 경우 실행할 코드 작성
             }
         }
-        //인식 안했을 때 행동                              
         else
         {
-            speed = 1f;
-            float BatY = Mathf.Sin(Time.time * speed) * moveRange;
-            Vector3 newPosition = transform.position + Time.fixedDeltaTime * move * transform.forward;
-            newPosition.y = BatY + 1f;
-            rigid.MovePosition(newPosition);
-
+            anim.SetBool("Detect", false);
+            StartCoroutine(transMovement());
         }
+        
 
+
+    }
+    IEnumerator playerDetect()
+    {
+
+        yield return null;
+
+        //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        //float currentTime = stateInfo.normalizedTime * stateInfo.length;
+        //yield return new WaitForSeconds(currentTime);
+        //anim.SetBool("Attack", true);
+        //find = true;
 
     }
 
@@ -226,39 +249,51 @@ public class Bat : MonoBehaviour
 
     }
 
-    IEnumerator playerDetect()
-    {
-        move = 0;
-        anim.SetBool("Detect", true);
-        yield return null;
 
-        //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        //float currentTime = stateInfo.normalizedTime * stateInfo.length;
-        //yield return new WaitForSeconds(currentTime);
-        //anim.SetBool("Attack", true);
-        //find = true;
+    private void firstPositionMove()
+    {
+        Vector3 fristPos = startPosition - transform.position;
+        transform.rotation = Quaternion.LookRotation(fristPos);
+
+        rigid.MovePosition();
 
     }
 
-    void Cheking()
+    /// <summary>
+    /// 몬스터 움직임
+    /// </summary>
+    private void MonsterMove()
     {
-        StopAllCoroutines();
-        anim.SetBool("Attack", true);
-        find = true;
-        float distance = Vector3.Distance(transform.position, ground.position);
-        if (distance <= groundRange)
+
+        //플레이어를 인식 했을 때
+        if (find)
         {
-            find= false;
-            move = 0;
-            anim.SetBool("Attack", false);
-            transform.position = startPosition;
-            // 일정 거리 이내에 도달한 경우 실행할 코드 작성
+            if (playerTrans != null)
+            {
+                speed = 4f;
+                StopAllCoroutines();
+                transform.position += transform.forward * speed * Time.fixedDeltaTime;
+            }
+
+            else if (playerTrans == null)
+            {
+                rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
+                //anim.SetBool("Jump", true);
+            }
+        }
+        //인식 안했을 때 행동                              
+        else
+        {
+            speed = 1f;
+            float BatY = Mathf.Sin(Time.time * speed) * moveRange;
+            Vector3 newPosition = transform.position + Time.fixedDeltaTime * move * transform.forward;
+            newPosition.y = BatY + 1f;
+            rigid.MovePosition(newPosition);
+
         }
 
 
     }
-
-
 
 
     public void MonsterTakeDamage(int damageAmount)
