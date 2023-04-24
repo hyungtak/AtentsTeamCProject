@@ -122,6 +122,17 @@
                 },
                 {
                     "name": "",
+                    "id": "fd485b3c-5d7f-4cb0-9217-311862e6dc9b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "7985a221-5d39-49ac-94bc-1f17e750acd2",
                     "path": "<Keyboard>/space",
                     "interactions": "",

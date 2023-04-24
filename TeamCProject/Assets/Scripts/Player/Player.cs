@@ -51,11 +51,25 @@ public class Player : MonoBehaviour
     float moveDirection = 0;
 
     /// <summary>
-    /// 점프 중인지 확인용 변수
-    /// 참이면 점프중, 거짓이면 점프 중 아님
+    /// 최대 점프 가능 횟수
+    /// 땅에 닿을 시 이 값으로 점프 가능 횟수 리셋
     /// </summary>
-    bool isJump = false;
+    int maxJumpCount = 2;
 
+    /// <summary>
+    /// 점프 가능 횟수
+    /// 점프 1번당 1씩 소모
+    /// </summary>
+    int jumpCount = 2;
+
+    /// <summary>
+    /// 2단점프 할 때 벨로시티 수정을 위해 저장해둘 변수
+    /// </summary>
+    Vector3 jumpVelocity = Vector3.zero;
+
+    /// <summary>
+    /// 공격 딜레이용 변수
+    /// </summary>
     WaitForSeconds attackDelayTime = new WaitForSeconds(1);
 
     /// <summary>
@@ -128,7 +142,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))                   //Ground 와 충돌했을 때만
         {
-            isJump = false;
+            jumpCount = maxJumpCount;
         }
     }
 
@@ -159,10 +173,15 @@ public class Player : MonoBehaviour
 
     private void OnJumpInput(InputAction.CallbackContext obj)
     {
-        if (!isJump)
+        if (jumpCount != 0)
         {
+            //2단 점프를 위한 계산
+            jumpVelocity = rigid.velocity;
+            jumpVelocity.y = 0;
+            rigid.velocity = jumpVelocity;
+
             rigid.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
-            isJump = true;
+            jumpCount--;
         }
     }
 
