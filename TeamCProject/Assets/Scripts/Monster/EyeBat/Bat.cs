@@ -34,7 +34,10 @@ public class Bat : MonoBehaviour
     /// </summary>
     const int transRotate = 180;
 
-    private float gN = 0.3f;
+    /// <summary>
+    /// 
+    /// </summary>
+    private float groundRange = 0.4f;
 
     /// <summary>
     /// 플레이어 위치 저장 할 변수
@@ -45,6 +48,9 @@ public class Bat : MonoBehaviour
     Rigidbody rigid;
     Animator anim;
 
+    /// <summary>
+    /// 지면과의 거리
+    /// </summary>
     Transform ground;
     /// <summary>
     /// coin 오브젝트 받기
@@ -79,6 +85,15 @@ public class Bat : MonoBehaviour
         {
             Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
         }
+
+        GroundDetect GD = GetComponent<GroundDetect>();
+        if(GD != null)
+        {
+            GD.OnEnter += OnDetectPlayerEnter;
+            GD.OnExit += OnDetectPlayerExit;
+        }
+
+
     }
 
     private void Start()
@@ -127,6 +142,11 @@ public class Bat : MonoBehaviour
 
         AttackCheck = true;
         StartCoroutine(playerDetect());
+
+
+
+
+
     }
 
     private void OnDetectPlayerExit()
@@ -156,12 +176,7 @@ public class Bat : MonoBehaviour
                 speed = 4f;
                 StopAllCoroutines();
                 transform.position += transform.forward * speed * Time.fixedDeltaTime;
-                float distance = Vector3.Distance(transform.position, ground.position);
-                if (distance < gN)
-                {
-                    transform.position = startPosition;
-                    // 일정 거리 이내에 도달한 경우 실행할 코드 작성
-                }
+
               
             }
 
@@ -216,6 +231,7 @@ public class Bat : MonoBehaviour
         move = 0;
         anim.SetBool("Detect", true);
         yield return null;
+
         //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         //float currentTime = stateInfo.normalizedTime * stateInfo.length;
         //yield return new WaitForSeconds(currentTime);
@@ -226,8 +242,20 @@ public class Bat : MonoBehaviour
 
     void Cheking()
     {
+        StopAllCoroutines();
         anim.SetBool("Attack", true);
         find = true;
+        float distance = Vector3.Distance(transform.position, ground.position);
+        if (distance <= groundRange)
+        {
+            find= false;
+            move = 0;
+            anim.SetBool("Attack", false);
+            transform.position = startPosition;
+            // 일정 거리 이내에 도달한 경우 실행할 코드 작성
+        }
+
+
     }
 
 
