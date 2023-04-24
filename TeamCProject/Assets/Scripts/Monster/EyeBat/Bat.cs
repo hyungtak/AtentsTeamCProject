@@ -92,11 +92,10 @@ public class Bat : MonoBehaviour
             Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
         }
 
-        GroundDetect GD = GetComponent<GroundDetect>();
+        GroundDetect GD = GetComponentInChildren<GroundDetect>();
         if(GD != null)
         {
             GD.OnEnter += OnDetectGroundEnter;
-            GD.OnExit += OnDetectGroundExit;
         }
 
 
@@ -119,6 +118,10 @@ public class Bat : MonoBehaviour
     private void FixedUpdate()
     {
         MonsterMove();
+    }
+
+    private void Update()
+    {
         firstPositionMove();
     }
 
@@ -138,8 +141,9 @@ public class Bat : MonoBehaviour
         find = false;
         anim.SetBool("PlayerDie", true);
         move = 0;
-        //StartCoroutine(transMovement());
     }
+
+
 
     //플레이어 감지 델리게이트--------------------------------------------------
     private void OnDetectPlayerEnter()
@@ -153,8 +157,9 @@ public class Bat : MonoBehaviour
         anim.SetBool("Detect", true);                                       //감지모션
 
         StartCoroutine(playerDetect());
-
     }
+
+
 
     private void OnDetectPlayerExit()
     {
@@ -175,14 +180,6 @@ public class Bat : MonoBehaviour
         anim.SetBool("Attack", false);
 
     }
-
-    private void OnDetectGroundExit()
-    {
-        
-        throw new NotImplementedException();
-    
-    }
-
 
     void Cheking()
     {
@@ -254,8 +251,7 @@ public class Bat : MonoBehaviour
     {
         Vector3 fristPos = startPosition - transform.position;
         transform.rotation = Quaternion.LookRotation(fristPos);
-
-        rigid.MovePosition();
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
     }
 
@@ -278,7 +274,6 @@ public class Bat : MonoBehaviour
             else if (playerTrans == null)
             {
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                //anim.SetBool("Jump", true);
             }
         }
         //인식 안했을 때 행동                              
@@ -299,12 +294,6 @@ public class Bat : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
-        anim.SetTrigger("Damage");
-
-        AttackCheck = false;
-        move = 0;
-        Invoke("HitAnim", 1f);
-
         if (currentMonsterHp <= 0)
         {
             MonsterDie();
@@ -326,12 +315,4 @@ public class Bat : MonoBehaviour
 
     }
 
-
-    void HitAnim()
-    {
-        anim.SetBool("Hit", false);
-        move = 1;
-
-        AttackCheck = true;
-    }
 }
