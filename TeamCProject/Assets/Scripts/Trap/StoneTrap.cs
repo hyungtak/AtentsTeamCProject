@@ -1,17 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class StoneTrap : MonoBehaviour
 {
     public GameObject stone;
 
     Transform stonePos;
 
-
+    public Action onTrap;
     private void Awake()
     {
-        stonePos = FindObjectOfType<Transform>();
+        stonePos = transform.GetChild(0);
     }
 
 
@@ -21,7 +21,8 @@ public class StoneTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //소환
+            GameObject obj = Instantiate(stone);
+            obj.transform.position = stonePos.position;
         }
     }
 

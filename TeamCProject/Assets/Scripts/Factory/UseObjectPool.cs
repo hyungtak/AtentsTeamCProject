@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class UseObjectPool : MonoBehaviour
 {
+    public Action onDeactivate;
+
 
     protected virtual void OnDisable()
     {
-        deactivate?.Invoke();
+        onDeactivate?.Invoke();
     }
 
-    public Action deactivate;
+    
 
     protected IEnumerator LifeOver(float delay = 0.0f)
     {

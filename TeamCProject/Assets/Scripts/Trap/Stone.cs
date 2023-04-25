@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : UseObjectPool
+public class Stone : MonoBehaviour
 {
     public float speed = 1.0f;
 
@@ -11,20 +11,6 @@ public class Stone : UseObjectPool
     public int damageAmount = 20;
 
     Rigidbody rb;
-
-    Player player = null;
-
-    public Player TargetPlayer
-    {
-        protected get => player;
-        set
-        {
-            if (player == null)     // player가 null일때만 설정
-            {
-                player = value;
-            }
-        }
-    }
 
     private void OnEnable()
     {

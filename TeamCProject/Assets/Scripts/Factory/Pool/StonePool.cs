@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StonePool : ObjectPool<Stone>
+public class StonePool : MonoBehaviour
 {
   
 }
