@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 469.12
+  m_Radius: 381.52
   m_Center: {x: 0, y: 48.9, z: 0}
 --- !u!114 &2425381635437264308
 MonoBehaviour:
@@ -68,6 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1804315383}
   - component: {fileID: 1804315384}
+  - component: {fileID: 1804315385}
   m_Layer: 0
   m_Name: GroundDetect
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804315382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 50.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,6 +103,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85bba5543e89fc4cac16e391bbf0cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1804315385
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804315382}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 37
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &283665433837883460
 GameObject:
   m_ObjectHideFlags: 0

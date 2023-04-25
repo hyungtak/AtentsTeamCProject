@@ -28,7 +28,7 @@ public class Bat : MonoBehaviour
     /// <summary>
     /// 공격을 했는지 안했는지 true 했다 , false 안했다.
     /// </summary>
-    private bool AttackCheck = false;
+    bool AttackCheck = false;
 
     /// <summary>
     /// 플레이어가 감지 확인 true면 확인 flase 확인X
@@ -211,7 +211,10 @@ public class Bat : MonoBehaviour
     {
 
         yield return null;
+        if (AttackCheck)
+        {
 
+        }
         //AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         //float currentTime = stateInfo.normalizedTime * stateInfo.length;
         //yield return new WaitForSeconds(currentTime);
