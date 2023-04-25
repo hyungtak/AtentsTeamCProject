@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Fireball : UseObjectPool
 {
     Rigidbody rigid;
     Transform playerTrans;
