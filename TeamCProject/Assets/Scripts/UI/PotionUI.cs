@@ -11,7 +11,7 @@ public class PotionUI : UIBase
     {
         potionText = transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         player.onPotionCountChange += onPotionChange;
-        potionText.text = $"X {player.maxPotionCount}";
+        potionText.text = $"X {player.PotionCount}";
     }
 
     void Update()

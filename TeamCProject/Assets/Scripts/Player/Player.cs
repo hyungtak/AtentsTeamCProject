@@ -33,11 +33,6 @@ public class Player : MonoBehaviour
     Animator anim;
 
     /// <summary>
-    /// 현재 입력된 입력 방향
-    /// </summary>
-    private Vector3 inputDir = Vector3.zero;
-
-    /// <summary>
     /// 윗키 아래키 입력
     /// -1(아래) ~ 1(위) 사이
     /// </summary>
@@ -154,6 +149,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         CurrentHealth = maxHealth;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()

@@ -18,8 +18,8 @@ public class HPUI : UIBase
 
         playerMaxHp = player.maxHealth;
         player.OnHpChange += onHpChange;
-        playerHpSlider.value = 1;
-        playerHpText.text = $"{playerMaxHp} / {playerMaxHp}";
+        playerHpSlider.value = (float)player.CurrentHealth / playerMaxHp;
+        playerHpText.text = $"{player.CurrentHealth} / {playerMaxHp}";
     }
 
     void Update()
