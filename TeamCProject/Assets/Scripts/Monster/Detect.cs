@@ -21,7 +21,6 @@ public class Detect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
             OnEnter?.Invoke();
         }
     }

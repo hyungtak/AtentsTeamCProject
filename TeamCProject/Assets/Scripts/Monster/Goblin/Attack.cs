@@ -7,8 +7,6 @@ public class Attack : MonoBehaviour
     //데이미
     public int damageAmount = 2;
 
-
-
     //공격 콜라이더가 플레이어에 적중 시
     private void OnTriggerEnter(Collider other)
     {
@@ -23,5 +21,19 @@ public class Attack : MonoBehaviour
             }
         }
     }
+
+    public void ColliderOff()
+    {
+        CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
+        capsuleCollider.enabled = false;
+    }
+    public void ColliderOn()
+    {
+        CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
+        capsuleCollider.enabled = true;
+
+    }
+
+
 
 }
