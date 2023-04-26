@@ -143,6 +143,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Test",
+            "id": "9c416f80-b5c3-4dec-8210-7c7322b236f0",
+            "actions": [
+                {
+                    "name": "Test_1",
+                    "type": "Button",
+                    "id": "4359e38a-6dd5-410c-b58d-156ebaa8d898",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test_2",
+                    "type": "Button",
+                    "id": "022ad3a6-e584-4b7d-81f6-cf97bc0c17ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d32ab7f2-bea9-496c-bc5c-4b58b8e3fb01",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Test_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd860563-b637-4562-ad70-5841dea6567d",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Test_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

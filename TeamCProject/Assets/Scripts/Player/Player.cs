@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,11 +31,6 @@ public class Player : MonoBehaviour
     /// 플레이어 애니메이션 컴포넌트
     /// </summary>
     Animator anim;
-
-    /// <summary>
-    /// 현재 입력된 입력 방향
-    /// </summary>
-    private Vector3 inputDir = Vector3.zero;
 
     /// <summary>
     /// 윗키 아래키 입력
@@ -79,21 +73,26 @@ public class Player : MonoBehaviour
     /// </summary>
     bool isAttack = false;
 
-    //전준호씨 Player스크립트 변수
-    //=====================================================================
     /// <summary>
-    /// 임시 최대 체력
+    /// 최대 체력
     /// </summary>
     public int maxHealth = 200;
 
     /// <summary>
-    /// 임시 현재 체력
+    /// 현재 체력
     /// </summary>
     public int currentHealth;
 
-    int coinPoint = 0;
-
-    public Action<int> CoinPlus;
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            OnHpChange?.Invoke(currentHealth);
+        }
+    }
+    public Action<int> OnHpChange;
 
     /// <summary>
     /// 델리게이트 or 이벤트 선언 
@@ -101,23 +100,56 @@ public class Player : MonoBehaviour
     public delegate void PlayerDied();
     public static event PlayerDied playerDied;
 
+    /// <summary>
+    /// 최대 포션 소지량
+    /// </summary>
+    public int maxPotionCount = 5;
 
-    public Action<int> onDie;
+    /// <summary>
+    /// 포션 소지량
+    /// </summary>
+    int potionCount = int.MinValue;
+    public int PotionCount
+    {
+        get => potionCount;
 
-    //=====================================================================
+        set
+        {
+            potionCount = value;
+            onPotionCountChange?.Invoke(potionCount);
+        }
+    }
+    public Action<int> onPotionCountChange;
+
+    /// <summary>
+    /// 코인 소지량
+    /// </summary>
+    int coinCount = int.MinValue;
+    public int CoinCount
+    {
+        get => coinCount;
+        set
+        {
+            coinCount = value;
+            onCoinCountChange?.Invoke(coinCount);
+        }
+    }
+    public Action<int> onCoinCountChange;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInputActions();
         anim = GetComponent<Animator>();
+
+        coinCount = 0;
+        potionCount = maxPotionCount;
     }
 
     private void Start()
     {
-        currentHealth = maxHealth;
-        //Monster monster = FindObjectOfType<Monster>();
-        Debug.Log($"처음 CoinPoint :{coinPoint}");
+        CurrentHealth = maxHealth;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -126,12 +158,14 @@ public class Player : MonoBehaviour
         inputActions.Player.Move.performed += OnMoveInput;
         inputActions.Player.Move.canceled += OnMoveInput;
         inputActions.Player.Jump.performed += OnJumpInput;
-        inputActions.Player.Attack.performed += onAttackInput;
+        inputActions.Player.Attack.performed += OnAttackInput;
+        inputActions.Player.Potion.performed += OnPotionInput;
     }
 
     private void OnDisable()
     {
-        inputActions.Player.Attack.performed -= onAttackInput;
+        inputActions.Player.Potion.performed -= OnPotionInput;
+        inputActions.Player.Attack.performed -= OnAttackInput;
         inputActions.Player.Jump.performed -= OnJumpInput;
         inputActions.Player.Move.canceled -= OnMoveInput;
         inputActions.Player.Move.performed -= OnMoveInput;
@@ -161,17 +195,18 @@ public class Player : MonoBehaviour
         moveDirection = dir.x;
         if (moveDirection == 1)
         {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            rigid.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if (moveDirection == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 270, 0);
+            rigid.rotation = Quaternion.Euler(0, 270, 0);
+
             moveDirection *= -1;
         }
         anim.SetBool("IsMove", !context.canceled);
     }
 
-    private void OnJumpInput(InputAction.CallbackContext obj)
+    private void OnJumpInput(InputAction.CallbackContext _)
     {
         if (jumpCount != 0)
         {
@@ -185,13 +220,22 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void onAttackInput(InputAction.CallbackContext obj)
+    private void OnAttackInput(InputAction.CallbackContext _)
     {
         if(!isAttack)
         {
             isAttack = true;
             anim.SetTrigger("Attack");      
             StartCoroutine(DelayAttack());
+        }
+    }
+
+    private void OnPotionInput(InputAction.CallbackContext _)
+    {
+        if(PotionCount > 0)
+        {
+            PotionCount--;
+            CurrentHealth += 40;
         }
     }
 
@@ -208,9 +252,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
-        Debug.Log($"체력 : {currentHealth}");
-        if (currentHealth <= 0)
+        CurrentHealth -= damageAmount;
+        Debug.Log($"체력 : {CurrentHealth}");
+        if (CurrentHealth <= 0)
         {
             Die();
         }
@@ -223,27 +267,9 @@ public class Player : MonoBehaviour
     {
         if (playerDied != null)
         {
-            onDie?.Invoke(coinPoint);
             playerDied();
-        }  
-    }
-
-    /// <summary>
-    /// 플레이어가 체력회복
-    /// </summary>
-    /// <param name="healing">포션 회복량</param>
-    public void AddHP(int healing)
-    {
-        currentHealth += healing;
-        Debug.Log($"HP: {currentHealth}");
-    }
-
-    public void AddCoin(int Point)
-    {
-        coinPoint += Point;
+        }
         
-        Debug.Log($"CoinPoint추가 :{coinPoint}");
-
+        
     }
-
 }
