@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,11 +33,6 @@ public class Player : MonoBehaviour
     Animator anim;
 
     /// <summary>
-    /// 현재 입력된 입력 방향
-    /// </summary>
-    private Vector3 inputDir = Vector3.zero;
-
-    /// <summary>
     /// 윗키 아래키 입력
     /// -1(아래) ~ 1(위) 사이
     /// </summary>
@@ -49,11 +45,25 @@ public class Player : MonoBehaviour
     float moveDirection = 0;
 
     /// <summary>
-    /// 점프 중인지 확인용 변수
-    /// 참이면 점프중, 거짓이면 점프 중 아님
+    /// 최대 점프 가능 횟수
+    /// 땅에 닿을 시 이 값으로 점프 가능 횟수 리셋
     /// </summary>
-    bool isJump = false;
+    int maxJumpCount = 2;
 
+    /// <summary>
+    /// 점프 가능 횟수
+    /// 점프 1번당 1씩 소모
+    /// </summary>
+    int jumpCount = 2;
+
+    /// <summary>
+    /// 2단점프 할 때 벨로시티 수정을 위해 저장해둘 변수
+    /// </summary>
+    Vector3 jumpVelocity = Vector3.zero;
+
+    /// <summary>
+    /// 공격 딜레이용 변수
+    /// </summary>
     WaitForSeconds attackDelayTime = new WaitForSeconds(1);
 
     /// <summary>
@@ -63,36 +73,83 @@ public class Player : MonoBehaviour
     /// </summary>
     bool isAttack = false;
 
-    //전준호씨 Player스크립트 변수
-    //=====================================================================
     /// <summary>
-    /// 임시 최대 체력
+    /// 최대 체력
     /// </summary>
     public int maxHealth = 200;
 
     /// <summary>
-    /// 임시 현재 체력
+    /// 현재 체력
     /// </summary>
     public int currentHealth;
+
+    public int CurrentHealth
+    {
+        get => currentHealth;
+        set
+        {
+            currentHealth = Mathf.Clamp(value, 0, maxHealth);
+            OnHpChange?.Invoke(currentHealth);
+        }
+    }
+    public Action<int> OnHpChange;
 
     /// <summary>
     /// 델리게이트 or 이벤트 선언 
     /// </summary>
     public delegate void PlayerDied();
     public static event PlayerDied playerDied;
-    //=====================================================================
+
+    /// <summary>
+    /// 최대 포션 소지량
+    /// </summary>
+    public int maxPotionCount = 5;
+
+    /// <summary>
+    /// 포션 소지량
+    /// </summary>
+    int potionCount = int.MinValue;
+    public int PotionCount
+    {
+        get => potionCount;
+
+        set
+        {
+            potionCount = value;
+            onPotionCountChange?.Invoke(potionCount);
+        }
+    }
+    public Action<int> onPotionCountChange;
+
+    /// <summary>
+    /// 코인 소지량
+    /// </summary>
+    int coinCount = int.MinValue;
+    public int CoinCount
+    {
+        get => coinCount;
+        set
+        {
+            coinCount = value;
+            onCoinCountChange?.Invoke(coinCount);
+        }
+    }
+    public Action<int> onCoinCountChange;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         inputActions = new PlayerInputActions();
         anim = GetComponent<Animator>();
+
+        coinCount = 0;
+        potionCount = maxPotionCount;
     }
 
     private void Start()
     {
-        currentHealth = maxHealth;
-        //Monster monster = FindObjectOfType<Monster>();
+        CurrentHealth = maxHealth;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -101,12 +158,14 @@ public class Player : MonoBehaviour
         inputActions.Player.Move.performed += OnMoveInput;
         inputActions.Player.Move.canceled += OnMoveInput;
         inputActions.Player.Jump.performed += OnJumpInput;
-        inputActions.Player.Attack.performed += onAttackInput;
+        inputActions.Player.Attack.performed += OnAttackInput;
+        inputActions.Player.Potion.performed += OnPotionInput;
     }
 
     private void OnDisable()
     {
-        inputActions.Player.Attack.performed -= onAttackInput;
+        inputActions.Player.Potion.performed -= OnPotionInput;
+        inputActions.Player.Attack.performed -= OnAttackInput;
         inputActions.Player.Jump.performed -= OnJumpInput;
         inputActions.Player.Move.canceled -= OnMoveInput;
         inputActions.Player.Move.performed -= OnMoveInput;
@@ -117,7 +176,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))                   //Ground 와 충돌했을 때만
         {
-            isJump = false;
+            jumpCount = maxJumpCount;
         }
     }
 
@@ -136,32 +195,47 @@ public class Player : MonoBehaviour
         moveDirection = dir.x;
         if (moveDirection == 1)
         {
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            rigid.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if (moveDirection == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 270, 0);
+            rigid.rotation = Quaternion.Euler(0, 270, 0);
+
             moveDirection *= -1;
         }
         anim.SetBool("IsMove", !context.canceled);
     }
 
-    private void OnJumpInput(InputAction.CallbackContext obj)
+    private void OnJumpInput(InputAction.CallbackContext _)
     {
-        if (!isJump)
+        if (jumpCount != 0)
         {
+            //2단 점프를 위한 계산
+            jumpVelocity = rigid.velocity;
+            jumpVelocity.y = 0;
+            rigid.velocity = jumpVelocity;
+
             rigid.AddForce(jumpForce * Vector3.up, ForceMode.Impulse);
-            isJump = true;
+            jumpCount--;
         }
     }
 
-    private void onAttackInput(InputAction.CallbackContext obj)
+    private void OnAttackInput(InputAction.CallbackContext _)
     {
         if(!isAttack)
         {
             isAttack = true;
             anim.SetTrigger("Attack");      
             StartCoroutine(DelayAttack());
+        }
+    }
+
+    private void OnPotionInput(InputAction.CallbackContext _)
+    {
+        if(PotionCount > 0)
+        {
+            PotionCount--;
+            CurrentHealth += 40;
         }
     }
 
@@ -178,9 +252,9 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
-        currentHealth -= damageAmount;
-        Debug.Log($"체력 : {currentHealth}");
-        if (currentHealth <= 0)
+        CurrentHealth -= damageAmount;
+        Debug.Log($"체력 : {CurrentHealth}");
+        if (CurrentHealth <= 0)
         {
             Die();
         }
