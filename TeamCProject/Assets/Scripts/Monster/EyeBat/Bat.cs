@@ -105,9 +105,9 @@ public class Bat : MonoBehaviour
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTrans = player.transform;
         ground = GameObject.FindGameObjectWithTag("Ground").transform;
-        Player.playerDied += OnPlayerDied;
+        player.OnDie += OnPlayerDied;
 
         startPosition = transform.position;
 
@@ -130,13 +130,13 @@ public class Bat : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        Player.playerDied -= OnPlayerDied;
+        player.OnDie -= OnPlayerDied;
     }
 
     /// <summary>
     /// 플레이어 죽었을 시
     /// </summary>
-    void OnPlayerDied()
+    void OnPlayerDied(int _)
     {
         find = false;
         anim.SetBool("PlayerDie", true);

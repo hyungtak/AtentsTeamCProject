@@ -92,10 +92,10 @@ public class Monster : MonoBehaviour
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTrans = player.transform;
         
 
-        Player.playerDied += OnPlayerDied;     
+        player.OnDie += OnPlayerDied;     
         //코루틴 실행
         StartCoroutine(transMovement());       
     }
@@ -112,13 +112,13 @@ public class Monster : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        Player.playerDied -= OnPlayerDied;
+        player.OnDie -= OnPlayerDied;
     }
 
     /// <summary>
     /// 신호 받고 몬스터 실행
     /// </summary>
-    void OnPlayerDied()
+    void OnPlayerDied(int _)
     {
         find = false;
         anim.SetBool("Jump", true);

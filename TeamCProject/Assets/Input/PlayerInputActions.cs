@@ -37,7 +37,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Status"",
+                    ""name"": ""Potion"",
                     ""type"": ""Button"",
                     ""id"": ""06c3dbe0-3002-4c36-9a6e-ebc415dbf025"",
                     ""expectedControlType"": ""Button"",
@@ -68,11 +68,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e07b8e7e-a6e4-47c3-8f4d-1676a617c19b"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Status"",
+                    ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -134,7 +134,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3717fe53-bd70-4e8b-a261-ef99054f0549"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
@@ -232,7 +232,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Status = m_Player.FindAction("Status", throwIfNotFound: true);
+        m_Player_Potion = m_Player.FindAction("Potion", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         // Test
@@ -299,7 +299,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Status;
+    private readonly InputAction m_Player_Potion;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Jump;
     public struct PlayerActions
@@ -307,7 +307,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Status => m_Wrapper.m_Player_Status;
+        public InputAction @Potion => m_Wrapper.m_Player_Potion;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -322,9 +322,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Status.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
-                @Status.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
-                @Status.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
+                @Potion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
+                @Potion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
+                @Potion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
@@ -338,9 +338,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Status.started += instance.OnStatus;
-                @Status.performed += instance.OnStatus;
-                @Status.canceled += instance.OnStatus;
+                @Potion.started += instance.OnPotion;
+                @Potion.performed += instance.OnPotion;
+                @Potion.canceled += instance.OnPotion;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
@@ -404,7 +404,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnStatus(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }

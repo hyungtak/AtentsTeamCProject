@@ -74,8 +74,8 @@ public class MonsterBase : MonoBehaviour
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-        Player.playerDied += OnPlayerDied;
+        playerTrans = player.transform;
+        player.OnDie += OnPlayerDied;
    
         StartCoroutine(transMovement());
     }
@@ -92,7 +92,7 @@ public class MonsterBase : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        Player.playerDied -= OnPlayerDied;
+        player.OnDie -= OnPlayerDied;
     }
 
     //플레이어가 공격 범위 내에 들어왔을 시 실행-----------------------------------------------------------------------
@@ -144,7 +144,7 @@ public class MonsterBase : MonoBehaviour
     /// <summary>
     /// 플레이어 죽은 신호 받고 실행
     /// </summary>
-    void OnPlayerDied()
+    void OnPlayerDied(int _)
     {
         find = false;
         //anim.SetBool("Jump", true);

@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Status",
+                    "name": "Potion",
                     "type": "Button",
                     "id": "06c3dbe0-3002-4c36-9a6e-ebc415dbf025",
                     "expectedControlType": "Button",
@@ -46,11 +46,11 @@
                 {
                     "name": "",
                     "id": "e07b8e7e-a6e4-47c3-8f4d-1676a617c19b",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Status",
+                    "action": "Potion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

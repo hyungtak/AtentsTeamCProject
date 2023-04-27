@@ -3285,6 +3285,7 @@ MonoBehaviour:
   jumpForce: 5
   maxHealth: 200
   currentHealth: 0
+  maxPotionCount: 5
 --- !u!54 &-7659104837895863346
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3311,8 +3312,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.31
-  m_Height: 1.81
+  m_Radius: 0.3
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: -0.2}
 --- !u!1 &6375356271710207562
@@ -6555,7 +6556,7 @@ GameObject:
   - component: {fileID: 4197805290817324321}
   m_Layer: 0
   m_Name: weapon
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
