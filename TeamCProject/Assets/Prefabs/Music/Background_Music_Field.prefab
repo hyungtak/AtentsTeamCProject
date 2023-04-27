@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8418244336919000450}
   - component: {fileID: 8418244336919000451}
   m_Layer: 0
-  m_Name: Background_Music_Filed
+  m_Name: Background_Music_Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
