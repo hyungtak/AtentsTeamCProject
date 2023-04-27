@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 415219075}
   - component: {fileID: 415219074}
   m_Layer: 0
-  m_Name: SawBlade
+  m_Name: SawBladeModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
