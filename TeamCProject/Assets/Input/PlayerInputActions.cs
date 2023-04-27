@@ -187,6 +187,33 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_3"",
+                    ""type"": ""Button"",
+                    ""id"": ""a709e025-0839-4486-98f5-84b3f9b258ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_4"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bdf834a-5db9-4bd7-9728-eb69bb5fe517"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_5"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e2b55f8-a388-41d5-8699-a5ff654c3058"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +236,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""Test_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""449309ce-4693-4398-a635-51c039e69da5"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96673453-4689-473b-8e37-ee78fd076c48"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2631164-fc75-4795-8e92-3a6adf85f236"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_5"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -239,6 +299,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Test = asset.FindActionMap("Test", throwIfNotFound: true);
         m_Test_Test_1 = m_Test.FindAction("Test_1", throwIfNotFound: true);
         m_Test_Test_2 = m_Test.FindAction("Test_2", throwIfNotFound: true);
+        m_Test_Test_3 = m_Test.FindAction("Test_3", throwIfNotFound: true);
+        m_Test_Test_4 = m_Test.FindAction("Test_4", throwIfNotFound: true);
+        m_Test_Test_5 = m_Test.FindAction("Test_5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -357,12 +420,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private ITestActions m_TestActionsCallbackInterface;
     private readonly InputAction m_Test_Test_1;
     private readonly InputAction m_Test_Test_2;
+    private readonly InputAction m_Test_Test_3;
+    private readonly InputAction m_Test_Test_4;
+    private readonly InputAction m_Test_Test_5;
     public struct TestActions
     {
         private @PlayerInputActions m_Wrapper;
         public TestActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Test_1 => m_Wrapper.m_Test_Test_1;
         public InputAction @Test_2 => m_Wrapper.m_Test_Test_2;
+        public InputAction @Test_3 => m_Wrapper.m_Test_Test_3;
+        public InputAction @Test_4 => m_Wrapper.m_Test_Test_4;
+        public InputAction @Test_5 => m_Wrapper.m_Test_Test_5;
         public InputActionMap Get() { return m_Wrapper.m_Test; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -378,6 +447,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Test_2.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
                 @Test_2.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
                 @Test_2.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
+                @Test_3.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_3.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_3.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_4.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_4.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_4.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_5.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
+                @Test_5.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
+                @Test_5.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
             }
             m_Wrapper.m_TestActionsCallbackInterface = instance;
             if (instance != null)
@@ -388,6 +466,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Test_2.started += instance.OnTest_2;
                 @Test_2.performed += instance.OnTest_2;
                 @Test_2.canceled += instance.OnTest_2;
+                @Test_3.started += instance.OnTest_3;
+                @Test_3.performed += instance.OnTest_3;
+                @Test_3.canceled += instance.OnTest_3;
+                @Test_4.started += instance.OnTest_4;
+                @Test_4.performed += instance.OnTest_4;
+                @Test_4.canceled += instance.OnTest_4;
+                @Test_5.started += instance.OnTest_5;
+                @Test_5.performed += instance.OnTest_5;
+                @Test_5.canceled += instance.OnTest_5;
             }
         }
     }
@@ -412,5 +499,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnTest_1(InputAction.CallbackContext context);
         void OnTest_2(InputAction.CallbackContext context);
+        void OnTest_3(InputAction.CallbackContext context);
+        void OnTest_4(InputAction.CallbackContext context);
+        void OnTest_5(InputAction.CallbackContext context);
     }
 }
