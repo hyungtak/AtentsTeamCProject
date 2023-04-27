@@ -60,7 +60,7 @@ public class Golem : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        player = GetComponent<Player>();
+        player = FindObjectOfType<Player>();
         bossColor = GetComponentInChildren<Renderer>();
 
         //플레이어 감지 신호
@@ -91,8 +91,8 @@ public class Golem : MonoBehaviour
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-        Player.playerDied += OnPlayerDied;
+        playerTrans = player.transform;
+        player.OnDie += OnPlayerDied;
 
         StartCoroutine(transMovement());
     }
@@ -207,7 +207,7 @@ public class Golem : MonoBehaviour
     /// <summary>
     /// 플레이어 죽은 신호 받고 실행
     /// </summary>
-    void OnPlayerDied()
+    void OnPlayerDied(int _)
     {
         find = false;
         anim.SetBool("PlayerDead", true);
@@ -279,7 +279,7 @@ public class Golem : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        Player.playerDied -= OnPlayerDied;
+        player.OnDie -= OnPlayerDied;
     }
 
 
