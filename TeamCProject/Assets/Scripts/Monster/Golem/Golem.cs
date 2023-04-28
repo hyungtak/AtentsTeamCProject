@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Golem : MonoBehaviour
 {
     //몬스터 Hp int
     public int monsterMaxHp = 10;
+
+    public GameObject coinBox;
 
     int currentMonsterHp = 100;
 
@@ -307,6 +308,13 @@ public class Golem : MonoBehaviour
         StopAllCoroutines();
         anim.SetTrigger("Die");
         Destroy(gameObject,1.5f);
+
+
+        Vector3 center = transform.position;
+        center.y = 0.5f;
+        GameObject obj = Instantiate(coinBox);
+        obj.transform.position = center;
+        obj.transform.rotation = Quaternion.identity;
         //죽었을 시 사망 애니메이션 실행 예정
 
     }
