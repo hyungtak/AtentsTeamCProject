@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
-
-    public GameObject coin;
     public GameObject fireBall;
    
     public int monsterMaxHp = 10;
@@ -95,9 +93,7 @@ public class Wizard : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        player.OnDie -= OnPlayerDied;
-        
-       
+        player.OnDie -= OnPlayerDied;  
     }
 
     /// <summary>
@@ -245,12 +241,6 @@ public class Wizard : MonoBehaviour
         StopAllCoroutines();
         anim.SetTrigger("Dead");
         Destroy(gameObject, 1.5f);
-        
-
-        Vector3 center = transform.position;
-        center.y = 0.5f;
-        GameObject obj = Instantiate(coin, center, Quaternion.identity);
-
         //죽었을 시 사망 애니메이션 실행 예정
     }
 
@@ -262,5 +252,10 @@ public class Wizard : MonoBehaviour
     //    anim.SetBool("Damage", false);
 
     //}
+
+    void Test()
+    {
+        anim.SetBool("Damage", false);
+    }
 
 }
