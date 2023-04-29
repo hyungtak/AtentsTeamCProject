@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterMaxHp: 10
-  coinBox: {fileID: 6483212268769496128, guid: b4d9234bae91fc5428c27f430cdcc7d3, type: 3}
+  coinBox: {fileID: 4951684775273746323, guid: bab0f73956ffc5c4095b46b202e7f08f, type: 3}
   monsterDamage: 1
 --- !u!1 &1523219776516565699
 GameObject:

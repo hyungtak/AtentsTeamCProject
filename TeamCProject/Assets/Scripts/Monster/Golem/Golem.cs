@@ -313,9 +313,8 @@ public class Golem : MonoBehaviour
 
         Vector3 center = transform.position;
         center.y = 0.5f;
-        GameObject obj = Instantiate(coinBox);
-        obj.transform.position = center;
-        obj.transform.rotation = Quaternion.identity;
+
+        GameObject obj = Instantiate(coinBox, center, Quaternion.identity);
         //죽었을 시 사망 애니메이션 실행 예정
 
     }

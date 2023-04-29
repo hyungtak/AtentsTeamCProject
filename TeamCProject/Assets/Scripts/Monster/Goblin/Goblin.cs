@@ -257,12 +257,11 @@ public class Goblin : MonoBehaviour
         Destroy(gameObject, 0.4f);
 
         //코인 위치 설정 후 생성
+
         Vector3 center = transform.position;
         center.y = 0.5f;
 
-        GameObject obj = Instantiate(coin);
-        obj.transform.position = center;
-        obj.transform.rotation = Quaternion.identity;
+        GameObject obj = Instantiate(coin, center, Quaternion.identity);
 
     }
 
