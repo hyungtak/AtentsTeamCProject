@@ -6,28 +6,41 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     /// <summary>
-    /// 3대 맞으면 사망
+    /// 3대 맞으면 사망 카운트 형식으로 만들었다.
     /// </summary>
     public int PortalHp = 3;
 
+    private int currentHp = 3;
+
+    /// <summary>
+    /// 무기에 맞았을 시 감소하는 숫자
+    /// </summary>
+    private const int hpMinus = 1;
+
     //주 공격 수단 몹소환(골렘 빼고)
 
-    //몹 3마리 받기
+    //몹 2마리 받기
     public GameObject goblin;
-    //public GameObject goblinPurple;
     public GameObject wizard;
 
     
     //무작정 소환되면 안되니까.
     //고블린은 5초의 한번씩
     //위자드는 10초의 한번씩 소환
-    WaitForSeconds goblinSummonTime = new WaitForSeconds(5);
+    WaitForSeconds goblinSummonTime = new WaitForSeconds(10);
     WaitForSeconds wizardSummonTime = new WaitForSeconds(15);
+    WaitForSeconds skillDelay = new WaitForSeconds(5);
 
     bool goblinActivate = false;
     bool wizardActivate = false;
+    bool ColorChange = false;
 
     Transform monsterpos;
+    Animator anim;
+    StoneDown stoneDown;
+    
+    EmissionChange emissionchange;
+
     //일정시간마다 순서대로 땅 또는 하늘에서 뭔가 떨어짐
     //float delay = 5f;
 
@@ -35,7 +48,15 @@ public class Portal : MonoBehaviour
 
     private void Awake()
     {
-        monsterpos = transform.GetChild(0);
+        currentHp = PortalHp;
+        Transform child = transform.GetChild(0);
+        monsterpos = child.GetComponent<Transform>();
+        child = transform.GetChild(1);
+        anim= child.GetComponent<Animator>();
+        child = transform.GetChild(2);
+        stoneDown = child.GetComponent<StoneDown>();
+        child = transform.GetChild(3);
+
     }
 
     private void Start()
@@ -43,29 +64,16 @@ public class Portal : MonoBehaviour
 
         StartCoroutine(goblinDelay());
         StartCoroutine(wizardDelay());
+        StartCoroutine(StoneWave());
+
     }
 
     private void Update()
     {
         SummonGoblin();
         SummnonWizard();
+        MaterialColor();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -88,7 +96,6 @@ public class Portal : MonoBehaviour
 
     IEnumerator goblinDelay()
     {
-
         yield return goblinSummonTime;
         goblinActivate= true;
     }
@@ -112,5 +119,85 @@ public class Portal : MonoBehaviour
         yield return wizardSummonTime;
         wizardActivate = true;
     }
+
+    IEnumerator StoneWave()
+    {
+        StopCoroutine(StoneRain());
+        StopCoroutine(RockUp());
+
+        int skill = UnityEngine.Random.Range(0, 3);
+        yield return skillDelay;
+
+        if (skill == 1)
+        {
+            StartCoroutine(RockUp());
+                
+        }
+
+        else if (skill == 2)
+        {
+            StartCoroutine(StoneRain());
+                
+        }
+
+        else
+        {
+            Debug.Log("아무것도 하지않는다.");
+            yield return skillDelay;
+            StartCoroutine(StoneWave());
+        }
+    }
+
+    IEnumerator RockUp()
+    {
+        StopCoroutine(StoneWave());
+        StopCoroutine(StoneRain());
+
+        anim.SetTrigger("Rock");
+        StartCoroutine(StoneWave());
+        yield return null;
+    }
+
+    IEnumerator StoneRain()
+    {
+        StopCoroutine(StoneWave());
+        StopCoroutine(RockUp());
+        stoneDown.StoneStart();
+        StartCoroutine(StoneWave());
+        yield return null;
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Weapon"))
+        {
+            currentHp -= hpMinus;
+            ColorChange = true;
+
+            Debug.Log($"{currentHp}");
+            if (currentHp == 0)
+            {
+                breakPortal();
+            }
+        }
+    }
+
+
+    private void MaterialColor()
+    {
+       if(ColorChange)
+        {
+
+        }
+    }
+
+
+    void breakPortal()
+    {
+        Destroy(gameObject);
+        StopAllCoroutines();
+    }
+
 
 }
