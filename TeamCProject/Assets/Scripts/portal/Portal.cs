@@ -25,15 +25,20 @@ public class Portal : MonoBehaviour
 
     
     //무작정 소환되면 안되니까.
-    //고블린은 5초의 한번씩
-    //위자드는 10초의 한번씩 소환
-    WaitForSeconds goblinSummonTime = new WaitForSeconds(20);
-    WaitForSeconds wizardSummonTime = new WaitForSeconds(40);
+    //고블린 소환딜레이
+    //위자드 소환딜레이
+    WaitForSeconds goblinSummonTime = new WaitForSeconds(15);
+    WaitForSeconds wizardSummonTime = new WaitForSeconds(30);
+    /// <summary>
+    /// 스킬 딜레이
+    /// </summary>
     WaitForSeconds skillDelay = new WaitForSeconds(5);
+
 
     bool goblinActivate = false;
     bool wizardActivate = false;
     bool ColorChangeActivate = false;
+
 
     Transform monsterpos;
     Animator anim;
@@ -116,6 +121,10 @@ public class Portal : MonoBehaviour
         wizardActivate = true;
     }
 
+    /// <summary>
+    /// 포탈 랜덤 스킬
+    /// </summary>
+    /// <returns></returns>
     IEnumerator StoneWave()
     {
         StopCoroutine(StoneRain());

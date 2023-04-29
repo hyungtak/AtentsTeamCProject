@@ -8,10 +8,12 @@ public class Wizard : MonoBehaviour
 {
     public GameObject fireBall;
    
+
     public int monsterMaxHp = 10;
 
     int currentMonsterHp = 100;
 
+    
     //bool Die = false;
 
 
