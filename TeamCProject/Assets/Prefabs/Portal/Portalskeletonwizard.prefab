@@ -9884,7 +9884,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3996947291319797644
 GameObject:
@@ -9990,7 +9990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603a487757b2ad44bba4d7e2daed3fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 6483212268769496128, guid: b4d9234bae91fc5428c27f430cdcc7d3, type: 3}
   fireBall: {fileID: 5367288859551003371, guid: 153e55b7f509a9040805e6a3ab419871, type: 3}
   monsterMaxHp: 50
 --- !u!1 &6061380354306421760

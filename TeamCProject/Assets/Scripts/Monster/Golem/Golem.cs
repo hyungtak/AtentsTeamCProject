@@ -61,7 +61,8 @@ public class Golem : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        player = FindObjectOfType<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        
         bossColor = GetComponentInChildren<Renderer>();
 
         //플레이어 감지 신호

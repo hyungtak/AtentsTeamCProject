@@ -28,7 +28,7 @@ public class Portal : MonoBehaviour
     //고블린은 5초의 한번씩
     //위자드는 10초의 한번씩 소환
     WaitForSeconds goblinSummonTime = new WaitForSeconds(10);
-    WaitForSeconds wizardSummonTime = new WaitForSeconds(15);
+    WaitForSeconds wizardSummonTime = new WaitForSeconds(30);
     WaitForSeconds skillDelay = new WaitForSeconds(5);
 
     bool goblinActivate = false;
@@ -127,13 +127,14 @@ public class Portal : MonoBehaviour
         if (skill == 1)
         {
             StartCoroutine(RockUp());
+            Debug.Log("락");
                 
         }
 
         else if (skill == 2)
         {
             StartCoroutine(StoneRain());
-                
+            Debug.Log("스톤");
         }
 
         else
@@ -171,8 +172,7 @@ public class Portal : MonoBehaviour
             currentHp -= hpMinus;
             ColorChangeActivate = true;
 
-            Debug.Log($"{currentHp}");
-            if (currentHp == 0)
+            if (currentHp <= 0)
             {
                 breakPortal();
             }
