@@ -27,8 +27,8 @@ public class Portal : MonoBehaviour
     //무작정 소환되면 안되니까.
     //고블린은 5초의 한번씩
     //위자드는 10초의 한번씩 소환
-    WaitForSeconds goblinSummonTime = new WaitForSeconds(10);
-    WaitForSeconds wizardSummonTime = new WaitForSeconds(30);
+    WaitForSeconds goblinSummonTime = new WaitForSeconds(20);
+    WaitForSeconds wizardSummonTime = new WaitForSeconds(40);
     WaitForSeconds skillDelay = new WaitForSeconds(5);
 
     bool goblinActivate = false;
@@ -120,9 +120,10 @@ public class Portal : MonoBehaviour
     {
         StopCoroutine(StoneRain());
         StopCoroutine(RockUp());
-
+       
         int skill = UnityEngine.Random.Range(0, 3);
         yield return skillDelay;
+        anim.SetBool("RockTF", false);
 
         if (skill == 1)
         {
@@ -150,7 +151,7 @@ public class Portal : MonoBehaviour
         StopCoroutine(StoneWave());
         StopCoroutine(StoneRain());
 
-        anim.SetTrigger("Rock");
+        anim.SetBool("RockTF",true);
         StartCoroutine(StoneWave());
         yield return null;
     }
