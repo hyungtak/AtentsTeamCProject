@@ -61,7 +61,7 @@ public class Goblin : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
 
-        player= GetComponent<Player>();
+        player= GameObject.Find("Player").GetComponent<Player>();
 
         Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)

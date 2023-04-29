@@ -263,6 +263,6 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Die()
     {
-            OnDie?.Invoke(CoinCount);
+        OnDie?.Invoke(CoinCount);
     }
 }

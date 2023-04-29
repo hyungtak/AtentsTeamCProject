@@ -49,7 +49,7 @@ public class Wizard : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        player = gameObject.GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         fireTransform = transform.GetChild(0);
 
         currentMonsterHp = monsterMaxHp;
