@@ -33,17 +33,13 @@ public class Portal : MonoBehaviour
 
     bool goblinActivate = false;
     bool wizardActivate = false;
-    bool ColorChange = false;
+    bool ColorChangeActivate = false;
 
     Transform monsterpos;
     Animator anim;
     StoneDown stoneDown;
-    
-    EmissionChange emissionchange;
 
-    //일정시간마다 순서대로 땅 또는 하늘에서 뭔가 떨어짐
-    //float delay = 5f;
-
+    PortalColor portalColor;
 
 
     private void Awake()
@@ -56,10 +52,13 @@ public class Portal : MonoBehaviour
         child = transform.GetChild(2);
         stoneDown = child.GetComponent<StoneDown>();
         child = transform.GetChild(3);
+        portalColor = child.GetComponent<PortalColor>();
 
     }
 
-    private void Start()
+
+    // 몬스터 소환, 보조스킬 사용
+     private void Start()
     {
 
         StartCoroutine(goblinDelay());
@@ -74,9 +73,6 @@ public class Portal : MonoBehaviour
         SummnonWizard();
         MaterialColor();
     }
-
-
-
 
 
     /// <summary>
@@ -167,13 +163,13 @@ public class Portal : MonoBehaviour
         yield return null;
     }
 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Weapon"))
         {
             currentHp -= hpMinus;
-            ColorChange = true;
+            ColorChangeActivate = true;
 
             Debug.Log($"{currentHp}");
             if (currentHp == 0)
@@ -183,16 +179,22 @@ public class Portal : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// 포탈 데이미를 받았을 때 색상 변경
+    /// </summary>
     private void MaterialColor()
     {
-       if(ColorChange)
+        if (ColorChangeActivate)
         {
-
+            portalColor.ColorChange();
+            ColorChangeActivate = false;
         }
     }
 
 
+    /// <summary>
+    /// 게임 끝
+    /// </summary>
     void breakPortal()
     {
         Destroy(gameObject);

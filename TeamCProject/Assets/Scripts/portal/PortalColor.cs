@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmissionChange : MonoBehaviour
+public class PortalColor : MonoBehaviour
 {
 
     Animator anim;
+
+
     private void Awake()
     {
         anim= GetComponent<Animator>();
     }
 
-    public void PortalColorChange()
+    public void ColorChange()
     {
         anim.SetTrigger("M_Change");
     } 
