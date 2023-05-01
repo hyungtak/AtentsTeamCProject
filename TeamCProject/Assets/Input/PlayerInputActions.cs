@@ -37,7 +37,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Status"",
+                    ""name"": ""Potion"",
                     ""type"": ""Button"",
                     ""id"": ""06c3dbe0-3002-4c36-9a6e-ebc415dbf025"",
                     ""expectedControlType"": ""Button"",
@@ -68,11 +68,11 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e07b8e7e-a6e4-47c3-8f4d-1676a617c19b"",
-                    ""path"": ""<Keyboard>/tab"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Status"",
+                    ""action"": ""Potion"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -134,7 +134,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3717fe53-bd70-4e8b-a261-ef99054f0549"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
@@ -165,6 +165,114 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Test"",
+            ""id"": ""9c416f80-b5c3-4dec-8210-7c7322b236f0"",
+            ""actions"": [
+                {
+                    ""name"": ""Test_1"",
+                    ""type"": ""Button"",
+                    ""id"": ""4359e38a-6dd5-410c-b58d-156ebaa8d898"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_2"",
+                    ""type"": ""Button"",
+                    ""id"": ""022ad3a6-e584-4b7d-81f6-cf97bc0c17ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_3"",
+                    ""type"": ""Button"",
+                    ""id"": ""a709e025-0839-4486-98f5-84b3f9b258ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_4"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bdf834a-5db9-4bd7-9728-eb69bb5fe517"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Test_5"",
+                    ""type"": ""Button"",
+                    ""id"": ""6e2b55f8-a388-41d5-8699-a5ff654c3058"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d32ab7f2-bea9-496c-bc5c-4b58b8e3fb01"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd860563-b637-4562-ad70-5841dea6567d"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""449309ce-4693-4398-a635-51c039e69da5"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""96673453-4689-473b-8e37-ee78fd076c48"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2631164-fc75-4795-8e92-3a6adf85f236"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Test_5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -184,9 +292,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Status = m_Player.FindAction("Status", throwIfNotFound: true);
+        m_Player_Potion = m_Player.FindAction("Potion", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        // Test
+        m_Test = asset.FindActionMap("Test", throwIfNotFound: true);
+        m_Test_Test_1 = m_Test.FindAction("Test_1", throwIfNotFound: true);
+        m_Test_Test_2 = m_Test.FindAction("Test_2", throwIfNotFound: true);
+        m_Test_Test_3 = m_Test.FindAction("Test_3", throwIfNotFound: true);
+        m_Test_Test_4 = m_Test.FindAction("Test_4", throwIfNotFound: true);
+        m_Test_Test_5 = m_Test.FindAction("Test_5", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -247,7 +362,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Status;
+    private readonly InputAction m_Player_Potion;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Jump;
     public struct PlayerActions
@@ -255,7 +370,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Status => m_Wrapper.m_Player_Status;
+        public InputAction @Potion => m_Wrapper.m_Player_Potion;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -270,9 +385,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Status.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
-                @Status.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
-                @Status.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnStatus;
+                @Potion.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
+                @Potion.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
+                @Potion.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPotion;
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
@@ -286,9 +401,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @Status.started += instance.OnStatus;
-                @Status.performed += instance.OnStatus;
-                @Status.canceled += instance.OnStatus;
+                @Potion.started += instance.OnPotion;
+                @Potion.performed += instance.OnPotion;
+                @Potion.canceled += instance.OnPotion;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
@@ -299,6 +414,71 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Test
+    private readonly InputActionMap m_Test;
+    private ITestActions m_TestActionsCallbackInterface;
+    private readonly InputAction m_Test_Test_1;
+    private readonly InputAction m_Test_Test_2;
+    private readonly InputAction m_Test_Test_3;
+    private readonly InputAction m_Test_Test_4;
+    private readonly InputAction m_Test_Test_5;
+    public struct TestActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public TestActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Test_1 => m_Wrapper.m_Test_Test_1;
+        public InputAction @Test_2 => m_Wrapper.m_Test_Test_2;
+        public InputAction @Test_3 => m_Wrapper.m_Test_Test_3;
+        public InputAction @Test_4 => m_Wrapper.m_Test_Test_4;
+        public InputAction @Test_5 => m_Wrapper.m_Test_Test_5;
+        public InputActionMap Get() { return m_Wrapper.m_Test; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TestActions set) { return set.Get(); }
+        public void SetCallbacks(ITestActions instance)
+        {
+            if (m_Wrapper.m_TestActionsCallbackInterface != null)
+            {
+                @Test_1.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_1;
+                @Test_1.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_1;
+                @Test_1.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_1;
+                @Test_2.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
+                @Test_2.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
+                @Test_2.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_2;
+                @Test_3.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_3.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_3.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_3;
+                @Test_4.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_4.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_4.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_4;
+                @Test_5.started -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
+                @Test_5.performed -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
+                @Test_5.canceled -= m_Wrapper.m_TestActionsCallbackInterface.OnTest_5;
+            }
+            m_Wrapper.m_TestActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Test_1.started += instance.OnTest_1;
+                @Test_1.performed += instance.OnTest_1;
+                @Test_1.canceled += instance.OnTest_1;
+                @Test_2.started += instance.OnTest_2;
+                @Test_2.performed += instance.OnTest_2;
+                @Test_2.canceled += instance.OnTest_2;
+                @Test_3.started += instance.OnTest_3;
+                @Test_3.performed += instance.OnTest_3;
+                @Test_3.canceled += instance.OnTest_3;
+                @Test_4.started += instance.OnTest_4;
+                @Test_4.performed += instance.OnTest_4;
+                @Test_4.canceled += instance.OnTest_4;
+                @Test_5.started += instance.OnTest_5;
+                @Test_5.performed += instance.OnTest_5;
+                @Test_5.canceled += instance.OnTest_5;
+            }
+        }
+    }
+    public TestActions @Test => new TestActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -311,8 +491,16 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnStatus(InputAction.CallbackContext context);
+        void OnPotion(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface ITestActions
+    {
+        void OnTest_1(InputAction.CallbackContext context);
+        void OnTest_2(InputAction.CallbackContext context);
+        void OnTest_3(InputAction.CallbackContext context);
+        void OnTest_4(InputAction.CallbackContext context);
+        void OnTest_5(InputAction.CallbackContext context);
     }
 }

@@ -72,9 +72,9 @@ public class Wizard : MonoBehaviour
 
     private void Start()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTrans = player.transform;
 
-        Player.playerDied += OnPlayerDied;
+        player.OnDie += OnPlayerDied;
 
         //코루틴 실행
         StartCoroutine(transMovement());
@@ -93,7 +93,7 @@ public class Wizard : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        Player.playerDied -= OnPlayerDied;
+        player.OnDie -= OnPlayerDied;
         
        
     }
@@ -101,7 +101,7 @@ public class Wizard : MonoBehaviour
     /// <summary>
     /// 신호 받고 몬스터 실행
     /// </summary>
-    void OnPlayerDied()
+    void OnPlayerDied(int _)
     {
         find = false;
         anim.SetBool("Dead", true);

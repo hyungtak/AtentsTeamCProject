@@ -37,7 +37,7 @@ public class GameOver : MonoBehaviour
     {
         StopAllCoroutines();
         Player player = FindObjectOfType<Player>();
-        player.onDie += playerDie;    // 플레이어 사망시 실행할 함수 등록
+        player.OnDie += playerDie;    // 플레이어 사망시 실행할 함수 등록
     }
 
     void playerDie(int coin)
