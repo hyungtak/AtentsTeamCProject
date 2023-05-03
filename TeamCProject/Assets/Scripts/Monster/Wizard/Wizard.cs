@@ -7,11 +7,14 @@ using UnityEngine;
 public class Wizard : MonoBehaviour
 {
     public GameObject fireBall;
-   
+
+    public GameObject coin;
+
     public int monsterMaxHp = 10;
 
     int currentMonsterHp = 100;
 
+    
     //bool Die = false;
 
 
@@ -49,7 +52,7 @@ public class Wizard : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        player = gameObject.GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         fireTransform = transform.GetChild(0);
 
         currentMonsterHp = monsterMaxHp;
@@ -93,9 +96,7 @@ public class Wizard : MonoBehaviour
     /// </summary>
     void OnDestroy()
     {
-        player.OnDie -= OnPlayerDied;
-        
-       
+        player.OnDie -= OnPlayerDied;  
     }
 
     /// <summary>
@@ -243,6 +244,11 @@ public class Wizard : MonoBehaviour
         StopAllCoroutines();
         anim.SetTrigger("Dead");
         Destroy(gameObject, 1.5f);
+
+        Vector3 center = transform.position;
+        center.y = 1.5f;
+
+        GameObject obj = Instantiate(coin, center, Quaternion.identity);
         //죽었을 시 사망 애니메이션 실행 예정
     }
 

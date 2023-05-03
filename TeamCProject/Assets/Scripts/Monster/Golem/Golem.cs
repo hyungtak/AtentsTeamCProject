@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Golem : MonoBehaviour
 {
     //몬스터 Hp int
     public int monsterMaxHp = 10;
+
+    public GameObject coinBox;
 
     int currentMonsterHp = 100;
 
@@ -60,7 +61,8 @@ public class Golem : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         anim = GetComponentInChildren<Animator>();
-        player = FindObjectOfType<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        
         bossColor = GetComponentInChildren<Renderer>();
 
         //플레이어 감지 신호
@@ -307,6 +309,12 @@ public class Golem : MonoBehaviour
         StopAllCoroutines();
         anim.SetTrigger("Die");
         Destroy(gameObject,1.5f);
+
+
+        Vector3 center = transform.position;
+        center.y = 0.5f;
+
+        GameObject obj = Instantiate(coinBox, center, Quaternion.identity);
         //죽었을 시 사망 애니메이션 실행 예정
 
     }

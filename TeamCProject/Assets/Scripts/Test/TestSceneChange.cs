@@ -12,6 +12,7 @@ public class TestSceneChange : MonoBehaviour
     private void Awake()
     {
         inputSystem = new PlayerInputActions();
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
@@ -47,7 +48,7 @@ public class TestSceneChange : MonoBehaviour
 
     private void Test_3_Scene(InputAction.CallbackContext obj)
     {
-        throw new NotImplementedException();
+        SceneManager.LoadScene(3);
     }
 
     private void Test_2_Scene(InputAction.CallbackContext obj)

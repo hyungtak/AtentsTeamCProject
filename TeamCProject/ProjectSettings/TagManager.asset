@@ -8,6 +8,7 @@ TagManager:
   - Attack
   - Ground
   - Weapon
+  - NowLoading
   layers:
   - Default
   - TransparentFX

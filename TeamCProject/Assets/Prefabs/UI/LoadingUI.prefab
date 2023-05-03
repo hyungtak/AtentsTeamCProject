@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 5307301498002113200}
   m_Layer: 5
   m_Name: LoadingUI
-  m_TagString: Untagged
+  m_TagString: NowLoading
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8278163310845611836
 RectTransform:
   m_ObjectHideFlags: 0

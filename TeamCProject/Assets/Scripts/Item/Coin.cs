@@ -22,7 +22,7 @@ public class Coin : MonoBehaviour
     Vector3 startPoint;
 
     Player player;
-    private void Awake()
+    protected virtual void Awake()
     {
         player = FindObjectOfType<Player>();
 
@@ -30,13 +30,13 @@ public class Coin : MonoBehaviour
           
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         float CoinY = Mathf.Sin(Time.time * moveSpeed) * moveRange;   //Sin을 사용하여 위아래 아이템의 위아래 움직임
         transform.position = startPoint + new Vector3(0, CoinY, 0);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
