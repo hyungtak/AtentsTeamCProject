@@ -11,7 +11,7 @@ public class Goblin : MonoBehaviour
     public int monsterMaxHp = 10;
 
     /// <summary>
-    /// 현재 Hp
+    /// 현재 Hpㄴ
     /// </summary>
     int currentMonsterHp = 10;
 
@@ -34,7 +34,6 @@ public class Goblin : MonoBehaviour
 
     Rigidbody rigid;
     Animator anim;
-
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -123,7 +122,6 @@ public class Goblin : MonoBehaviour
         find = false;
         anim.SetBool("Jump", true);
         move = 0;
-        //StartCoroutine(transMovement());
     }
 
 
@@ -238,10 +236,10 @@ public class Goblin : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
-        anim.SetBool("Hit",true);
+        anim.SetBool("Hit",true);           //이벤트 함수 사용
         AttackCheck = false;
         move= 0;
-        Invoke("HitAnim",1f);
+        Invoke("HitAnim",1f);           
 
         if (currentMonsterHp <= 0)
         {
@@ -251,16 +249,12 @@ public class Goblin : MonoBehaviour
 
     private void MonsterDie()
     {
-        //죽었을 시 사망 애니메이션 실행 예정
 
         anim.SetTrigger("Dead");
         Destroy(gameObject, 0.4f);
 
-        //코인 위치 설정 후 생성
-
         Vector3 center = transform.position;
         center.y = 0.5f;
-
         GameObject obj = Instantiate(coin, center, Quaternion.identity);
 
     }

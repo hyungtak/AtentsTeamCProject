@@ -292,8 +292,7 @@ public class Golem : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
-        Debug.Log($"현재 남은 체력{currentMonsterHp}");
-
+        
         if (currentMonsterHp <= 0)
         {
             MonsterDie();

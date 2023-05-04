@@ -141,12 +141,6 @@ public class Wizard : MonoBehaviour
 
     }
     
-    //void eventCo()
-    //{
-    //    StartCoroutine(transMovement());
-    //}
-
-
     /// <summary>
     /// 자동 이동 시 몬스터 회전값 설정
     /// </summary>
@@ -192,10 +186,9 @@ public class Wizard : MonoBehaviour
             if (playerTrans != null)
             {
                 StopAllCoroutines();
-                //move = 3;
-                //dir이 플레이어 방향 찾고 크기는 1 
+
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
-                //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
+
                 rigid.MovePosition(transform.position + 0* Time.fixedDeltaTime * dir);
             }
             else if (playerTrans == null)
@@ -215,7 +208,6 @@ public class Wizard : MonoBehaviour
 
     public void FireStart()
     {
-        Debug.Log("불불");
         GameObject obj = Instantiate(fireBall);
         obj.transform.position = fireTransform.position;
     }
@@ -228,10 +220,8 @@ public class Wizard : MonoBehaviour
     {
         currentMonsterHp -= damageAmount;
         anim.SetBool("Damage", true);
-        //Debug.Log("Damage True");
-        //StartCoroutine(HitAnim());
+
         Invoke("Test",1f);
-        Debug.Log($"현재 남은 체력{currentMonsterHp}");
         
 
         if (currentMonsterHp <= 0)
@@ -251,15 +241,6 @@ public class Wizard : MonoBehaviour
         GameObject obj = Instantiate(coin, center, Quaternion.identity);
         //죽었을 시 사망 애니메이션 실행 예정
     }
-
-    //IEnumerator HitAnim()
-    //{
-    //    Debug.Log("dd");
-    //    anim.SetBool("Damage", true);
-    //    yield return new WaitForSeconds(0.01f);
-    //    anim.SetBool("Damage", false);
-
-    //}
 
     void Test()
     {
