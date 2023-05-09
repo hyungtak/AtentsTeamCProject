@@ -9,12 +9,40 @@ public class MonsterBase : MonoBehaviour
     /// </summary>
     public GameObject coin;
 
-    //몬스터 Hp int
+    /// <summary>
+    /// 몬스터 최대 체력
+    /// </summary>
     public int monsterMaxHp = 10;
 
+    /// <summary>
+    /// 몬스터 현재체력
+    /// </summary>
     int currentMonsterHp = 10;
 
+    /// <summary>
+    /// 몬스터 공격 데미지
+    /// </summary>
     public int monsterDamage = 1;
+
+    /// <summary>
+    /// 몬스터가 기본 회전값
+    /// </summary>
+    const int transRotate = 180;
+
+    /// <summary>
+    /// 애니메이션 변환값or속도값
+    /// </summary>
+    private int move;
+
+    /// <summary>
+    /// 플레이어 트리거 인식x = false 인식o = true 
+    /// </summary>
+    bool find = false;
+
+    /// <summary>
+    /// 몬스터가 플레이어에게 향하는 값 
+    /// </summary>
+    private Vector3 monsterTransform;
 
     Rigidbody rigid;
 
@@ -24,30 +52,17 @@ public class MonsterBase : MonoBehaviour
     Transform playerTrans;
     Player player;
 
-    /// <summary>
-    /// 몬스터가 기본 회전값
-    /// </summary>
-    //const int transRotate = 180;
 
-    /// <summary>
-    /// 애니메이션 변환값or속도값
-    /// </summary>
-    private int moveSpeed;
-
-    /// <summary>
-    /// 플레이어 트리거 인식x = false 인식o = true
-    /// </summary>
-    bool find = false;
-
-    private Vector3 monsterTransform;
+    WaitForSeconds MoveStartDelay = new WaitForSeconds(1);
+    WaitForSeconds MoveEndDelay = new WaitForSeconds(5);    
 
     protected virtual void Awake()
     {
         currentMonsterHp = monsterMaxHp;
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
-
         player = GameObject.Find("Player").GetComponent<Player>();
+
 
         //플레이어 감지 델리게이트
         Detect detect = GetComponentInChildren<Detect>();
@@ -67,6 +82,8 @@ public class MonsterBase : MonoBehaviour
     {
         playerTrans = player.transform;
         player.OnDie += OnPlayerDied;
+
+        StartCoroutine(transMovement());
     }
 
 
@@ -100,7 +117,8 @@ public class MonsterBase : MonoBehaviour
     protected virtual void OnDetectPlayerEnter()
     {
         StopAllCoroutines();
-        moveSpeed= 1;
+        
+        move= 1;
         find = true;
     }
 
@@ -122,34 +140,36 @@ public class MonsterBase : MonoBehaviour
     protected virtual void OnDetectPlayerExit()
     {
         find = false;
-        //StartCoroutine(transMovement());
+        StartCoroutine(transMovement());
     }
 
 
 
-    
+
 
     /// <summary>
     /// 자동 이동 시 몬스터 회전값 설정
     /// </summary>
     /// <returns></returns>
-    //IEnumerator transMovement()
-    //{
-    //    while (true)
-    //    {
-    //        //move = 0 == Idle or move != 0 == Walk 실행
-    //        move = Random.Range(0, 2);
-           
-    //        //animation이름 바꾸기 전부 Walk로
-            
-    //        if (move != 0)
-    //        {
-    //            transform.Rotate(0, transRotate, 0);  //좌우 회전
-    //        }
-    //        //3초 마다
-    //        yield return new WaitForSeconds(5f);
-    //    }
-    //}
+    protected virtual IEnumerator transMovement()
+    {
+
+        yield return MoveStartDelay;
+        while (true)
+        {
+            //move = 0 == Idle or move != 0 == Walk 실행
+            move = Random.Range(0, 2);
+
+
+            if (move != 0)
+            {
+                transform.Rotate(0, transRotate, 0);  //좌우 회전
+            }
+
+            //MoveEndDelay마다 반복 실행
+            yield return MoveEndDelay;
+        }
+    }
 
     /// <summary>
     /// 몬스터 움직임(플레이어 찾았을 때/ 플레이어가 Scene에 없을 때/ 인식이 안되었을 때)
@@ -162,10 +182,10 @@ public class MonsterBase : MonoBehaviour
             if (playerTrans != null)
             {
                 StopAllCoroutines();
-                //dir이 플레이어 방향 찾고 크기는 1 
+
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
-                //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
-                rigid.MovePosition(transform.position + moveSpeed * Time.fixedDeltaTime * dir);
+
+                rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
             }
             else if (playerTrans == null)
             {

@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class Golem : MonoBehaviour
 {
-    //몬스터 Hp int
+    public GameObject coinBox;
+    
+    
+    /// <summary>
+    /// 몬스터 최대 체력
+    /// </summary>
     public int monsterMaxHp = 10;
 
-    public GameObject coinBox;
-
+    /// <summary>
+    /// 몬스터 현재체력
+    /// </summary>
     int currentMonsterHp = 100;
 
     public int monsterDamage = 1;
-
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -30,10 +35,9 @@ public class Golem : MonoBehaviour
     /// </summary>
     private int move;
 
-    private bool isHit = false;
-
-    private float timer = 0.5f;
-
+    /// <summary>
+    /// 골렘의 공격패턴변환
+    /// </summary>
     int AttackMotion;
 
     /// <summary>
@@ -46,13 +50,13 @@ public class Golem : MonoBehaviour
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
+    Rigidbody rigid;
+    
     Transform playerTrans;
 
-    Rigidbody rigid;
-    Animator anim;
     Player player;
 
-    Renderer bossColor;
+    Animator anim;
 
     protected virtual void Awake()
     {
@@ -60,10 +64,9 @@ public class Golem : MonoBehaviour
         
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").GetComponent<Player>();
         
-        bossColor = GetComponentInChildren<Renderer>();
+        anim = GetComponentInChildren<Animator>();
 
         //플레이어 감지 신호
         Detect detect = GetComponentInChildren<Detect>();
@@ -101,20 +104,7 @@ public class Golem : MonoBehaviour
 
     private void Update()
     {
-        
-        if (isHit)
-        {
-            bossColor.material.color = new Color(255, 1, 1, 255);
-            timer += Time.deltaTime;
-
-        }
-        
-        if(timer == maxTimer)
-        {
-            bossColor.material.color = new Color(1, 1, 1, 255);
-            isHit= false;
-            timer= 0f;
-        }
+       
     }
 
     //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
@@ -148,6 +138,8 @@ public class Golem : MonoBehaviour
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
+
+
         anim.SetInteger("Move", move);
 
     }
@@ -158,7 +150,6 @@ public class Golem : MonoBehaviour
     private void OnDetectPlayerExit()
     {
         find = false;
-
         //다시 자동 이동
         StartCoroutine(transMovement());
     }
@@ -223,12 +214,13 @@ public class Golem : MonoBehaviour
     /// <returns></returns>
     IEnumerator transMovement()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         while (true)
         {
 
             //move = 0 == Idle or move != 0 == Walk 실행
             move = UnityEngine.Random.Range(0, 2);
+
             anim.SetInteger("Move", move);
 
             if (move != 0)
@@ -256,9 +248,9 @@ public class Golem : MonoBehaviour
             {
 
                 StopAllCoroutines();
-                //dir이 플레이어 방향 찾고 크기는 1 
+
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
-                //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
+
                 rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
             }
             else if (playerTrans == null)
@@ -276,13 +268,7 @@ public class Golem : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// 이벤트 등록 해제
-    /// </summary>
-    void OnDestroy()
-    {
-        player.OnDie -= OnPlayerDied;
-    }
+ 
 
 
     /// <summary>

@@ -6,17 +6,21 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
+    
+    /// <summary>
+    /// 파이어볼
+    /// </summary>
     public GameObject fireBall;
 
+    /// <summary>
+    /// 코인
+    /// </summary>
     public GameObject coin;
 
-    public int monsterMaxHp = 10;
-
-    int currentMonsterHp = 100;
-
     
-    //bool Die = false;
-
+    public int monsterMaxHp = 10;
+    
+    int currentMonsterHp = 100;
 
     /// <summary>
     /// 몬스터가 기본 회전값
@@ -35,11 +39,11 @@ public class Wizard : MonoBehaviour
 
     private Vector3 monsterTransform;
 
+    Transform fireTransform;
+
+    
     Rigidbody rigid;
     Animator anim;
-
-    Transform fireTransform;
-    
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
@@ -48,14 +52,15 @@ public class Wizard : MonoBehaviour
     Player player;
     private void Awake()
     {
+        currentMonsterHp = monsterMaxHp;
 
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
-        anim = GetComponent<Animator>();
         player = GameObject.Find("Player").GetComponent<Player>();
-        fireTransform = transform.GetChild(0);
 
-        currentMonsterHp = monsterMaxHp;
+        anim = GetComponent<Animator>();
+
+        fireTransform = transform.GetChild(0);
 
         Detect detect = GetComponentInChildren<Detect>();
         if (detect != null)
@@ -113,10 +118,8 @@ public class Wizard : MonoBehaviour
 
     private void OnDetectPlayerEnter()
     {
-        //move = 1;
         StopAllCoroutines();
         find = true;
-        //anim.SetBool("Attack", true);
         StartCoroutine(fireballDelay());
     }
 
@@ -125,6 +128,7 @@ public class Wizard : MonoBehaviour
 
         
         move = 1;
+
         monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
         transform.LookAt(monsterTransform);
         find = true;
@@ -136,6 +140,7 @@ public class Wizard : MonoBehaviour
     { 
         move = 0;
         anim.SetBool("Attack", false);
+
         find = false;
         StartCoroutine(transMovement());
 
@@ -152,6 +157,7 @@ public class Wizard : MonoBehaviour
         {
             //move = 0이면 Idle or move != 0이면 Walk 실행
             move = Random.Range(0, 3);
+
             anim.SetInteger("forward", move);
 
             if (move != 0)
@@ -183,18 +189,20 @@ public class Wizard : MonoBehaviour
     {
         if (find)
         {
+            move = 0;
             if (playerTrans != null)
             {
                 StopAllCoroutines();
 
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
 
-                rigid.MovePosition(transform.position + 0* Time.fixedDeltaTime * dir);
+                rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
             }
+
             else if (playerTrans == null)
             {
-                Debug.Log("플레이어null");
-                rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
+                rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
+
                 anim.SetBool("Dead", true);
             }
         }

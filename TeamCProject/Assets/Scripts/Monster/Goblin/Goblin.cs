@@ -105,6 +105,9 @@ public class Goblin : MonoBehaviour
     {
         //몬스터움직임 함수
         MonsterMove();
+
+        
+
     }
     /// <summary>
     /// 이벤트 등록 해제
@@ -214,11 +217,14 @@ public class Goblin : MonoBehaviour
             if (playerTrans != null)
             {
                 StopAllCoroutines();
-                
+               
+
                 //dir이 플레이어 방향 찾고 크기는 1 
                 Vector3 dir = (playerTrans.position - transform.position).normalized;
+                dir.y = 0;
                 //몬스터 위치 + 속도 * DetaTime* 플레이 방향 
                 rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
+                
             }
             else if(playerTrans == null)
             {

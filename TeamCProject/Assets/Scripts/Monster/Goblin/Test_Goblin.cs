@@ -25,6 +25,7 @@ public class Test_Goblin : MonsterBase
         base.Awake();
         anim = GetComponent<Animator>();
         AttackMotion attack = GetComponentInChildren<AttackMotion>();
+        
         if (attack != null)
         {
             attack.OnAttackEnter += OnAttackEnter;
