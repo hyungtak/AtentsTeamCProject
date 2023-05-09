@@ -159,10 +159,12 @@ public class Player : MonoBehaviour
         inputActions.Player.Jump.performed += OnJumpInput;
         inputActions.Player.Attack.performed += OnAttackInput;
         inputActions.Player.Potion.performed += OnPotionInput;
+        inputActions.Player.Exit.performed += OnExitInput;
     }
 
     private void OnDisable()
     {
+        inputActions.Player.Exit.performed -= OnExitInput;
         inputActions.Player.Potion.performed -= OnPotionInput;
         inputActions.Player.Attack.performed -= OnAttackInput;
         inputActions.Player.Jump.performed -= OnJumpInput;
@@ -237,6 +239,13 @@ public class Player : MonoBehaviour
             PotionCount--;
             CurrentHealth += 40;
         }
+    }
+
+    private void OnExitInput(InputAction.CallbackContext _)
+    {
+        ///임시방편
+        ///추후, esc입력 시 메뉴창을 키고, 그 메뉴창에서 설정이나 종료를 다루도록 할 예정
+        Application.Quit();
     }
 
     IEnumerator DelayAttack()

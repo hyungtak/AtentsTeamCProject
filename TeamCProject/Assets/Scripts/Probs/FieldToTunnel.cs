@@ -10,8 +10,9 @@ public class FieldToTunnel : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             FindObjectOfType<Canvas>().gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            SceneManager.LoadScene(2);          //터널로 씬 전환
+            new WaitForSeconds(1);
             other.transform.position = Vector3.zero;
+            SceneManager.LoadScene(2);          //터널로 씬 전환
 
         }
     }
