@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     //데이미
-    public int damageAmount = 2;
+    int damageAmount = 10;
 
     //공격 콜라이더가 플레이어에 적중 시
     private void OnTriggerEnter(Collider other)

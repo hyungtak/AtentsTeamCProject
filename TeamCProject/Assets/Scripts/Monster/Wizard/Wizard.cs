@@ -118,6 +118,8 @@ public class Wizard : MonoBehaviour
 
     private void OnDetectPlayerEnter()
     {
+        move = 1;
+
         StopAllCoroutines();
         find = true;
         StartCoroutine(fireballDelay());
@@ -158,7 +160,7 @@ public class Wizard : MonoBehaviour
             //move = 0이면 Idle or move != 0이면 Walk 실행
             move = Random.Range(0, 3);
 
-            anim.SetInteger("forward", move);
+            anim.SetInteger("Move", move);
 
             if (move != 0)
             {
@@ -174,7 +176,7 @@ public class Wizard : MonoBehaviour
 
     IEnumerator fireballDelay()
     {
-        //yield return new WaitForSeconds(1f);
+
         anim.SetBool("Attack", true);
         yield return new WaitForSeconds(1f);
        
@@ -203,7 +205,7 @@ public class Wizard : MonoBehaviour
             {
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
 
-                anim.SetBool("Dead", true);
+                anim.SetBool("End", true);
             }
         }
 
@@ -229,9 +231,6 @@ public class Wizard : MonoBehaviour
         currentMonsterHp -= damageAmount;
         anim.SetBool("Damage", true);
 
-        Invoke("Test",1f);
-        
-
         if (currentMonsterHp <= 0)
         {
             MonsterDie();
@@ -243,6 +242,7 @@ public class Wizard : MonoBehaviour
         anim.SetTrigger("Dead");
         Destroy(gameObject, 1.5f);
 
+
         Vector3 center = transform.position;
         center.y = 1.5f;
 
@@ -250,7 +250,7 @@ public class Wizard : MonoBehaviour
         //죽었을 시 사망 애니메이션 실행 예정
     }
 
-    void Test()
+    public void DamageFalse()
     {
         anim.SetBool("Damage", false);
     }

@@ -17,7 +17,7 @@ public class MonsterBase : MonoBehaviour
     /// <summary>
     /// 몬스터 현재체력
     /// </summary>
-    int currentMonsterHp = 10;
+    protected int currentMonsterHp = 10;
 
     /// <summary>
     /// 몬스터 공격 데미지
@@ -32,19 +32,20 @@ public class MonsterBase : MonoBehaviour
     /// <summary>
     /// 애니메이션 변환값or속도값
     /// </summary>
-    private int move;
+    protected int move;
 
     /// <summary>
     /// 플레이어 트리거 인식x = false 인식o = true 
     /// </summary>
-    bool find = false;
+    protected bool find = false;
 
     /// <summary>
     /// 몬스터가 플레이어에게 향하는 값 
     /// </summary>
-    private Vector3 monsterTransform;
+    protected Vector3 monsterTransform;
 
     Rigidbody rigid;
+    Animator anim;
 
     /// <summary>
     /// 플레이어 위치 저장 할 변수
@@ -62,7 +63,7 @@ public class MonsterBase : MonoBehaviour
         //필요한 Component 가져오기
         rigid = GetComponent<Rigidbody>();
         player = GameObject.Find("Player").GetComponent<Player>();
-
+        anim= GetComponent<Animator>();
 
         //플레이어 감지 델리게이트
         Detect detect = GetComponentInChildren<Detect>();
@@ -83,7 +84,7 @@ public class MonsterBase : MonoBehaviour
         playerTrans = player.transform;
         player.OnDie += OnPlayerDied;
 
-        StartCoroutine(transMovement());
+        StartCoroutine(TransMovement());
     }
 
 
@@ -97,7 +98,7 @@ public class MonsterBase : MonoBehaviour
     /// <summary>
     /// 이벤트 등록 해제
     /// </summary>
-    void OnDestroy()
+    protected void OnDestroy()
     {
         player.OnDie -= OnPlayerDied;
     }
@@ -108,6 +109,8 @@ public class MonsterBase : MonoBehaviour
     protected virtual void OnPlayerDied(int _)
     {
         find = false;
+        move = 0;
+        anim.SetBool("End", true);
     }
 
     //플레이어 감지 했을 때----------------------------------------------------------------------------------------------
@@ -118,7 +121,7 @@ public class MonsterBase : MonoBehaviour
     {
         StopAllCoroutines();
         
-        move= 1;
+        
         find = true;
     }
 
@@ -140,7 +143,7 @@ public class MonsterBase : MonoBehaviour
     protected virtual void OnDetectPlayerExit()
     {
         find = false;
-        StartCoroutine(transMovement());
+        StartCoroutine(TransMovement());
     }
 
 
@@ -151,15 +154,14 @@ public class MonsterBase : MonoBehaviour
     /// 자동 이동 시 몬스터 회전값 설정
     /// </summary>
     /// <returns></returns>
-    protected virtual IEnumerator transMovement()
-    {
-
-        yield return MoveStartDelay;
+    protected virtual IEnumerator TransMovement()
+    {   
         while (true)
         {
             //move = 0 == Idle or move != 0 == Walk 실행
-            move = Random.Range(0, 2);
+            move = UnityEngine.Random.Range(0, 2);
 
+            anim.SetInteger("Move", move);
 
             if (move != 0)
             {
@@ -190,40 +192,13 @@ public class MonsterBase : MonoBehaviour
             else if (playerTrans == null)
             {
                 rigid.MovePosition(transform.position + Time.fixedDeltaTime * 0 * transform.forward);
-                //플레이어가 인식x 즉 죽었다? 그럴 때 사용되는 애니메이션 지정
+                anim.SetBool("End", true);
             }
         }
         //인식 안했을 때 행동                              
         else
-            rigid.MovePosition(transform.position + Time.fixedDeltaTime * moveSpeed * transform.forward);
+            rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
     }
 
-
-    /// <summary>
-    /// 몬스터 데미지 받다
-    /// </summary>
-    /// <param name="damageAmount"></param>
-    public virtual void MonsterTakeDamage(int damageAmount)
-    {
-        currentMonsterHp -= damageAmount;
-
-
-        if (currentMonsterHp <= 0)
-        {
-            MonsterDie();
-        }
-    }
-
-    /// <summary>
-    /// 사망했을 때
-    /// </summary>
-    protected virtual void MonsterDie()
-    { 
-
-
-        Vector3 center = transform.position;
-        center.y = 0.5f;
-        GameObject obj = Instantiate(coin, center, Quaternion.identity);
-    }
 }
 

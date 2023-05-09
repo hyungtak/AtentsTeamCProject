@@ -25,10 +25,7 @@ public class Golem : MonoBehaviour
     /// </summary>
     const int transRotate = 180;
 
-    /// <summary>
-    /// 플레이어를 감지했을 때 이동속도
-    /// </summary>
-    float maxTimer = 2f;
+
 
     /// <summary>
     /// 애니메이션 속도값
@@ -301,6 +298,5 @@ public class Golem : MonoBehaviour
 
         GameObject obj = Instantiate(coinBox, center, Quaternion.identity);
         //죽었을 시 사망 애니메이션 실행 예정
-
     }
 }
