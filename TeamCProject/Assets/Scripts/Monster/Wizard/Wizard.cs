@@ -4,217 +4,60 @@ using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class Wizard : MonoBehaviour
+public class Wizard : MonsterBase
 {
-    
+
     /// <summary>
     /// 파이어볼
     /// </summary>
     public GameObject fireBall;
 
-    /// <summary>
-    /// 코인
-    /// </summary>
-    public GameObject coin;
+    bool onPlayer = false;
 
-    
-    public int monsterMaxHp = 10;
-    
-    int currentMonsterHp = 100;
 
-    /// <summary>
-    /// 몬스터가 기본 회전값
-    /// </summary>
-    const int transRotate = 180;
-
-    /// <summary>
-    /// 애니메이션 변환값or속도값
-    /// </summary>
-    private int move;
-
-    /// <summary>
-    /// 플레이어 트리거 인식 false 인식x true 인식o
-    /// </summary>
-    bool find = false;
-
-    private Vector3 monsterTransform;
+    WaitForSeconds StartDelay = new WaitForSeconds(1);
 
     Transform fireTransform;
 
-    
-    Rigidbody rigid;
-    Animator anim;
-    /// <summary>
-    /// 플레이어 위치 저장 할 변수
-    /// </summary>
-    Transform playerTrans;
-
-    Player player;
-    private void Awake()
+    Animator animator;
+    protected override void Awake()
     {
-        currentMonsterHp = monsterMaxHp;
+        base.Awake();
 
-        //필요한 Component 가져오기
-        rigid = GetComponent<Rigidbody>();
-        player = GameObject.Find("Player").GetComponent<Player>();
-
-        anim = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         fireTransform = transform.GetChild(0);
-
-        Detect detect = GetComponentInChildren<Detect>();
-        if (detect != null)
-        {
-            detect.OnEnter += OnDetectPlayerEnter;
-            detect.OnStay += OnDetectPlayerStay;
-            detect.OnExit += OnDetectPlayerExit;
-        }
-        else
-        {
-            Debug.LogError("Detect 컴포넌트를 찾을 수 없습니다.");
-        }
     }
 
-    
 
-
-    private void Start()
+    protected override void OnDetectPlayerEnter()
     {
-        playerTrans = player.transform;
-
-        player.OnDie += OnPlayerDied;
-
-        //코루틴 실행
-        StartCoroutine(transMovement());
-    }
-
-
-    //FixedUpdate는 물리 시뮬레이션 갱신 주기에 맞춰서 호출된다. 
-    private void FixedUpdate()
-    {
-        //몬스터움직임 함수
-        MonsterMove();
-    }
-
-    /// <summary>
-    /// 이벤트 등록 해제
-    /// </summary>
-    void OnDestroy()
-    {
-        player.OnDie -= OnPlayerDied;  
-    }
-
-    /// <summary>
-    /// 신호 받고 몬스터 실행
-    /// </summary>
-    void OnPlayerDied(int _)
-    {
-        find = false;
-        anim.SetBool("Dead", true);
-        move= 0;
-        //StartCoroutine();
-    }
-
-
-    private void OnDetectPlayerEnter()
-    {
-        move = 1;
-
-        StopAllCoroutines();
-        find = true;
-        StartCoroutine(fireballDelay());
-    }
-
-    private void OnDetectPlayerStay()
-    {
-
-        
-        move = 1;
-
-        monsterTransform = new Vector3(playerTrans.position.x, transform.position.y, playerTrans.position.z);
-        transform.LookAt(monsterTransform);
-        find = true;
-        
-
-    }
-
-    private void OnDetectPlayerExit()
-    { 
         move = 0;
-        anim.SetBool("Attack", false);
+        onPlayer = true;
+        base.OnDetectPlayerEnter();
+        StartCoroutine(FireballDelay());
+    }
 
-        find = false;
-        StartCoroutine(transMovement());
+    protected override void OnDetectPlayerExit()
+    {
+        move = 1;
+
+        onPlayer = false;
+        animator.SetBool("Attack", false);
 
     }
-    
-    /// <summary>
-    /// 자동 이동 시 몬스터 회전값 설정
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator transMovement()
+
+
+    IEnumerator FireballDelay()
     {
+        animator.SetBool("Attack", true);
         yield return new WaitForSeconds(1f);
-        while (true)
-        {
-            //move = 0이면 Idle or move != 0이면 Walk 실행
-            move = Random.Range(0, 3);
-
-            anim.SetInteger("Move", move);
-
-            if (move != 0)
-            {
-                transform.Rotate(0, transRotate, 0);  //좌우 회전
-            }
-
-            //5초 마다
-            yield return new WaitForSeconds(5f);
-
-        }
-
     }
 
-    IEnumerator fireballDelay()
+    protected override IEnumerator TransMovement()
     {
-
-        anim.SetBool("Attack", true);
-        yield return new WaitForSeconds(1f);
-       
+        return base.TransMovement();
     }
-
-
-
-    /// <summary>
-    /// 몬스터 움직임
-    /// </summary>
-    private void MonsterMove()
-    {
-        if (find)
-        {
-            move = 0;
-            if (playerTrans != null)
-            {
-                StopAllCoroutines();
-
-                Vector3 dir = (playerTrans.position - transform.position).normalized;
-
-                rigid.MovePosition(transform.position + move * Time.fixedDeltaTime * dir);
-            }
-
-            else if (playerTrans == null)
-            {
-                rigid.MovePosition(transform.position + Time.fixedDeltaTime * move * transform.forward);
-
-                anim.SetBool("End", true);
-            }
-        }
-
-        //인식 안했을 때 행동                              
-        else
-            rigid.MovePosition(transform.position + Time.fixedDeltaTime * (move * 0.5f) * transform.forward);
-
-    }
-
 
     public void FireStart()
     {
@@ -229,7 +72,7 @@ public class Wizard : MonoBehaviour
     public void MonsterTakeDamage(int damageAmount)
     {
         currentMonsterHp -= damageAmount;
-        anim.SetBool("Damage", true);
+        animator.SetBool("Damage", true);
 
         if (currentMonsterHp <= 0)
         {
@@ -239,9 +82,8 @@ public class Wizard : MonoBehaviour
     private void MonsterDie()
     {
         StopAllCoroutines();
-        anim.SetTrigger("Dead");
+        animator.SetTrigger("End");
         Destroy(gameObject, 1.5f);
-
 
         Vector3 center = transform.position;
         center.y = 1.5f;
@@ -252,7 +94,23 @@ public class Wizard : MonoBehaviour
 
     public void DamageFalse()
     {
-        anim.SetBool("Damage", false);
+        animator.SetBool("Damage", false);
     }
 
+    /// <summary>
+    /// 파이어볼 애니메이션 끝날 때 까지 플레이어쪽 보기
+    /// </summary>
+    void FireBallCheck()
+    {
+        if (onPlayer)
+        {
+            StartCoroutine(FireballDelay());
+        }
+        else
+        {
+            transform.LookAt(monsterTransform);
+            find = false;
+            StartCoroutine(TransMovement());
+        }
+    }
 }
