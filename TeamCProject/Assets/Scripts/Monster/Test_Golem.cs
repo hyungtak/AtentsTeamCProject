@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Golem : MonsterBase
+public class Test_Golem : MonsterBase
 {
     /// <summary>
     /// 골렘의 공격패턴변환
@@ -11,6 +11,7 @@ public class Golem : MonsterBase
     int AttackMotion;
 
     const int transRotate = 180;
+
 
     Animator animator;
 
@@ -163,4 +164,6 @@ public class Golem : MonsterBase
 
         _ = Instantiate(coin, center, Quaternion.identity);
     }
+
+
 }

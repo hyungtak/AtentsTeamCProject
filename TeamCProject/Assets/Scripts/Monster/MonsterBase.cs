@@ -46,7 +46,6 @@ public class MonsterBase : MonoBehaviour
 
     Rigidbody rigid;
     Animator anim;
-
     /// <summary>
     /// 플레이어 위치 저장 할 변수
     /// </summary>
@@ -120,12 +119,9 @@ public class MonsterBase : MonoBehaviour
     protected virtual void OnDetectPlayerEnter()
     {
         StopAllCoroutines();
-        
-        
+       
         find = true;
     }
-
-
 
     /// <summary>
     /// 감지 중.
@@ -162,7 +158,6 @@ public class MonsterBase : MonoBehaviour
             move = UnityEngine.Random.Range(0, 2);
 
             anim.SetInteger("Move", move);
-
             if (move != 0)
             {
                 transform.Rotate(0, transRotate, 0);  //좌우 회전

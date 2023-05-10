@@ -23,7 +23,7 @@ public class PlayerSwordAttack : MonoBehaviour
                 wizardHealth.MonsterTakeDamage(swordAttackDamage);
             }
             
-            Test_Wizard monsterHealth = other.GetComponent<Test_Wizard>();
+            Goblin monsterHealth = other.GetComponent<Goblin>();
             if(monsterHealth != null)
             {
                 monsterHealth.MonsterTakeDamage(swordAttackDamage);
