@@ -52,7 +52,6 @@ public class Potion : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);       //사용
-            player.AddHP(healing);          //힐량 추가
 
         }
     }

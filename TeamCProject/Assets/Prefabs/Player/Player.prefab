@@ -3239,7 +3239,7 @@ Transform:
   m_GameObject: {fileID: 6375353078147823122}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6373076400492266620}
@@ -3285,6 +3285,7 @@ MonoBehaviour:
   jumpForce: 5
   maxHealth: 200
   currentHealth: 0
+  maxPotionCount: 5
 --- !u!54 &-7659104837895863346
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3311,8 +3312,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.31
-  m_Height: 1.81
+  m_Radius: 0.3
+  m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: -0.2}
 --- !u!1 &6375356271710207562

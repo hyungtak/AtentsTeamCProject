@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class SawBlade : MonoBehaviour
 {
+
+    public int damageAmount = 10;
+
     /// <summary>
     /// 회전속도 
     /// </summary>
@@ -84,4 +87,16 @@ public class SawBlade : MonoBehaviour
         transform.LookAt(target);
     }
 
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Player playerHealth = other.GetComponent<Player>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damageAmount);
+            }
+        }
+    }
 }

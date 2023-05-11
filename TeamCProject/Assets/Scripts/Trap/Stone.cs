@@ -14,7 +14,8 @@ public class Stone : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(FireFalseTimer());
+        
+        Destroy(gameObject, 2f);
 
         rb = GetComponent<Rigidbody>();
 
@@ -42,9 +43,9 @@ public class Stone : MonoBehaviour
 
         }
     }
-    IEnumerator FireFalseTimer()
-    {
-        yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
-    }
+    //IEnumerator FireFalseTimer()
+    //    {
+    //        yield return new WaitForSeconds(2f);
+    //        Destroy(gameObject);
+    //    }
 }
