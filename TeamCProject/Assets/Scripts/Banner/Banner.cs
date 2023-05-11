@@ -14,7 +14,7 @@ public class Banner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        infoGameObject.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,6 +25,12 @@ public class Banner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.CompareTag("Player"))
+            infoGameObject.gameObject.SetActive(true);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+           infoGameObject.gameObject.SetActive(false);
     }
 }
