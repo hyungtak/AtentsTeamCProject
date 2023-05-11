@@ -41,7 +41,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(this.gameObject);
-            //player.CoinCount += coinPoint;
+            player.CoinCount += coinPoint;
         }
     }
 
