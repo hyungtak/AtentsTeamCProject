@@ -233,6 +233,7 @@ public class Player : MonoBehaviour
     {
         if(PotionCount > 0)
         {
+            if(CurrentHealth < maxHealth)
             PotionCount--;
             CurrentHealth += 40;
         }

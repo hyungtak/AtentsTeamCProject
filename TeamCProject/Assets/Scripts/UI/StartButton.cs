@@ -17,6 +17,7 @@ public class StartButton : MonoBehaviour
 
     private void OnStart()
     {
+        transform.parent.GetChild(3).gameObject.SetActive(true);
         SceneManager.LoadScene(1);
     }
 }

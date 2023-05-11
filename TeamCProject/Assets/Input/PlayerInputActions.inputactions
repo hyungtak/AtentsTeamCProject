@@ -165,6 +165,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Test_3",
+                    "type": "Button",
+                    "id": "a709e025-0839-4486-98f5-84b3f9b258ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test_4",
+                    "type": "Button",
+                    "id": "7bdf834a-5db9-4bd7-9728-eb69bb5fe517",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Test_5",
+                    "type": "Button",
+                    "id": "6e2b55f8-a388-41d5-8699-a5ff654c3058",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -187,6 +214,39 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Test_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "449309ce-4693-4398-a635-51c039e69da5",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Test_3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "96673453-4689-473b-8e37-ee78fd076c48",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Test_4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2631164-fc75-4795-8e92-3a6adf85f236",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Test_5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
