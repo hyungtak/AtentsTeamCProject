@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7443233643673401799}
   m_Layer: 0
   m_Name: Background_Music_Start
-  m_TagString: Untagged
+  m_TagString: BackgroundSound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

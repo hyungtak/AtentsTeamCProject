@@ -8,6 +8,8 @@ TagManager:
   - Attack
   - Ground
   - Weapon
+  - NowLoading
+  - BackgroundSound
   layers:
   - Default
   - TransparentFX
