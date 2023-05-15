@@ -26,7 +26,7 @@ public class GameOver : MonoBehaviour
     {
         // 컴포넌트 찾기
         canvasGroup = GetComponent<CanvasGroup>();
-        Transform child = transform.GetChild(2);
+        Transform child = transform.GetChild(3);
         coinPoint = child.GetComponent<TextMeshProUGUI>();     
         restart = GetComponentInChildren<Button>();
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -40,12 +40,14 @@ public class GameOver : MonoBehaviour
     {
         StopAllCoroutines();
         player.OnDie += playerDie;    // 플레이어 사망시 실행할 함수 등록
+        restart.enabled = false;
     }
 
     void playerDie(int coin)
     {
         coinPoint.text = $"{coin}";
         StartCoroutine(AlphaChange());
+        restart.enabled = true;
     }
 
     IEnumerator AlphaChange()
@@ -57,20 +59,12 @@ public class GameOver : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 메인 화면으로 돌아가기
+    /// </summary>
     private void OnRestartClick()
     {
-        StartCoroutine(SceneChange());
+        Destroy(player.gameObject);
+        SceneManager.LoadScene(0);
     }
-
-    //LoadScene 변경
-    IEnumerator SceneChange()
-    {
-        SceneManager.LoadScene("FieldMap");
-        yield return null;
-
-    }
-
-
-
-
 }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene/BossMap.unity
     guid: 34c945cdabfd1444bb423a28a77d55c3
+  - enabled: 1
+    path: Assets/Scenes/GameScene/GameClearScene.unity
+    guid: 08f4ee7ca0877d348be5c7d105b427fd
   m_configObjects: {}
