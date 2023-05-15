@@ -275,4 +275,6 @@ public class Player : MonoBehaviour
     {
         OnDie?.Invoke(CoinCount);
     }
+
+    
 }
