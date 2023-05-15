@@ -10,7 +10,6 @@ using UnityEngine.UI;
 public class GameClearUI : MonoBehaviour
 {
     Player player;
-    int playerCoinCount = 0;
     TextMeshProUGUI coinText;
 
     Button goToTitleSceneButton;
